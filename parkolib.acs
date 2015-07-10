@@ -1,0 +1,38 @@
+
+// - - - - - .parkour script library. - - - - -
+
+#library "parkolib"
+#include "zcommon.acs"
+
+// Synthetic-Fire system. Uses ACS and GetPlayerInput to 'simulate' the use of
+// fire buttons. This effectively allows for true dual-wielded weapons. Nifty!
+
+// Left (primary) weapon.
+script 891 (void)
+{
+	while(checkinventory("SynthFireActive")>0)
+	{
+		if(getplayerinput(-1, INPUT_BUTTONS) & BT_ATTACK)
+		{
+			giveinventory("SynthFireLeft",1);
+			while(GetPlayerInput(-1, INPUT_BUTTONS) & BT_ATTACK) { delay(1); }
+			takeinventory("SynthFireLeft",1);
+		}
+		delay(1);
+	}
+}
+
+// Right (secondary) weapon.
+script 892 (void)
+{
+	while(CheckInventory("SynthFireActive")>0)
+	{
+		if(GetPlayerInput(-1, INPUT_BUTTONS) & BT_ALTATTACK)
+		{
+			GiveInventory("SynthFireRight",1);
+			while(GetPlayerInput(-1, INPUT_BUTTONS) & BT_ALTATTACK) { delay(1); }
+			TakeInventory("SynthFireRight",1);
+		}
+		delay(1);
+	}
+}

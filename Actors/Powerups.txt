@@ -1,0 +1,170 @@
+ACTOR ArtiJetBootsUp : PowerupGiver
+{
+  -INVENTORY.INTERHUBSTRIP
+  +INVENTORY.AUTOACTIVATE
+  Inventory.PickupMessage " "
+  Tag " "
+  Powerup.Duration 2100
+  Powerup.Color None
+  Powerup.Type Flight
+  States
+  {
+  Spawn:
+    TNT1 A 1
+    Loop
+  }
+}
+
+ACTOR JetBoots : CustomInventory
+{
+  +INVENTORY.INVBAR
+  Inventory.Icon "JBOTA"
+  Inventory.PickupSound "null"
+  Inventory.PickupMessage ""
+  Inventory.MaxAmount 1
+  Tag "Rocket Boots"
+  States
+  {
+  Use:
+    TNT1 AAAAAAAAAAAAAAAA 0
+	TNT1 A 0 A_JumpIfInventory("JetBootsActive",1,"DontUse")
+    TNT1 A 0 A_GiveInventory("ArtiJetBootsUp")
+	TNT1 A 0 A_GiveInventory("JetBootsActive",1)
+	TNT1 A 0 ACS_NamedExecute("IsUsingJetBoots",0)
+    Stop
+  DontUse:
+	TNT1 A 0
+	Fail
+  }
+}
+
+
+ACTOR JetBootsActive : Inventory
+{
+	Inventory.MaxAmount 1
+}
+
+ACTOR ArtiAntiRadBootsUp : PowerupGiver
+{
+  -INVENTORY.INTERHUBSTRIP
+  +INVENTORY.AUTOACTIVATE
+  Inventory.PickupMessage " "
+  Tag " "
+  Powerup.Color None
+  Powerup.Duration 4200
+  Powerup.Type IronFeet
+  States
+  {
+  Spawn:
+    JBOT B 1
+    Loop
+  }
+}
+
+ACTOR AntiRadBootsActive : Inventory
+{
+	Inventory.MaxAmount 1
+}
+
+ACTOR AntiRadBoots : CustomInventory  Replaces RadSuit
+{
+  +INVENTORY.INVBAR
+  Inventory.Icon "JBOTB"
+  Inventory.PickupSound "null"
+  Inventory.PickupMessage "AntiRad Boots"
+  Inventory.PickupMessage ""
+  Inventory.MaxAmount 1
+  Tag "AntiRad Boots"
+  States
+  {
+  Use:
+    TNT1 AAAAAAAAAAAAAAAA 0
+	TNT1 A 0 A_JumpIfInventory("AntiRadBootsActive",1,"DontUse")
+    TNT1 A 0 A_GiveInventory("ArtiAntiRadBootsUp")
+	TNT1 A 0 A_GiveInventory("AntiRadBootsActive",1)
+	TNT1 A 0 ACS_NamedExecute("IsUsingAntiRadBoots",0)
+    Stop
+  DontUse:
+	TNT1 A 0
+	Fail
+  Spawn:
+    JBOT B 1
+    Loop
+  }
+}
+
+ACTOR SpeedBoots : CustomInventory
+{
+  +INVENTORY.INVBAR
+  Inventory.Icon "JBOTC"
+  Inventory.PickupSound "null"
+  Inventory.PickupMessage ""
+  Inventory.MaxAmount 1
+  Tag "Speed Boots"
+  States
+  {
+  Use:
+    TNT1 AAAAAAAAAAAAAAAA 0
+	TNT1 A 0 A_JumpIfInventory("SpeedBootsActive",1,"DontUse")
+	TNT1 A 0 A_GiveInventory("SpeedBootsActive",1)
+	TNT1 A 0 ACS_NamedExecute("IsUsingSpeedBoots",0)
+    Stop
+  DontUse:
+	TNT1 A 0
+	Fail
+  }
+}
+
+ACTOR SpeedBootsActive : Inventory
+{
+	Inventory.MaxAmount 1
+}
+
+ACTOR ArtiSuperBootsUp : PowerupGiver
+{
+  -INVENTORY.INTERHUBSTRIP
+  +INVENTORY.AUTOACTIVATE
+  Inventory.PickupMessage " "
+  Tag " "
+  Powerup.Duration 4200
+  Powerup.Color None
+  Powerup.Type "Invulnerable"
+  States
+  {
+  Spawn:
+    TNT1 A 1
+    Loop
+  }
+}
+
+ACTOR SuperBoots : CustomInventory Replaces InvulnerabilitySphere
+{
+  +INVENTORY.INVBAR
+  Inventory.Icon "JBOTD"
+  Inventory.PickupSound "null"
+  Inventory.PickupMessage ""
+  Inventory.MaxAmount 1
+  Tag "Super Boots"
+  States
+  {
+  Use:
+    TNT1 AAAAAAAAAAAAAAAA 0
+	TNT1 A 0 A_JumpIfInventory("SuperBootsActive",1,"DontUse")
+    TNT1 A 0 A_GiveInventory("ArtiSuperBootsUp")
+	TNT1 A 0 A_GiveInventory("SuperBootsActive",1)
+	TNT1 A 0 ACS_NamedExecute("IsUsingSuperBoots",0)
+    Stop
+  DontUse:
+	TNT1 A 0
+	Fail
+  Spawn:
+    JBOT D 1
+    Loop
+  }
+}
+
+
+ACTOR SuperBootsActive : Inventory
+{
+	Inventory.MaxAmount 1
+}

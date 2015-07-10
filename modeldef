@@ -1,0 +1,35 @@
+/*Model ShotgunLaserTrail
+{
+   Path "Models"
+   Model 0 "Laser.md2"
+   Skin 0 "Laserskn3.png"
+   Scale 40.0 10.0 10.0 
+
+	PITCHFROMMOMENTUM
+
+   Frame LASL A 1 "fly"
+}
+
+Model Trooper2Laser
+{
+   Path "Models"
+   Model 0 "Laser.md2"
+   Skin 0 "Laserskn.png"
+   Scale 40.0 10.0 10.0 
+
+	PITCHFROMMOMENTUM
+
+   Frame LASG A 1 "fly"
+}
+
+Model Trooper3Fridge
+{
+   Path "Models"
+   Model 0 "Laser.md2"
+   Skin 0 "Laserskn3.png"
+   Scale 40.0 10.0 10.0 
+
+	PITCHFROMMOMENTUM
+
+   Frame LASF A 1 "fly"
+}

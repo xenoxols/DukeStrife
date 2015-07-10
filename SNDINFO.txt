@@ -1,0 +1,903 @@
+// Duke //
+NULL null
+none null
+misc/notin DSEMPTY
+misc/alarm null
+misc/money CASHMNY
+misc/nomoney NOBUY
+PRO1 PRO1
+PRO2 PRO2
+PRO3 PRO3
+PRO4 PRO4
+PRO5 PRO5
+PRO6 PRO6
+misc/secret SFOUND
+
+Duke/WhereAmI mapt01
+
+$playeralias	Duke	male	*death		dspldeth
+$playeralias	Duke	male	*xdeath		dspdiehi
+$playeralias	Duke	male	*gibbed		dsslop
+$playeralias	Duke	male	*pain100	Duke/Pain
+$playeralias	Duke	male	*pain75		Duke/Pain
+$playeralias	Duke	male	*pain50		Duke/Pain
+$playeralias	Duke	male	*pain25		Duke/Pain
+$playeralias	Duke	male	*grunt		Duke/Fail
+$playeralias	Duke	male	*land		misc/notin
+$playeralias	Duke	male	*jump		Null
+$playeralias	Duke	male	*fist		dspunch
+$playeralias	Duke	male	*usefail	Duke/Fail
+
+$attenuation svox/UNCV01 0
+$attenuation svox/UNCV02 0
+$attenuation svox/UNCV03 0
+$attenuation svox/DKPRO1 0
+$attenuation svox/DKPRO2 0
+$attenuation svox/BUT01 0
+$attenuation svox/DKMR01 0
+$attenuation svox/DKMR02 0
+$attenuation svox/DKGRV01 0
+$attenuation svox/DKGRV02 0
+
+Duke/Intro INTRO
+Duke/Intro INTRO2
+Duke/Intro INTRO3
+Duke/Intro INTRO4
+$Limit Duke/Intro4 0
+duke/pistoltaunt PICPISTL
+duke/maptaunt0 Mapt0
+duke/maptaunt1 Mapt1
+duke/beldin BELDIN
+duke/meetproton1 DUKEPRO1
+duke/Murica MURICA
+duke/maptaunt2 Mapt2
+duke/maptaunt3 Mapt3
+
+Duke/Crack KNUX
+
+Duke/Intro INTRO
+
+$Random Duke/Fail { DFail1 DFail2 DFail3 DFail4 }
+DFail1 DSNOWAY1
+DFail2 DSNOWAY2
+DFail3 DSNOWAY3
+DFail4 DSNOWAY4
+$Limit Duke/Fail 0
+
+$Random Duke/Pain { DP1 DP2 DP3 DP4 DP5 DP6 DP7 DP8 DP9 DP10 }
+DP1 DSPLPAIA
+DP2 DSPLPAIB
+DP3 DSPLPAIC
+DP4 DSPLPAID
+DP5 DSPLPAIR
+DP6 DSPLPAIF
+DP7 DSPLPAIG
+DP8 DSPLPAIH
+DP9 DSPLPAII
+DP10 DSPLPAIJ
+$Limit Duke/Pain 0
+
+$random duke/waitingtoolong { duke/delay1 duke/delay2 duke/delay3 duke/delay4 duke/delay5 duke/delay6 duke/delay7 duke/delay8 }
+duke/delay1			VOCIDL01
+duke/delay2			VOCIDL02
+duke/delay3			VOCIDL03
+duke/delay4			VOCIDL04
+duke/delay5			VOCIDL05
+duke/delay6			VOCIDL06
+duke/delay7			VOCIDL07
+duke/delay8			VOCIDL08
+$Limit duke/waitingtoolong 0
+
+$random duke/weaponget { duke/weaptaunt1 duke/weaptaunt2 duke/weaptaunt3 duke/weaptaunt4 duke/weaptaunt5 duke/weaptaunt6 duke/weaptaunt7 duke/weaptaunt8 duke/weaptaunt9 duke/weaptaunt10 duke/weaptaunt11 duke/weaptaunt12 duke/weaptaunt13 duke/weaptaunt14 duke/weaptaunt15 duke/weaptaunt16 duke/weaptaunt17 duke/weaptaunt18 duke/weaptaunt19 duke/weaptaunt20 duke/weaptaunt21 duke/weaptaunt22 duke/weaptaunt23 duke/weaptaunt24 duke/weaptaunt25 duke/weaptaunt26 duke/weaptaunt27 }
+duke/weaptaunt1		VOCWPN01
+duke/weaptaunt2		VOCWPN02
+duke/weaptaunt3		VOCWPN03
+duke/weaptaunt4		VOCWPN04
+duke/weaptaunt5		VOCWPN05
+duke/weaptaunt6		VOCWPN06
+duke/weaptaunt7		VOCWPN07
+duke/weaptaunt8		VOCWPN08
+duke/weaptaunt9		VOCWPN09
+duke/weaptaunt10	VOCWPN10
+duke/weaptaunt11	VOCWPN11
+duke/weaptaunt12	VOCWPN12
+duke/weaptaunt13	VOCWPN13
+duke/weaptaunt14	VOCWPN14
+duke/weaptaunt15	VOCWPN15
+duke/weaptaunt16	VOCWPN16
+duke/weaptaunt17	VOCWPN17
+duke/weaptaunt18	VOCWPN18
+duke/weaptaunt19	VOCWPN19
+duke/weaptaunt20	VOCRPG01
+duke/weaptaunt21	VOCRPG02
+duke/weaptaunt22	VOCRPG03
+duke/weaptaunt23	VOCRPG04
+duke/weaptaunt24	VOCRPG05
+duke/weaptaunt25	VOCRPG06
+duke/weaptaunt26	VOCRPG07
+duke/weaptaunt27	VOCRPG08
+$Limit duke/weaponget 0
+
+$random duke/kicktaunt { duke/boot1 duke/boot2 duke/boot3 duke/boot4 duke/boot5 duke/boot6 duke/boot7 duke/boot8 duke/stomp1 duke/stomp2 duke/stomp3 duke/stomp4 duke/stomp5 }
+duke/boot1			VOCKIK01
+duke/boot2			VOCKIK02
+duke/boot3			VOCKIK03
+duke/boot4			VOCKIK04
+duke/boot5			VOCKIK05
+duke/boot6			VOCKIK06
+duke/boot7			VOCKIK07
+duke/boot8			VOCKIK08
+duke/stomp1			VOCSTP02
+duke/stomp2			VOCSTP03
+duke/stomp3			VOCSTP04
+duke/stomp4			VOCSTP07
+duke/stomp5			VOCSTP11
+$Limit duke/kicktaunt 0
+
+$random duke/classicweaponget { duke/wepc1 duke/wepc2 duke/wepc3 duke/wepc4 duke/wepc5 duke/wepc6 duke/wepc7 duke/wepc8 duke/wepc9 duke/wepc10 duke/wepc11 }
+duke/wepc1 LETSRK03
+duke/wepc2 COOL01
+duke/wepc3 READY2A
+duke/wepc4 ROCKIN02
+duke/wepc5 WANSOM4A
+duke/wepc6 GETSOM1A
+duke/wepc7 GROOVY02
+duke/wepc8 HAIL01
+duke/wepc9 FORCE01
+duke/wepc10 MAKEDAY1
+duke/wepc11 POSTAL01
+$Limit duke/classicweaponget 0
+
+$random duke/classickilltaunt { duke/ckill1 duke/ckill2 duke/ckill3 duke/ckill4 /*duke/ckill5*/ duke/ckill6 duke/ckill7 duke/ckill8 duke/ckill9 duke/ckill10 duke/ckill11 duke/ckill12 duke/ckill13 duke/ckill14 duke/ckill15 duke/ckill16 duke/ckill17 }
+duke/ckill1 RIPEM08
+duke/ckill2 BITCHN04
+duke/ckill3 IMGOOD12
+duke/ckill4 PIECE02
+//duke/ckill5 DUKNUK14
+duke/ckill6 GOTHRT01
+duke/ckill7 DIESOB03
+duke/ckill8 LETGOD01
+duke/ckill9 INHELL01
+duke/ckill10 SUKIT01
+duke/ckill11 TERMIN01
+duke/ckill12 WHISTLE
+duke/ckill13 GMEOVR05
+duke/ckill14 ANNOY03
+duke/ckill15 YIPPIE01
+duke/ckill16 MDELV01
+duke/ckill17 GUYSUK01
+$Limit duke/classickilltaunt 0
+
+$random duke/classicgibtaunt { duke/ckill1 duke/ckill2 duke/ckill3 duke/ckill4 /*duke/ckill5*/ duke/ckill6 duke/ckill7 duke/ckill8 duke/ckill9 duke/ckill10 duke/ckill11 duke/ckill12 duke/ckill13 duke/ckill14 duke/ckill15 duke/ckill16 duke/ckill17 duke/cgib1 duke/cgib2 duke/cgib3 duke/cgib4 duke/cgib5 duke/cgib6 duke/cgib7 duke/cgib8 duke/cgib9 }
+duke/cgib1duke/cgib1 AMESS06
+duke/cgib2 HOLYCW01
+duke/cgib3 HOLYSH02
+duke/cgib4 BLOWIT01
+duke/cgib5 EATHSHT01
+duke/cgib6 FACE01
+duke/cgib7 AISLE402
+duke/cgib8 SMACK02
+duke/cgib9 GETCRAP1
+$Limit duke/classicgibtaunt 0
+
+duke/classicgum CHEW05
+
+$random duke/keytaunt { duke/groovy1 duke/groovy2 duke/groovy3 duke/groovy4 duke/groovy5 }
+duke/groovy1			VOCKEY01
+duke/groovy2			VOCKEY02
+duke/groovy3			VOCKEY03
+duke/groovy4			VOCKEY04
+duke/groovy5			VOCKEY05
+$Limit duke/keytaunt 0
+
+$random duke/killtaunt { duke/killtaunt1 duke/killtaunt2 duke/killtaunt3 duke/killtaunt4 duke/killtaunt5 duke/killtaunt6 duke/killtaunt7 duke/killtaunt8 duke/killtaunt9 duke/killtaunt10 duke/killtaunt11 duke/killtaunt12 duke/killtaunt13 duke/killtaunt14 duke/killtaunt15 duke/killtaunt16 duke/killtaunt17 duke/killtaunt18 duke/killtaunt19 duke/killtaunt20 duke/killtaunt21 duke/killtaunt22 duke/killtaunt23 duke/killtaunt24 duke/killtaunt25 duke/killtaunt26 duke/killtaunt27 duke/killtaunt28 duke/killtaunt29 duke/killtaunt30 duke/killtaunt31 duke/killtaunt32 duke/killtaunt33 duke/killtaunt34 duke/killtaunt35 duke/killtaunt36 duke/killtaunt37 duke/killtaunt38 duke/killtaunt39 duke/killtaunt40 duke/killtaunt41 duke/killtaunt42 duke/killtaunt43 duke/killtaunt44 duke/killtaunt45 /*duke/killtaunt46*/ duke/killtaunt47 duke/killtaunt48 }
+duke/killtaunt1		VOCKIL01
+duke/killtaunt2		VOCKIL02
+duke/killtaunt3		VOCKIL03
+duke/killtaunt4		VOCKIL04
+duke/killtaunt5		VOCKIL05
+duke/killtaunt6		VOCKIL06
+duke/killtaunt7		VOCKIL07
+duke/killtaunt8		VOCKIL08
+duke/killtaunt9		VOCKIL09
+duke/killtaunt10	VOCKIL10
+duke/killtaunt11	VOCKIL11
+duke/killtaunt12	VOCKIL12
+duke/killtaunt13	VOCKIL13
+duke/killtaunt14	VOCKIL14
+duke/killtaunt15	VOCKIL15
+duke/killtaunt16	VOCKIL16
+duke/killtaunt17	VOCKIL17
+duke/killtaunt18	VOCKIL18
+duke/killtaunt19	VOCKIL19
+duke/killtaunt20	VOCKIL20
+duke/killtaunt21	VOCKIL21
+duke/killtaunt22	VOCKIL22
+duke/killtaunt23	VOCKIL23
+duke/killtaunt24	VOCKIL24
+duke/killtaunt25	VOCKIL25
+duke/killtaunt26	VOCKIL26
+duke/killtaunt27	VOCKIL27
+duke/killtaunt28	VOCKIL28
+duke/killtaunt29	VOCKIL29
+duke/killtaunt30	VOCKIL30
+duke/killtaunt31	VOCKIL31
+duke/killtaunt32	VOCKIL32
+duke/killtaunt33	VOCJIB03
+duke/killtaunt34	VOCKIL34
+duke/killtaunt35	VOCKIL35
+duke/killtaunt36	VOCKIL36
+duke/killtaunt37	VOCKIL37
+duke/killtaunt38	VOCKIL38
+duke/killtaunt39	VOCKIL39
+duke/killtaunt40	VOCKIL40
+duke/killtaunt41	VOCKIL41
+duke/killtaunt42	VOCKIL42
+duke/killtaunt43	VOCKIL43
+duke/killtaunt44	VOCKIL44
+duke/killtaunt45	VOCKIL45
+//duke/killtaunt46	VOCKIL46
+duke/killtaunt47	VOCKIL47
+duke/killtaunt48	VOCKIL48
+$Limit duke/killtaunt 0
+
+$random duke/gibtaunt { duke/gibbed1 duke/gibbed2 duke/gibbed3 duke/gibbed4 duke/gibbed5 duke/gibbed6 duke/gibbed7 duke/gibbed8 duke/gibbed9 duke/gibbed10 duke/gibbed11 duke/gibbed12 duke/gibbed13 duke/gibbed14 duke/gibbed15 duke/gibbed16 duke/gibbed17 duke/gibbed18 duke/gibbed19 duke/gibbed20 duke/gibbed21 /*duke/gibbed22*/ duke/gibbed23 duke/gibbed24 duke/gibbed25 duke/gibbed26 duke/gibbed27 duke/gibbed28 duke/gibbed29 duke/gibbed30 duke/gibbed31 duke/gibbed32 duke/gibbed33 duke/gibbed34 duke/gibbed35}
+duke/gibbed1		VOCJIB01
+duke/gibbed2		VOCJIB02
+duke/gibbed3		VOCJIB03
+duke/gibbed4		VOCJIB04
+duke/gibbed5		VOCJIB05
+duke/gibbed6		VOCJIB06
+duke/gibbed7		VOCJIB07
+duke/gibbed8		VOCJIB08
+duke/gibbed9		VOCJIB09
+duke/gibbed10		VOCJIB10
+duke/gibbed11		VOCJIB11
+duke/gibbed12		VOCJIB12
+duke/gibbed13		VOCJIB13
+duke/gibbed14		VOCJIB14
+duke/gibbed15		VOCJIB15
+duke/gibbed16		VOCJIB16
+duke/gibbed17		VOCJIB17
+duke/gibbed18		VOCJIB18
+duke/gibbed19		VOCJIB19
+duke/gibbed20		VOCJIB20
+duke/gibbed21		VOCJIB21
+//duke/gibbed22		VOCJIB22
+duke/gibbed23		VOCJIB23
+duke/gibbed24		VOCJIB24
+duke/gibbed25		VOCJIB25
+duke/gibbed26		VOCJIB26
+duke/gibbed27		VOCJIB27
+duke/gibbed28		VOCJIB28
+duke/gibbed29		VOCJIB29
+duke/gibbed30		VOCJIB30
+duke/gibbed31		VOCJIB31
+duke/gibbed32		VOCJIB32
+duke/gibbed33		VOCJIB33
+duke/gibbed34		VOCJIB34
+duke/gibbed35		VOCJIB35
+$Limit duke/gibtaunt 0
+
+misc/w_pkup STGNPUMP
+
+// Mighty Foot //
+Kick KICK
+Kick/Hit FOOTWALL
+
+// Pistol //
+$Random Pistol/Fire2 { Colt1 Colt2 }
+Colt1 COLT1
+Colt2 COLT2
+$Volume Pistol/Fire2 0.6
+$Random Pistol/Fire1 { Colt3 Colt4 }
+Colt4 COLT3
+Colt3 COLT4
+$Volume Pistol/Fire1 0.6
+Pistol/Reload RELOAD
+
+// Shotgun //
+Shotgun/Fire SSHFIRE
+Shotgun/Fire2 PLSM9
+Shotgun/Pump STGNPUMP
+Shotgun/Pump1 SPUMP1
+Shotgun/Pump2 SPUMP2
+$Volume Shotgun/Fire 0.7
+
+// Minigun //
+Minigun/Fire DSMINIGN
+Minigun/Up CHAINSTA
+Minigun/Down CHAINSTO
+
+$Volume Minigun/Fire 0.6
+
+// RPG //
+RPG/Fire RPGF
+Duke/Explode DUKEEXP
+
+// Murica Rifle
+Rifle/Fire MRIFLE
+Rifle/GRLoad GRLOAD
+
+// Plasma Gun
+Plasma/Fire BFGFIRE
+Duke/PlasmaExplode BFGEXPLO
+$Volume Plasma/Fire 0.5
+$Volume Duke/PlasmaExplode 0.3
+
+// Chainsaw
+Chainsaw/Fire DSSAWFUL
+Chainsaw/Hit DSSAWHIT
+Chainsaw/HitWall DSSAWAL
+Chainsaw/Idle DSSAWIDL
+Chainsaw/Hit2 DSSAWHT2
+Chainsaw/Swing SAWING
+
+
+/////////////////////////////////////////
+//				enemies				   //
+/////////////////////////////////////////
+//10MM Pistol
+10MM/Fire1 10MMF1
+10MM/Fire2 10MMF2
+$random 10MM/FIRE { 10MM/Fire1 10MM/Fire2 }
+$Limit 10MM/FIRE 0
+
+//Sight
+Jawless/Sight1 ZOMTS1
+Jawless/Sight2 NULL
+Jawless/Sight3 ZOMTS4
+$random Jawless/Sight { Jawless/Sight1 Jawless/Sight2 Jawless/Sight3 Jawless/Sight2 Jawless/Sight2 }
+
+//DeathVO
+Jawless/HEADSHOT ZOMTD1
+Jawless/XDEATH ZOMD1B
+//DEATH bodyfall
+Body/Fall/back ZOMTD2B
+Body/Fall/Forward ZOMD2A
+//DEATHSTUFF
+$random JAWLESSDEATH { Body/Fall/Forward Body/Fall/back Jawless/XDEATH Jawless/HEADSHOT }
+$Limit Jawless/HEADSHOT 0
+$Limit Body/Fall/Forward 0
+$Limit Jawless/XDEATH 0
+
+$random ZSec/sight	{ ZSECSEE1 ZSECSEE2 ZSECSEE3 ZSECSEE4 ZSECSEE5 ZSECSEE6 }				
+$random	ZSec/active     { ZSECIDL1 ZSECIDL2 ZSECIDL3 ZSECIDL4 ZSECIDL5 ZSECIDL6 ZSECIDL7 }
+$random	ZSec/death	{ ZSECDIE1 ZSECDIE2 ZSECDIE3 ZSECDIE4 }
+$random ZSec/pain	{ ZSECPAI1 ZSECPAI2 }
+
+ZSECSEE1	ZSECSEE1
+ZSECSEE2	ZSECSEE2
+ZSECSEE3	ZSECSEE3
+ZSECSEE4	ZSECSEE4
+ZSECSEE5	ZSECSEE5
+ZSECSEE6	ZSECSEE6
+
+ZSECIDL1	ZSECIDL1
+ZSECIDL2	ZSECIDL2
+ZSECIDL3	ZSECIDL3
+ZSECIDL4	ZSECIDL4
+ZSECIDL5	ZSECIDL5
+ZSECIDL6	ZSECIDL6
+ZSECIDL7	ZSECIDL7
+
+ZSECDIE1	ZSECDIE1
+ZSECDIE2	ZSECDIE2
+ZSECDIE3	ZSECDIE3
+ZSECDIE4	ZSECDIE4
+
+ZSECMG1		ZSECMG1
+ZSECMG2		ZSECMG2
+ZSECMG3		ZSECMG3
+
+ZSECPAI1	ZSECPAI1
+ZSECPAI2	ZSECPAI2
+ZSECPAI3	ZSECPAI3
+
+$volume ZSec/sight	0.4
+$volume ZSec/active	0.4
+$volume ZSec/death	0.4
+$volume ZSec/pain	0.4
+
+bot1/sight B1SEE
+bot1/pain B1HURT
+bot1/death B1DIE
+bot1/active B1SEE
+t800/fire TRU2PLAS
+
+weapons/iceshot		DSICESHT
+weapons/icehit		DSICEHIT
+
+KnifeHit DSKNIFE
+CrowbarHit DSCBAR
+
+
+
+
+
+
+
+
+
+
+
+
+dnunkboss/dukemustdie			dnunk1
+dnunkboss/attackforce			dnunk2
+dnunkboss/die				dnbsvoic
+dnpigboss/sight				dnpigbo3
+dnpigboss/weareincontrol		dnpigbo2
+dnpigboss/fryyourass			dnpigbos
+
+//Boss1
+dnboss1/death				dnbs1die
+dnboss1/idle				dnbs1see
+dnboss1/pain				dnbs1pai
+dnboss1/sight				dnbs1act
+
+//Boss2
+dnboss3/death				dnbs2die
+$random dnboss3/active		{ dnboss2/idle1 dnboss2/idle2 }
+dnboss2/idle1				dnbs2act
+dnboss2/idle2				dnbs2ac2
+dnboss3/pain				dnbs2pai
+dnboss3/sight				dnbs2see
+
+//Boss3
+dnboss2/death				dnbs3die
+dnbos2s/active				dnbs3see
+dnboss2/pain				dnbs3act
+dnboss2/sight				dnbs3pai
+
+//Fat Guy
+$random dnfat/activesounds	{ dnfat/idle1 dnfat/idle2 }
+dnfat/idle1				dnfatact
+dnfat/idle2				dnfatac2
+dnfat/death				dnfatdie
+dnfat/pain				dnfatpai
+dnfat/sight				dnfatsee
+dnfat/melee				dnfatatt
+
+//OctoBrain
+dnbrains/melee			dnoctac2
+dnbrains/idle			dnoctac3
+dnbrains/death			dnoctdie
+dnbrains/attack			dnoctact
+dnbrains/pain           dnoctatt
+dnbrains/sight			dnoctsee
+
+//Pig
+$random dnpig/idle		{ dnpig/idle1 dnpig/idle2 }
+dnpig/idle1				dnpigact
+dnpig/idle2				dnpigac2
+dnpig/Fire 				SSHFIRE
+dnpig/pain				dnpigpai
+dnpig/death				dnpigdie
+dnpig/sight				dnpigsee
+$Volume dnpig/Fire 0.6
+//dnpig/bosssight			dnpigbo2
+//dnpig/bosssight			dnpigbo3
+
+//Liztroop and derivates
+$random dnliztroop/active { dnliztroop/active1 dnliztroop/active2 dnliztroop/active3 }
+dnmonsters/fire			dblaster
+dnliztroop/slimeshothit		dnlizatt
+dnliztroop/slimeshot		dnlizat2
+dnliztroop/pain			dnlizpai
+dnliztroop/death			dnlizdie
+dnliztroop/active1		dnlizact
+dnliztroop/active2		dnlizac2
+dnliztroop/active3		dnlizac3
+
+//seeker can
+$random dnseekercan/attack { dnseekercan/attack1 dnseekercan/attack2 }
+dnseekercan/death			dncandie
+dnseekercan/sight			dncansee
+dnseekercan/attack1		dncanatt
+dnseekercan/attack2		dncanat2
+
+//duke mutant
+$random dnmutant/slash { dnmutant/slash1 dnmutant/slash2 }
+dnmutant/death			dnmutdie
+dnmutant/sight			dnmutsee
+dnmutant/pain			dnmutpai
+dnmutant/active			dnmutact
+dnmutant/elecshot			dnmutat1
+dnmutant/slash1			dnmutat2
+dnmutant/slash2			dnmutat3
+
+//Misc
+weapons/dnchaingun		dchaing
+
+// nazis
+
+// Basic guards
+$random guard/sight { guard/sight1 guard/sight2 guard/sight3 guard/sight4 guard/sight5 guard/sight6 guard/sight7 guard/sight8 guard/sight9 }
+$random guard/death { guard/death1 guard/death1 guard/death3 guard/death4 guard/death5 guard/death6 guard/death7 guard/death8 guard/death9 }
+
+guard/sight1		dsgdsit1
+guard/sight2		dsgdsit2
+guard/sight3		dsgdsit3
+guard/sight4		dsgdsit4
+guard/sight5		dsgdsit5
+guard/sight6		dsgdsit6
+guard/sight7		dsgdsit7
+guard/sight8		dsgdsit8
+guard/sight9		dsgdsit9
+
+guard/death1		dsgddth1
+guard/death2		dsgddth2
+guard/death3		dsgddth3
+guard/death4		dsgddth4
+guard/death5		dsgddth5
+guard/death6		dsgddth6
+guard/death7		dsgddth7
+guard/death8		dsgddth8
+guard/death9		dsgddth9
+
+// Officers
+$random officer/sight { officer/sight1 officer/sight2 officer/sight3 officer/sight4 }
+$random officer/death { officer/death1 officer/death2 officer/death3 officer/death4 }
+
+officer/sight1		dsofsit1
+officer/sight2		dsofsit2
+officer/sight3		dsofsit3
+officer/sight4		dsofsit4
+
+officer/death1		dsofdth1
+officer/death2		dsofdth2
+officer/death3		dsofdth3
+officer/death4		dsofdth4
+
+// SS
+$random ss/sight { ss/sight1 ss/sight2 ss/sight3 ss/sight4 }
+$random ss/death { ss/death1 ss/death2 ss/death3 ss/death4 }
+
+ss/sight1			dsposit1
+ss/sight2			dsposit2
+ss/sight3			dsposit3
+ss/sight4			dsposit4
+
+ss/death1			dspodth1
+ss/death2			dspodth2
+ss/death3			dspodth3
+ss/death4			dspodth4
+
+// Dogs
+$random dog/sight 		{ dog/sight1  dog/sight2  dog/sight3 }
+dog/sight1  			DSDGSIT1
+dog/sight2  			DSDGSIT2
+dog/sight3  			DSDGSIT3
+$random dog/active 		{dog/act1 dog/act2}
+dog/act1  			DSDGACT1
+dog/act2 			DSDGACT2
+$random dog/death 		{ dog/death1  dog/death2  dog/death3 }
+dog/death1  			DSDGDIE1
+dog/death2  			DSDGDIE2
+dog/death3  			DSDGDIE3
+dog/pain			dsdgpai
+dog/attack			dsdogatk
+
+// Chair Guy
+krist/sight		dskrisit
+krist/death		dskridth
+
+// Death Knight
+deathknight/sight	dsdtksit
+deathknight/death	dsdtkdth
+
+// Hitler
+hitler/sight	dshitsit
+hitler/pain		dshitpai
+hitler/death	dshitdth
+hitler/gib		hitlrgib
+hitler/walk		dshitwlk
+hitler/act		hghdie
+
+// Fat Man
+fatman/sight	dsfatsit
+fatman/death	dsfatdth
+
+// Machines
+metal/pain		dsping
+
+boss/pain		dsbospai
+
+// Weapons
+nazi/pistol DSNLUGER
+
+$random nazi/mp40 {mp401 mp402}
+mp401	dsmp401
+mp402	dsmp402
+
+nazi/stg44		dsstg44
+nazi/missilef	dsmissil
+
+// Grosse
+Boss1/Death Bos1Dt01
+$random Boss1/Sighted { Bos1St01 Bos1St02 Bos1St03 Bos1St04 Bos1St05 Bos1St06 Bos1St07 Bos1St08 Bos1St09 }
+Bos1St01 Bos1St01
+Bos1St02 Bos1St02
+Bos1St03 Bos1St03
+Bos1St04 Bos1St04
+Bos1St05 Bos1St05
+Bos1St06 Bos1St06
+Bos1St07 Bos1St07
+Bos1St08 Bos1St08
+Bos1St09 Bos1St09
+// Gretel
+$random BossGirl/Death { gretdt1 gretdt2 gretdt3 gretdt4 }
+gretdt1 gretdt1
+gretdt2 gretdt2
+gretdt3 gretdt3
+gretdt4 gretdt4
+$random BossGirl/Sighted { gretsee1 gretsee2 gretsee3 gretsee4 }
+gretsee1 gretsee1
+gretsee2 gretsee2
+gretsee3 gretsee3
+gretsee4 gretsee4
+BossGirl/Pain gretpain
+// Colonel
+Boss2/Death Bos2Dt01
+$random Boss2/Sighted { bos2st01 bos2st02 bos2st03 bos2st04 bos2st05 bos2st06 bos2st07 bos2st08 }
+Bos2St01 Bos2St01
+Bos2St02 Bos2St02
+Bos2St03 Bos2St03
+Bos2St04 Bos2St04
+Bos2St05 Bos2St05
+Bos2St06 Bos2St06
+Bos2St07 Bos2St07
+Bos2St08 Bos2St08
+// General
+Boss3/Death Bos3Dt01
+Boss3/Sighted Bos3St01
+// Voice 1
+$random Nazi1/Death { Naz1Dt02 Naz1Dt02 Naz1Dt03 Naz1Dt03 Naz1Dt04 Naz1Dt04 Naz1Dt05 Naz1Dt05 Naz1Dt06 Naz1Dt06 Naz1Dt07 Naz1Dt07 Naz1Dt08 Naz1Dt08 Naz1Dt09 Naz1Dt09 Naz1Dt10 Naz1Dt10 Naz1Dt11 Naz1Dt11 Naz1Dt12 Naz1Dt12 }
+$random Nazi1/Pain { Naz1Pn02 Naz1Pn02 Naz1Pn03 Naz1Pn03 Naz1Pn04 Naz1Pn04 Naz1Pn05 Naz1Pn05 Naz1Pn06 Naz1Pn06 Naz1Pn07 Naz1Pn07 Naz1Pn08 Naz1Pn08 Naz1Pn09 Naz1Pn09 }
+$random Nazi1/Sighted { Naz1St02 Naz1St02 Naz1St03 Naz1St03 Naz1St04 Naz1St04 Naz1St05 Naz1St05 Naz1St06 Naz1St06 Naz1St07 Naz1St07 Naz1St08 Naz1St08 Naz1St09 Naz1St09 Naz1St10 Naz1St10 Naz1St11 Naz1St11 Naz1St12 Naz1St12 Naz1St13 Naz1St13 Naz1St14 Naz1St14 Naz1St15 Naz1St15 Naz1St16 Naz1St16 Naz1St17 Naz1St17 Naz1St18 Naz1St18 Naz1St19 Naz1St19 Naz1St20 Naz1St20 Naz1St21 Naz1St21 Naz1St22 Naz1St22 Naz1St23 Naz1St23 Naz1St24 Naz1St24 Naz1St25 Naz1St25 Naz1St26 Naz1St26 Naz1St27 Naz1St27 Naz1St28 Naz1St28 Naz1St29 Naz1St29 Naz1St30 Naz1St30 Naz1St31 Naz1St31 Naz1St32 Naz1St32 Naz1St33 Naz1St33 Naz1St34 Naz1St34 Naz1St35 Naz1St35 Naz1St36 Naz1St36 Naz1St37 Naz1St37 Naz1St38 Naz1St38 Naz1St39 Naz1St39 }
+Naz1Dt02 Naz1Dt02
+Naz1Dt03 Naz1Dt03
+Naz1Dt04 Naz1Dt04
+Naz1Dt05 Naz1Dt05
+Naz1Dt06 Naz1Dt06
+Naz1Dt07 Naz1Dt07
+Naz1Dt08 Naz1Dt08
+Naz1Dt09 Naz1Dt09
+Naz1Dt10 Naz1Dt10
+Naz1Dt11 Naz1Dt11
+Naz1Dt12 Naz1Dt12
+Naz1Pn02 Naz1Pn02
+Naz1Pn03 Naz1Pn03
+Naz1Pn04 Naz1Pn04
+Naz1Pn05 Naz1Pn05
+Naz1Pn06 Naz1Pn06
+Naz1Pn07 Naz1Pn07
+Naz1Pn08 Naz1Pn08
+Naz1Pn09 Naz1Pn09
+Naz1St02 Naz1St02
+Naz1St03 Naz1St03
+Naz1St04 Naz1St04
+Naz1St05 Naz1St05
+Naz1St06 Naz1St06
+Naz1St07 Naz1St07
+Naz1St08 Naz1St08
+Naz1St09 Naz1St09
+Naz1St10 Naz1St10
+Naz1St11 Naz1St11
+Naz1St12 Naz1St12
+Naz1St13 Naz1St13
+Naz1St14 Naz1St14
+Naz1St15 Naz1St15
+Naz1St16 Naz1St16
+Naz1St17 Naz1St17
+Naz1St18 Naz1St18
+Naz1St19 Naz1St19
+Naz1St20 Naz1St20
+Naz1St21 Naz1St21
+Naz1St22 Naz1St22
+Naz1St23 Naz1St23
+Naz1St24 Naz1St24
+Naz1St25 Naz1St25
+Naz1St26 Naz1St26
+Naz1St27 Naz1St27
+Naz1St28 Naz1St28
+Naz1St29 Naz1St29
+Naz1St30 Naz1St30
+Naz1St31 Naz1St31
+Naz1St32 Naz1St32
+Naz1St33 Naz1St33
+Naz1St34 Naz1St34
+Naz1St35 Naz1St35
+Naz1St36 Naz1St36
+Naz1St37 Naz1St37
+Naz1St38 Naz1St38
+Naz1St39 Naz1St39
+// Voice 2
+$random Nazi2/Death { Naz2Dt02 Naz2Dt02 Naz2Dt03 Naz2Dt03 Naz2Dt04 Naz2Dt04 Naz2Dt05 Naz2Dt05 Naz2Dt06 Naz2Dt06 }
+$random Nazi2/Pain { Naz2Pn02 Naz2Pn02 Naz2Pn03 Naz2Pn03 Naz2Pn04 Naz2Pn04 Naz2Pn05 Naz2Pn05 Naz2Pn06 Naz2Pn06 Naz2Pn07 Naz2Pn07 Naz2Pn08 Naz2Pn08 }
+$random Nazi2/Sighted { Naz2St02 Naz2St02 Naz2St03 Naz2St03 Naz2St04 Naz2St04 Naz2St05 Naz2St05 Naz2St06 Naz2St06 Naz2St07 Naz2St07 Naz2St08 Naz2St08 Naz2St09 Naz2St09 Naz2St10 Naz2St10 Naz2St11 Naz2St11 Naz2St12 Naz2St12 Naz2St13 Naz2St13 Naz2St14 Naz2St14 Naz2St15 Naz2St15 Naz2St16 Naz2St16 Naz2St17 Naz2St17 Naz2St18 Naz2St18 Naz2St19 Naz2St19 Naz2St20 Naz2St20 Naz2St21 Naz2St21 Naz2St22 Naz2St22 Naz2St23 Naz2St23 Naz2St24 Naz2St24 Naz2St25 Naz2St25 Naz2St26 Naz2St26 Naz2St27 Naz2St27 Naz2St28 Naz2St28 Naz2St29 Naz2St29 Naz2St30 Naz2St30 Naz2St31 Naz2St31 Naz2St32 Naz2St32 Naz2St33 Naz2St33 Naz2St34 Naz2St34 Naz2St35 Naz2St35 Naz2St36 Naz2St36 Naz2St37 Naz2St37 Naz2St38 Naz2St38 Naz2St39 Naz2St39 Naz2St40 Naz2St40 Naz2St41 Naz2St41 Naz2St42 Naz2St42 Naz2St43 Naz2St43 Naz2St44 Naz2St44 Naz2St45 Naz2St45 Naz2St46 Naz2St46 Naz2St47 Naz2St47 Naz2St48 Naz2St48 Naz2St49 Naz2St49 }
+Naz2Dt02 Naz2Dt02
+Naz2Dt03 Naz2Dt03
+Naz2Dt04 Naz2Dt04
+Naz2Dt05 Naz2Dt05
+Naz2Dt06 Naz2Dt06
+Naz2Pn02 Naz2Pn02
+Naz2Pn03 Naz2Pn03
+Naz2Pn04 Naz2Pn04
+Naz2Pn05 Naz2Pn05
+Naz2Pn06 Naz2Pn06
+Naz2Pn07 Naz2Pn07
+Naz2Pn08 Naz2Pn08
+Naz2St02 Naz2St02
+Naz2St03 Naz2St03
+Naz2St04 Naz2St04
+Naz2St05 Naz2St05
+Naz2St06 Naz2St06
+Naz2St07 Naz2St07
+Naz2St08 Naz2St08
+Naz2St09 Naz2St09
+Naz2St10 Naz2St10
+Naz2St11 Naz2St11
+Naz2St12 Naz2St12
+Naz2St13 Naz2St13
+Naz2St14 Naz2St14
+Naz2St15 Naz2St15
+Naz2St16 Naz2St16
+Naz2St17 Naz2St17
+Naz2St18 Naz2St18
+Naz2St19 Naz2St19
+Naz2St20 Naz2St20
+Naz2St21 Naz2St21
+Naz2St22 Naz2St22
+Naz2St23 Naz2St23
+Naz2St24 Naz2St24
+Naz2St25 Naz2St25
+Naz2St26 Naz2St26
+Naz2St27 Naz2St27
+Naz2St28 Naz2St28
+Naz2St29 Naz2St29
+Naz2St30 Naz2St30
+Naz2St31 Naz2St31
+Naz2St32 Naz2St32
+Naz2St33 Naz2St33
+Naz2St34 Naz2St34
+Naz2St35 Naz2St35
+Naz2St36 Naz2St36
+Naz2St37 Naz2St37
+Naz2St38 Naz2St38
+Naz2St39 Naz2St39
+Naz2St40 Naz2St40
+Naz2St41 Naz2St41
+Naz2St42 Naz2St42
+Naz2St43 Naz2St43
+Naz2St44 Naz2St44
+Naz2St45 Naz2St45
+Naz2St46 Naz2St46
+Naz2St47 Naz2St47
+Naz2St48 Naz2St48
+Naz2St49 Naz2St49
+// Voice 3 (Has no death/pains, use voice 2's instead)
+$random Nazi3/Sighted { Naz3St02 Naz3St02 Naz3St03 Naz3St03 Naz3St04 Naz3St04 Naz3St05 Naz3St05 Naz3St06 Naz3St06 Naz3St07 Naz3St07 Naz3St08 Naz3St08 Naz3St09 Naz3St09 Naz3St10 Naz3St10 Naz3St11 Naz3St11 Naz3St12 Naz3St12 Naz3St13 Naz3St13 Naz3St14 Naz3St14 Naz3St15 Naz3St15 Naz3St16 Naz3St16 Naz3St17 Naz3St17 Naz3St18 Naz3St18 Naz3St19 Naz3St19 Naz3St20 Naz3St20 Naz3St21 Naz3St21 Naz3St22 Naz3St22 Naz3St23 Naz3St23 Naz3St24 Naz3St24 Naz3St25 Naz3St25 Naz3St26 Naz3St26 Naz3St27 Naz3St27 Naz3St28 Naz3St28 Naz3St29 Naz3St29 Naz3St30 Naz3St30 Naz3St31 Naz3St31 Naz3St32 Naz3St32 Naz3St33 Naz3St33 Naz3St34 Naz3St34 Naz3St35 Naz3St35 Naz3St36 Naz3St36 Naz3St37 Naz3St37 Naz3St38 Naz3St38 Naz3St39 Naz3St39 Naz3St40 Naz3St40 Naz3St41 Naz3St41 Naz3St42 Naz3St42 Naz3St43 Naz3St43 Naz3St44 Naz3St44 Naz3St45 Naz3St45 Naz3St46 Naz3St46 Naz3St47 Naz3St47 Naz3St48 Naz3St48 }
+Naz3St02 Naz3St02
+Naz3St03 Naz3St03
+Naz3St04 Naz3St04
+Naz3St05 Naz3St05
+Naz3St06 Naz3St06
+Naz3St07 Naz3St07
+Naz3St08 Naz3St08
+Naz3St09 Naz3St09
+Naz3St10 Naz3St10
+Naz3St11 Naz3St11
+Naz3St12 Naz3St12
+Naz3St13 Naz3St13
+Naz3St14 Naz3St14
+Naz3St15 Naz3St15
+Naz3St16 Naz3St16
+Naz3St17 Naz3St17
+Naz3St18 Naz3St18
+Naz3St19 Naz3St19
+Naz3St20 Naz3St20
+Naz3St21 Naz3St21
+Naz3St22 Naz3St22
+Naz3St23 Naz3St23
+Naz3St24 Naz3St24
+Naz3St25 Naz3St25
+Naz3St26 Naz3St26
+Naz3St27 Naz3St27
+Naz3St28 Naz3St28
+Naz3St29 Naz3St29
+Naz3St30 Naz3St30
+Naz3St31 Naz3St31
+Naz3St32 Naz3St32
+Naz3St33 Naz3St33
+Naz3St34 Naz3St34
+Naz3St35 Naz3St35
+Naz3St36 Naz3St36
+Naz3St37 Naz3St37
+Naz3St38 Naz3St38
+Naz3St39 Naz3St39
+Naz3St40 Naz3St40
+Naz3St41 Naz3St41
+Naz3St42 Naz3St42
+Naz3St43 Naz3St43
+Naz3St44 Naz3St44
+Naz3St45 Naz3St45
+Naz3St46 Naz3St46
+Naz3St47 Naz3St47
+Naz3St48 Naz3St48
+// Voice 4
+$random Nazi4/Death { Naz4Dt02 Naz4Dt02 Naz4Dt03 Naz4Dt03 Naz4Dt04 Naz4Dt04 Naz4Dt05 Naz4Dt05 Naz4Dt06 Naz4Dt06 Naz4Dt07 Naz4Dt07 Naz4Dt08 Naz4Dt08 Naz4Dt09 Naz4Dt09 Naz4Dt10 Naz4Dt10 Naz4Dt11 Naz4Dt11 Naz4Dt12 Naz4Dt12 Naz4Dt13 Naz4Dt13 }
+$random Nazi4/Pain { Naz4Pn02 Naz4Pn02 Naz4Pn03 Naz4Pn03 Naz4Pn04 Naz4Pn04 Naz4Pn05 Naz4Pn05 }
+$random Nazi4/Sighted { Naz4St02 Naz4St02 Naz4St03 Naz4St03 Naz4St04 Naz4St04 Naz4St05 Naz4St05 Naz4St06 Naz4St06 Naz4St07 Naz4St07 Naz4St08 Naz4St08 Naz4St09 Naz4St09 Naz4St10 Naz4St10 Naz4St11 Naz4St11 Naz4St12 Naz4St12 Naz4St13 Naz4St13 Naz4St14 Naz4St14 Naz4St15 Naz4St15 Naz4St16 Naz4St16 Naz4St17 Naz4St17 Naz4St18 Naz4St18 Naz4St19 Naz4St19 Naz4St20 Naz4St20 Naz4St21 Naz4St21 Naz4St22 Naz4St22 Naz4St23 Naz4St23 Naz4St24 Naz4St24 Naz4St25 Naz4St25 Naz4St26 Naz4St26 Naz4St27 Naz4St27 Naz4St28 Naz4St28 Naz4St29 Naz4St29 Naz4St30 Naz4St30 Naz4St31 Naz4St31 Naz4St32 Naz4St32 Naz4St33 Naz4St33 Naz4St34 Naz4St34 Naz4St35 Naz4St35 Naz4St36 Naz4St36 Naz4St37 Naz4St37 Naz4St38 Naz4St38 Naz4St39 Naz4St39 Naz4St40 Naz4St40 Naz4St41 Naz4St41 Naz4St42 Naz4St42 Naz4St43 Naz4St43 Naz4St44 Naz4St44 Naz4St45 Naz4St45 Naz4St46 Naz4St46 Naz4St47 Naz4St47 Naz4St48 Naz4St48 }
+Naz4Dt02 Naz4Dt02
+Naz4Dt03 Naz4Dt03
+Naz4Dt04 Naz4Dt04
+Naz4Dt05 Naz4Dt05
+Naz4Dt06 Naz4Dt06
+Naz4Dt07 Naz4Dt07
+Naz4Dt08 Naz4Dt08
+Naz4Dt09 Naz4Dt09
+Naz4Dt10 Naz4Dt10
+Naz4Dt11 Naz4Dt11
+Naz4Dt12 Naz4Dt12
+Naz4Dt13 Naz4Dt13
+Naz4Pn02 Naz4Pn02
+Naz4Pn03 Naz4Pn03
+Naz4Pn04 Naz4Pn04
+Naz4Pn05 Naz4Pn05
+Naz4St02 Naz4St02
+Naz4St03 Naz4St03
+Naz4St04 Naz4St04
+Naz4St05 Naz4St05
+Naz4St06 Naz4St06
+Naz4St07 Naz4St07
+Naz4St08 Naz4St08
+Naz4St09 Naz4St09
+Naz4St10 Naz4St10
+Naz4St11 Naz4St11
+Naz4St12 Naz4St12
+Naz4St13 Naz4St13
+Naz4St14 Naz4St14
+Naz4St15 Naz4St15
+Naz4St16 Naz4St16
+Naz4St17 Naz4St17
+Naz4St18 Naz4St18
+Naz4St19 Naz4St19
+Naz4St20 Naz4St20
+Naz4St21 Naz4St21
+Naz4St22 Naz4St22
+Naz4St23 Naz4St23
+Naz4St24 Naz4St24
+Naz4St25 Naz4St25
+Naz4St26 Naz4St26
+Naz4St27 Naz4St27
+Naz4St28 Naz4St28
+Naz4St29 Naz4St29
+Naz4St30 Naz4St30
+Naz4St31 Naz4St31
+Naz4St32 Naz4St32
+Naz4St33 Naz4St33
+Naz4St34 Naz4St34
+Naz4St35 Naz4St35
+Naz4St36 Naz4St36
+Naz4St37 Naz4St37
+Naz4St38 Naz4St38
+Naz4St39 Naz4St39
+Naz4St40 Naz4St40
+Naz4St41 Naz4St41
+Naz4St42 Naz4St42
+Naz4St43 Naz4St43
+Naz4St44 Naz4St44
+Naz4St45 Naz4St45
+Naz4St46 Naz4St46
+Naz4St47 Naz4St47
+Naz4St48 Naz4St48
+
+hitlerghost/see hghsee
+hitlerghost/die hghdie
+
+geist/pain		geisthit
+geist/die		geistdie
+geist/active	geistact
+
+mutant/death dsmutdt

@@ -1,0 +1,62 @@
+[enu default]
+
+TXT_RANDOM_PEASANT_01 = "Damn, everything's gone to hell.";
+TXT_RANDOM_PEASANT_02 = "I'm scared.";
+TXT_RANDOM_PEASANT_03 = "Duke, I don't have any info.";
+TXT_RANDOM_PEASANT_04 = "Shouldn't you be kicking ass right now?";
+TXT_RANDOM_PEASANT_05 = "I hope the EDF will prevail.";
+TXT_RANDOM_PEASANT_06 = "Hard to believe this was once LA, isn't it?";
+TXT_RANDOM_PEASANT_07 = "Can I have your autograph?";
+TXT_RANDOM_PEASANT_08 = "The EDF has pretty good security.";
+TXT_RANDOM_PEASANT_09 = "Are you Duke Nukem? Cool!";
+TXT_RANDOM_PEASANT_10 = "I'm bored.";
+
+TXT_RANDOM_REBEL_01 = "With you Duke, we can't lose.";
+TXT_RANDOM_REBEL_02 = "General Grave's plans are almost complete.";
+TXT_RANDOM_REBEL_03 = "We're all behind you, don't worry.";
+TXT_RANDOM_REBEL_04 = "The big robots are sure dangerous, but you can handle them.";
+TXT_RANDOM_REBEL_05 = "The Earth will be free once again.";
+TXT_RANDOM_REBEL_06 = "Duke, we don't have forever.";
+TXT_RANDOM_REBEL_07 = "Welcome back Duke.";
+TXT_RANDOM_REBEL_08 = "Once Dr. Proton has fallen, then LA will be rebuilt!";
+TXT_RANDOM_REBEL_09 = "Graves told us you were back, but I didn't believe him until now.";
+TXT_RANDOM_REBEL_10 = "Duke, you are our only hope.";
+
+TXT_RANDOM_AGUARD_01 = "Move along, Nukem.";
+TXT_RANDOM_AGUARD_02 = "When you join us, we will have complet control.";
+TXT_RANDOM_AGUARD_03 = "Only through death can one be truly reborn.";
+TXT_RANDOM_AGUARD_04 = "We're watching you Nukem.";
+TXT_RANDOM_AGUARD_05 = "If I had wanted to talk to you I... Oh crap it's Nukem.";
+TXT_RANDOM_AGUARD_06 = "Join us Nukem.";
+TXT_RANDOM_AGUARD_07 = "Not even you can stop us!";
+TXT_RANDOM_AGUARD_08 = "Don't set off the alarm!";
+TXT_RANDOM_AGUARD_09 = "The order will cleanse the world and usher it into the new era.";
+TXT_RANDOM_AGUARD_10 = "Problem? No, I-I-I d-didn't mean to insult you Nukem.";
+
+TXT_RANDOM_BEGGAR_01 = "Alms for the poor?";
+TXT_RANDOM_BEGGAR_02 = "What are you looking at, surfacer?";
+TXT_RANDOM_BEGGAR_03 = "You wouldn't have any extra food, would you?";
+TXT_RANDOM_BEGGAR_04 = "You surface people will never understand us.";
+TXT_RANDOM_BEGGAR_05 = "Ha, the guards can't find us. Those idiots don't even know we exist.";
+TXT_RANDOM_BEGGAR_06 = "One day everyone but those who serve the order will be forced to join us.";
+TXT_RANDOM_BEGGAR_07 = "Stare now, but you know that this will be your own face one day.";
+TXT_RANDOM_BEGGAR_08 = "There's nothing more annoying than a surfacer with an attitude!";
+TXT_RANDOM_BEGGAR_09 = "The order will make short work of your pathetic front.";
+TXT_RANDOM_BEGGAR_10 = "Watch yourself, surfacer. We know our enemies!";
+
+TXT_RANDOM_PGUARD_01 = "We are the hands of fate. To earn our wrath is to find oblivion!";
+TXT_RANDOM_PGUARD_02 = "The order will cleanse the world of the weak and corrupt!";
+TXT_RANDOM_PGUARD_03 = "Obey the will of the masters!";
+TXT_RANDOM_PGUARD_04 = "Long life to the brothers of the order!";
+TXT_RANDOM_PGUARD_05 = "Free will is an illusion that binds the weak minded.";
+TXT_RANDOM_PGUARD_06 = "Power is the path to glory. To follow the order is to walk that path!";
+TXT_RANDOM_PGUARD_07 = "Take your place among the righteous, join us!";
+TXT_RANDOM_PGUARD_08 = "The order protects its own.";
+TXT_RANDOM_PGUARD_09 = "Acolytes? They have yet to see the full glory of the order.";
+TXT_RANDOM_PGUARD_10 = "If there is any honor inside that pathetic shell of a body, you'll enter into the arms of the order.";
+
+TXT_RANDOMGOODBYE_1 = "EXIT";
+TXT_RANDOMGOODBYE_2 = "EXIT";
+TXT_RANDOMGOODBYE_3 = "EXIT";
+TXT_HAVEENOUGH		= "Duke, you can kick ass as is.";
+TXT_GOAWAY			= "Go away!";

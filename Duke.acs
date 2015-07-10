@@ -1,0 +1,128 @@
+#library "Duke.acs"
+#include "zcommon.acs"
+
+script 220 (void)
+{
+    while (CheckInventory("DukeTauntCooldown") > 0)
+    {
+        Delay(GetCVar("linerbreak"));
+        TakeInventory("DukeTauntCooldown", 1);
+    }
+}
+
+script "ControlDatAir" ENTER
+{
+	SetAirControl(1.0);
+}
+
+script "DukeQuote" (void)
+{
+    SetResultValue(GetCVar("quotes"));
+}
+
+script "DukeClassicQuote" (void)
+{
+    SetResultValue(GetCVar("classiclines"));
+}
+
+script "LaserCall" (void)
+{
+    SetResultValue(GetCVar("lazerz"));
+}
+
+script "callmonsterz" (void)
+{
+	If (GetCVar("monsterz") == true && GetCVar("nazis") == true && GetCVar("alienz") == true)
+	{
+		SetResultValue(4);
+	}
+	If (GetCVar("monsterz") == false && GetCVar("nazis") == true && GetCVar("alienz") == true)
+	{
+		SetResultValue(7);
+	}
+	If (GetCVar("monsterz") == true && GetCVar("nazis") == false && GetCVar("alienz") == true)
+	{
+		SetResultValue(6);
+	}
+	If (GetCVar("monsterz") == true && GetCVar("nazis") == true && GetCVar("alienz") == false)
+	{
+		SetResultValue(5);
+	}
+	If (GetCVar("monsterz") == true && GetCVar("nazis") == false && GetCVar("alienz") == false)
+	{
+		SetResultValue(1);
+	}
+	If (GetCVar("monsterz") == false && GetCVar("nazis") == true && GetCVar("alienz") == false)
+	{
+		SetResultValue(2);
+	}
+	If (GetCVar("monsterz") == false && GetCVar("nazis") == false && GetCVar("alienz") == true)
+	{
+		SetResultValue(3);
+	}
+	If (GetCVar("monsterz") == false && GetCVar("nazis") == false && GetCVar("alienz") == false)
+	{
+		SetResultValue(1);
+	}
+}
+
+script "IsUsingJetBoots" (void)
+{
+        Delay(2100);
+        TakeInventory("JetBootsActive", 1);
+}
+
+script "IsUsingAntiRadBoots" (void)
+{
+        Delay(4200);
+        TakeInventory("AntiRadBootsActive", 1);
+}
+
+script "IsUsingSuperBoots" (void)
+{
+		LocalSetMusic("GRABBAG");
+        Delay(4200);
+        TakeInventory("SuperBootsActive", 1);
+		LocalSetMusic("*");
+}
+
+script "IsUsingSpeedBoots" (void)
+{
+		SetActorProperty(0,APROP_SPEED,1.6);
+        Delay(2100);
+        TakeInventory("SpeedBootsActive", 1);
+		SetActorProperty(0,APROP_SPEED,1.0);
+}
+
+/*script "SpeedBootsOver" ENTER
+{
+		SetActorProperty(0,APROP_SPEED,1.0);
+		TakeInventory("SpeedBootsActive", 1);
+		TakeInventory("JetBootsActive", 1);
+		TakeInventory("AntiRadBootsActive", 1);
+		TakeInventory("SuperBootsActive", 1);
+}*/
+
+script "GetShellMax" (void)
+{
+    If (GetAmmoCapacity("DukeShell") == CheckInventory("DukeShell"))
+		SetResultValue(true);
+	Else
+		SetResultValue(false);
+}
+
+script "GetMuricaMax" (void)
+{
+    If (GetAmmoCapacity("DukeMuricaClip") == CheckInventory("DukeMuricaClip"))
+		SetResultValue(true);
+	Else
+		SetResultValue(false);
+}
+
+script "GetMinigunMax" (void)
+{
+    If (GetAmmoCapacity("DukeMinigunClip") == CheckInventory("DukeMinigunClip"))
+		SetResultValue(true);
+	Else
+		SetResultValue(false);
+}

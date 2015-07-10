@@ -1,0 +1,197 @@
+ACTOR NULL1 {}
+
+ACTOR PistolPickup : CustomInventory 801
+{
+	Inventory.Amount 1
+	Inventory.MaxAmount 1
+	Inventory.PickupMessage " "
+	Inventory.PickupSound "misc/w_pkup"
+	STATES
+	{
+		Spawn:
+			PISP A -1
+			Stop
+		Pickup:
+			TNT1 A 0 A_Giveinventory("DukePistol1",1)
+			TNT1 A 0 A_GiveInventory("DukePistolTaunt",1)
+			Stop
+		GiveShells:
+			TNT1 A 0
+			//TNT1 A 0 A_GiveInventory("DukePickupTaunt",1)
+			Stop
+	}
+}
+
+ACTOR ChainsawPickup : CustomInventory Replaces Chainsaw
+{
+	Inventory.Amount 1
+	Inventory.MaxAmount 1
+	Inventory.PickupMessage "Groovy"
+	Inventory.PickupSound "misc/w_pkup"
+	STATES
+	{
+		Spawn:
+			CSAW A -1
+			Stop
+		Pickup:
+			TNT1 A 0 A_JumpIfInventory("DukeSaw3",1,"GiveShells")
+			TNT1 A 0 A_JumpIfInventory("DukeSaw2",1,"GiveShells")
+			TNT1 A 0 A_JumpIfInventory("DukeSaw1",1,"GiveShells")
+			TNT1 A 0 A_Takeinventory("MightyFoot1",1)
+			TNT1 A 0 A_Takeinventory("MightyFoot2",1)
+			TNT1 A 0 A_Takeinventory("MightyFoot3",1)
+			TNT1 A 0 A_Giveinventory("DukeSaw1",1)
+			TNT1 A 0 A_GiveInventory("DukePickupTaunt",1)
+			Stop
+		GiveShells:
+			TNT1 A 0
+			//TNT1 A 0 A_GiveInventory("DukePickupTaunt",1)
+			Stop
+	}
+}
+
+ACTOR ShotgunPickup : CustomInventory Replaces Chaingun
+{
+	Inventory.Amount 1
+	Inventory.MaxAmount 1
+	Inventory.PickupMessage "Shotgun"
+	Scale 0.7
+	Inventory.PickupSound "misc/w_pkup"
+	STATES
+	{
+		Spawn:
+			SHOT A -1
+			Stop
+		Pickup:
+			TNT1 A 0 A_JumpIfInventory("DukeShotgun3",1,"GiveShells")
+			TNT1 A 0 A_JumpIfInventory("DukeShotgun2",1,"GiveShells")
+			TNT1 A 0 A_JumpIfInventory("DukeShotgun1",1,"GiveShells")
+			TNT1 A 0 A_Giveinventory("DukeShell",4)
+			TNT1 A 0 A_Giveinventory("DukeShotgun1",1)
+			TNT1 A 0 A_GiveInventory("DukePickupTaunt",1)
+			Stop
+		GiveShells:
+			TNT1 A 0 A_JumpIf(CallACS("GetShellMax"), "Notin")
+			TNT1 A 0 A_Giveinventory("DukeShell",4)
+			TNT1 A 0 A_GiveInventory("DukePickupTaunt",1)
+			Stop
+		Notin:
+			TNT1 A 0
+			Stop
+	}
+}
+
+ACTOR RiflePickup : CustomInventory Replaces Shotgun
+{
+	Inventory.Amount 1
+	Inventory.MaxAmount 1
+	Inventory.PickupMessage "Assault Rifle"
+	Scale 0.7
+	Inventory.PickupSound "misc/w_pkup"
+	STATES
+	{
+		Spawn:
+			FMGG X -1
+			Stop
+		Pickup:
+			TNT1 A 0 A_JumpIfInventory("DukeMuricaRifle3",1,"GiveShells")
+			TNT1 A 0 A_JumpIfInventory("DukeMuricaRifle2",1,"GiveShells")
+			TNT1 A 0 A_JumpIfInventory("DukeMuricaRifle1",1,"GiveShells")
+			TNT1 A 0 A_Giveinventory("DukeMuricaRifle1",1)
+			TNT1 A 0 A_GiveInventory("DukePickupTaunt",1)
+			Stop
+		GiveShells:
+			TNT1 A 0 A_JumpIf(CallACS("GetMuricaMax"), "Notin")
+			TNT1 A 0 A_Giveinventory("DukeMuricaClip",14)
+			TNT1 A 0 A_GiveInventory("DukePickupTaunt",1)
+			Stop
+		Notin:
+			TNT1 A 0
+			Stop
+	}
+}
+
+ACTOR MinigunPickup : CustomInventory Replaces SuperShotgun
+{
+	Inventory.Amount 1
+	Inventory.MaxAmount 1
+	Inventory.PickupMessage "Minigun Cannon"
+	Scale 0.55
+	Inventory.PickupSound "misc/w_pkup"
+	STATES
+	{
+		Spawn:
+			MINP A -1
+			Stop
+		Pickup:
+			TNT1 A 0 A_JumpIfInventory("DukeMinigun3",1,"GiveShells")
+			TNT1 A 0 A_JumpIfInventory("DukeMinigun2",1,"GiveShells")
+			TNT1 A 0 A_JumpIfInventory("DukeMinigun1",1,"GiveShells")
+			TNT1 A 0 A_Giveinventory("DukeMinigunClip",60)
+			TNT1 A 0 A_Giveinventory("DukeMinigun1",1)
+			TNT1 A 0 A_GiveInventory("DukePickupTaunt",1)
+			Stop
+		GiveShells:
+			TNT1 A 0 A_JumpIf(CallACS("GetMinigunMax"), "Notin")
+			TNT1 A 0 A_Giveinventory("DukeMinigunClip",60)
+			TNT1 A 0 A_GiveInventory("DukePickupTaunt",1)
+			Stop
+		Notin:
+			TNT1 A 0
+			Stop
+	}
+}
+
+ACTOR RPGPickup : CustomInventory Replaces RocketLauncher
+{
+	Inventory.Amount 1
+	Inventory.MaxAmount 1
+	Inventory.PickupMessage "RPG"
+	Inventory.PickupSound "misc/w_pkup"
+	Scale 0.7
+	STATES
+	{
+		Spawn:
+			LAUN A -1
+			Stop
+		Pickup:
+			TNT1 A 0 A_JumpIfInventory("DukeRL3",1,"GiveShells")
+			TNT1 A 0 A_JumpIfInventory("DukeRL2",1,"GiveShells")
+			TNT1 A 0 A_JumpIfInventory("DukeRL1",1,"GiveShells")
+			TNT1 A 0 A_Giveinventory("DukeRocketClip",6)
+			TNT1 A 0 A_Giveinventory("DukeRL1",1)
+			TNT1 A 0 A_GiveInventory("DukePickupTaunt",1)
+			Stop
+		GiveShells:
+			TNT1 A 0 A_Giveinventory("DukeRocketClip",6)
+			TNT1 A 0 A_GiveInventory("DukePickupTaunt",1)
+			Stop
+	}
+}
+
+ACTOR PlasmaRinkPickup : CustomInventory Replaces PlasmaRifle
+{
+	Inventory.Amount 1
+	Inventory.MaxAmount 1
+	Inventory.PickupMessage "Plasma gun"
+	Inventory.PickupSound "misc/w_pkup"
+	Scale 0.6
+	STATES
+	{
+		Spawn:
+			RINK A -1
+			Stop
+		Pickup:
+			TNT1 A 0 A_JumpIfInventory("DukePlasmaGun3",1,"GiveShells")
+			TNT1 A 0 A_JumpIfInventory("DukePlasmaGun2",1,"GiveShells")
+			TNT1 A 0 A_JumpIfInventory("DukePlasmaGun1",1,"GiveShells")
+			TNT1 A 0 A_Giveinventory("DukePlasmaClip",3)
+			TNT1 A 0 A_Giveinventory("DukePlasmaGun1",1)
+			TNT1 A 0 A_GiveInventory("DukePickupTaunt",1)
+			Stop
+		GiveShells:
+			TNT1 A 0 A_Giveinventory("DukePlasmaClip",2)
+			//TNT1 A 0 A_GiveInventory("DukePickupTaunt",1)
+			Stop
+	}
+}

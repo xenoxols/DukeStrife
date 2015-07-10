@@ -1,0 +1,86 @@
+// Mighty Foot
+Sprites: 3dRealms
+Sounds: SigFloyd
+
+// Super Mighty Foot
+Sprites: 3dRealms, DoomNukem
+Sounds: SigFloyd
+
+// Smoke
+Sprites: KeksDose
+
+// Secret
+Sound: 3dRealms
+
+// Shotgun
+Sprites: Kesmai Corporation/Mythic Entertainment, Inc. (Aliens Online 1998 game), 3D Realms, MidoriMan, James Manning
+Sounds: SigFloyd
+
+// Various Boots
+Sprites: Id Software
+
+// Gloves
+Sprites: MrGlasses
+
+// HUD
+Graphics: Xaser, Zero Prophet
+
+// Puffs
+Sprites: KeksDose
+
+// Deagle
+Sprites: Mike12, DoomNukem
+Sounds: Gearbox(Borderlands)
+
+// M1911A1
+Sprites: 3dRealms/Apogee, Eurocom
+Sounds: Gearbox(Borderlands)
+
+// Chainsaw
+Sprites: Vegeta, Captain J, 3dRealms, PillowBlaster, xenoxols
+Sounds: SigFloyd
+
+// Crosshair
+Graphics: LeoD
+
+// Grenade Projectile
+Sprites: DoomNukem
+
+// Rocket Projectile
+Sprites: 3dRealms
+
+// Minigun
+Sprites: Cage, Hellbound
+Sounds: Lippeth
+
+// RPG
+Sprites: 3dRealms/Apogee, Devolver Digital
+
+// Plasma Gun
+Sprites: 3dRealms/Apogee, PermaNoob
+Sounds:
+
+// America Assault Rifle
+Sprites: Eriance
+Sounds: SigFloyd
+
+Sounds: Jon st. Jon, 3dRealms/Apogee, Gearbox
+
+// Casings
+Sprites: DoomNukem, PillowBlaster
+
+// Gum
+Sprites: xenoxols(Me)
+
+// Atomic Health
+Sprites: 3dRealms/Apogee
+
+// Splosions
+Sprites: KeksDose
+
+// Shop
+ACS: Nash, xenoxols
+
+// NashGore
+Sprites: Nash
+Sounds: Nash

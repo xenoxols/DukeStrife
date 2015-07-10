@@ -1,0 +1,239 @@
+namespace = "Strife";
+include = "DIALOG00";
+
+conversation
+{
+	actor = 54;
+	page
+	{
+		name = "DOOR GUARD";
+		panel = "M_GUARD2";
+		voice = "BLANK";
+		dialog = "HALT. I DON'T BELIEVE YOU ARE AUTHORIZED.";
+		drop = 136;
+		link = 0;
+		choice
+		{
+			text = "AS A MATTER OF FACT, I AM.";
+			cost
+			{
+				item = 168;
+				amount = 0;
+			}
+			cost
+			{
+				item = 304;
+				amount = 1;
+			}
+			displaycost = false;
+			nomessage = "NO.  you don't have what i want for the  HERE'S MY PASS,  LET ME IN.!";
+			giveitem = 302;
+			nextpage = 2;
+			closedialog = false;
+		}
+	}
+	page
+	{
+		name = "DOOR GUARD";
+		panel = "M_GUARD2";
+		voice = "BLANK";
+		dialog = "UH... OKAY YOU CAN PASS.";
+		drop = 136;
+		link = 3;
+		ifitem
+		{
+			item = 137;
+		}
+	}
+	page
+	{
+		name = "DOOR GUARD";
+		panel = "M_GUARD2";
+		voice = "BLANK";
+		dialog = "YOU WON'T GET AUTHORIZATION IN YOUR LIFETIME.";
+		drop = 136;
+		link = 0;
+	}
+}
+
+conversation
+{
+	actor = 55;
+	page
+	{
+		name = "PRISON GUARD";
+		panel = "M_GUARD3";
+		voice = "BLANK";
+		dialog = "CRAP... YOUR NOT SUPPOSED TP BE HERE.";
+		drop = 179;
+		link = 0;
+	}
+}
+
+conversation
+{
+	actor = 12;
+	page
+	{
+		name = "WARDEN";
+		panel = "M_WARDEN";
+		voice = "BLANK";
+		dialog = "SHIT! DUKE I CAN EXPLAIN!";
+		drop = 137;
+		link = 0;
+		choice
+		{
+			text = "EXPLAIN MY ASS!";
+			nomessage = "NO.  you don't have what i want for the  GIVE ME THE DAMN KEY!!";
+			log = "LOG1010";
+			giveitem = 301;
+			nextpage = 2;
+			closedialog = false;
+		}
+	}
+	page
+	{
+		name = "WARDEN";
+		panel = "M_WARDEN";
+		voice = "BLANK";
+		dialog = "PLEASE SPARE ME!";
+		drop = 137;
+		link = 0;
+		choice
+		{
+			text = "SORRY, DON'T DO REQUESTS.";
+			nomessage = "NO.  you don't have what i want for the  GREAT IDEA!!";
+			giveitem = 301;
+			nextpage = 3;
+			closedialog = false;
+		}
+	}
+	page
+	{
+		name = "WARDEN";
+		panel = "M_WARDEN";
+		voice = "BLANK";
+		dialog = "NOOOOOOOOOO!";
+		drop = 137;
+		link = 0;
+	}
+}
+
+conversation
+{
+	actor = 13;
+	page
+	{
+		name = "SECURITY MANAGER";
+		panel = "M_JUDGE";
+		voice = "VOC00";
+		dialog = "WHO ARE YOU? I THOUGHT I HAD TOP NOTCH SECURITY! AND I WAS EVEN GOING TO GET OUT OF LA!";
+		drop = 138;
+		link = 0;
+		choice
+		{
+			text = "I'M DUKE NUKEM.";
+			nomessage = "NO.  you don't have what i want for the  FREE MY COMRADES OR DIE!!";
+			giveitem = 301;
+			nextpage = 2;
+			closedialog = false;
+		}
+	}
+	page
+	{
+		name = "SECURITY MANAGER";
+		panel = "M_JUDGE";
+		voice = "VOC00";
+		dialog = "OH NO. WELL YOU NEED MY HAND TO FREE THE PRISONERS, SO YOU WILL LET ME LIVE.";
+		drop = 138;
+		link = 0;
+		choice
+		{
+			text = "YOUR HAND. GIVE IT TO ME.";
+			nomessage = "NO.  you don't have what i want for the  CAN YOU LEND ME A HAND THEN?!";
+			nextpage = 3;
+			closedialog = true;
+		}
+	}
+	page
+	{
+		name = "SECURITY MANAGER";
+		panel = "M_JUDGE";
+		voice = "VOC00";
+		dialog = "P-P-PLEASE L-LEAVE!";
+		drop = 138;
+		link = 0;
+	}
+}
+
+conversation
+{
+	actor = 15;
+	page
+	{
+		name = "PRISONER";
+		dialog = "DON'T JUST STAND THERE, GET US OUT OF HERE!";
+		drop = 0;
+		link = 0;
+	}
+}
+
+conversation
+{
+	actor = 16;
+	page
+	{
+		name = "PRISONER";
+		dialog = "THE SKY, I WANT TO SEE THE SKY.";
+		drop = 0;
+		link = 0;
+	}
+}
+
+conversation
+{
+	actor = 17;
+	page
+	{
+		name = "PRISONER";
+		dialog = "FIVE FEET BY FOUR FEET, FIVE FEET BY FOUR FEET, FIVE FEET BY FOUR FEET.";
+		drop = 0;
+		link = 0;
+	}
+}
+
+conversation
+{
+	actor = 18;
+	page
+	{
+		name = "PRISONER";
+		dialog = "DON'T RELEASE ME IF THE ORDER'S STILL IN CHARGE. I CAN'T STAND THE TERROR.";
+		drop = 0;
+		link = 0;
+	}
+}
+
+conversation
+{
+	actor = 19;
+	page
+	{
+		name = "PRISONER";
+		dialog = "I DON'T WANT TO BITCH, BUT IT'S ABOUT TIME GENERAL GRAVES SENT SOMEONE TO GET US OUT.";
+		drop = 0;
+		link = 0;
+	}
+}
+
+conversation
+{
+	actor = 20;
+	page
+	{
+		name = "PRISONER";
+		dialog = "I'D GIVE ANYTHING FOR JUST A CRUST OF BREAD. I'M SO HUNGRY.";
+		drop = 0;
+		link = 0;
+	}
+}

@@ -1,0 +1,240 @@
+Lock 1 Strife
+{
+	BaseKey
+	RemoteMessage "Front Base Key required for access"
+	Message "You don't have the Front Base Key"
+	Mapcolor 150 150 150
+}
+
+
+Lock 2 Strife
+{
+	GovsKey
+	RemoteMessage "Governor's Mansion Key required for access"
+	Message "You don't have the Governor's Mansion Key"
+	Mapcolor 150 150 150
+}
+
+
+Lock 3 Strife
+{
+	Passcard
+	RemoteMessage "Power Station Passcard required for access"
+	Message "You don't have the Power Station Passcard"
+	Mapcolor 128 255 128
+}
+
+
+Lock 4 Strife
+{
+	IDBadge
+	RemoteMessage "Prison ID Card required for access"
+	Message "You don't have the Prison ID Card"
+	Mapcolor 128 128 255
+}
+
+
+Lock 5 Strife
+{
+	PrisonKey
+	RemoteMessage "Norwall Prison Warden's Key required for access"
+	Message "You don't have the Norwall Prison Warden's Key"
+	Mapcolor 64 64 64
+}
+
+
+Lock 6 Strife
+{
+	SeveredHand
+	RemoteMessage "Handprint not on file\nAccess denied"
+	Message "Handprint not on file\nAccess denied"
+	Mapcolor 255 151 100
+}
+
+
+Lock 7 Strife
+{
+	Power1Key
+	RemoteMessage "Power Station Section 1 Key required for access"
+	Message "You don't have the Power Station Section 1 Key"
+	Mapcolor 64 192 64
+}
+
+
+Lock 8 Strife
+{
+	Power2Key
+	RemoteMessage "Power Station Section 2 Key required for access"
+	Message "You don't have the Power Station Section 2 Key"
+	Mapcolor 255 0 0
+}
+
+
+Lock 9 Strife
+{
+	Power3Key
+	RemoteMessage "Power Station Section 3 Key required for access"
+	Message "You don't have the Power Station Section 3 Key"
+	Mapcolor 32 32 128
+}
+
+
+Lock 10 Strife
+{
+	GoldKey
+	RemoteMessage "Gold Key required for access"
+	Message "You don't have the Gold Key"
+	Mapcolor 255 200 0
+}
+
+
+Lock 11 Strife
+{
+	IDCard
+	RemoteMessage "ID Badge required for access"
+	Message "You don't have the ID Badge"
+	Mapcolor 255 200 0
+}
+
+Lock 12 Strife
+{
+	SilverKey
+	RemoteMessage "Silver Key required for access"
+	Message "You don't have the Silver Key"
+	Mapcolor 150 150 150
+}
+
+Lock 13 Strife
+{
+	OracleKey
+	RemoteMessage "Oracle's Key required for access"
+	Message "You don't have the Oracle's Key"
+	Mapcolor 128 64 32
+}
+
+Lock 14 Strife
+{
+	MilitaryID
+	RemoteMessage "Military ID required for access"
+	Message "You don't have the Military ID"
+	Mapcolor 150 150 150
+}
+
+Lock 15 Strife
+{
+	OrderKey
+	RemoteMessage "Order Key required for access"
+	Message "You don't have the Order Key"
+	Mapcolor 150 128 64
+}
+
+Lock 16 Strife
+{
+	WarehouseKey
+	RemoteMessage "Warehouse Key required for access"
+	Message "You don't have the Warehouse Key"
+	Mapcolor 150 150 150
+}
+
+Lock 17 Strife
+{
+	BrassKey
+	RemoteMessage "Brass Key required for access"
+	Message "You don't have the Brass Key"
+	Mapcolor 150 75 0
+}
+
+Lock 18 Strife
+{
+	RedCrystalKey
+	RemoteMessage "Red Crystal required for access"
+	Message "$TXT_NEED_REDCRYSTAL"
+	Mapcolor 255 0 0
+}
+
+Lock 19 Strife
+{
+	BlueCrystalKey
+	RemoteMessage "Blue Crystal required for access"
+	Message "$TXT_NEED_BLUECRYSTAL"
+	Mapcolor 0 0 255
+}
+
+Lock 20 Strife
+{
+	ChapelKey
+	RemoteMessage "Chapel Key required for access"
+	Message "You don't have the Chapel Key"
+	Mapcolor 255 255 0
+}
+
+Lock 21 Strife
+{
+	CatacombKey
+	RemoteMessage "Catacombs Key required for access"
+	Message "You don't have the Catacombs Key"
+	Mapcolor 150 150 150
+}
+
+Lock 22 Strife
+{
+	SecurityKey
+	RemoteMessage "Security Key required for access"
+	Message "You don't have the Security Key"
+	Mapcolor 255 192 0
+}
+
+Lock 23 Strife
+{
+	CoreKey
+	RemoteMessage "Core Key required for access"
+	Message "You don't have the Core Key"
+	Mapcolor 150 150 150
+}
+
+Lock 24 Strife
+{
+	MaulerKey
+	RemoteMessage "Mauler Storage Key required for access"
+	Message "You don't have the Mauler Storage Key"
+	Mapcolor 0 224 0
+}
+
+Lock 25 Strife
+{
+	FactoryKey
+	RemoteMessage "Factory Key required for access"
+	Message "You don't have the Factory Key"
+ 	Mapcolor 32 32 224
+}
+
+Lock 26 Strife
+{
+	MineKey
+	RemoteMessage "Mine Key required for access"
+	Message "You don't have the Mine Key"
+	Mapcolor 224 224 32
+}
+
+Lock 27 Strife
+{
+	NewKey5
+	Message "$TXT_NEEDKEY"
+	Mapcolor 150 150 150
+}
+
+Lock 50 Strife
+{
+	PrisonPass
+	RemoteMessage "Norwall Prison clearance required for access"
+	Message "You don't have clearance to enter Norwall Prison"
+	Mapcolor 156 144 128
+}
+
+Lock 51 Strife
+{
+	OraclePass
+	RemoteMessage "Oracle Pass required for access"
+	Message "You don't have the Oracle Pass"
+	Mapcolor 255 192 0
+}

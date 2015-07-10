@@ -1,0 +1,4 @@
+alias +do_kick "use Action_Kick"
+alias -do_kick "use Action_KickCancel"
+alias dukeshop "pukename Script_PlayerEnterMenu3"
+alias dukeshop2 "pukename Script_PlayerEnterMenu2"

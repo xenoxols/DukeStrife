@@ -1,0 +1,183 @@
+Base Doom;
+Resolution 512,288;
+height 0;
+statusbar normal{}
+statusbar automap{}
+statusbar inventoryfullscreen {}
+statusbar Fullscreen, fullscreenoffsets, forcescaled
+{
+	DrawImage Translatable "CABLA0", 52, -35;//fluff
+	
+	DrawImage "FBOXA0",0,-32;
+	//DrawImage "MEDIA0",20,-25;
+	drawselectedinventory alwaysshowcounter, SMALLFONT, 20, -25, 40, -15, Blue;
+	DrawImage "HBARA0", 0, -55;
+    DrawBar "HBARF0", "HBARE0", health, horizontal, interpolate(3), 18, -55; // health
+	DrawBar "HBARD0", "HBARC0", HupCounter, horizontal, interpolate(3), 17, -55;
+	DrawNumber 3, INDEXFONT, RED, health, 15, -41;
+
+    DrawBar "ABARA0", "ABARB0", ArmorCounter, vertical, 67, -35; // armor
+	//DrawBar "ABARC0", "ABARD0", Armor(200), vertical, 67, -35;
+	DrawImage "DBSCA0", 72, -54;
+	DrawNumber 1, INDEXFONT, YELLOW, ArmorCounter, 84, -50;
+	DrawNumber 3, INDEXFONT, YELLOW, 5, 84, -37;
+	
+	DrawImage "KBARA0", 60, -16; // keys
+	DrawSwitchableImage "RedCard", "TNT1A0", "RKINA0", 72, -12;
+	DrawSwitchableImage "BlueCard", "TNT1A0", "BKINA0", 79, -12;
+	DrawSwitchableImage "YellowCard", "TNT1A0", "YKINA0", 86, -12;
+	DrawSwitchableImage "RedSkull", "TNT1A0", "RKINA0", 72, -6;
+	DrawSwitchableImage "BlueSkull", "TNT1A0", "BKINA0", 79, -6;
+	DrawSwitchableImage "YellowSkull", "TNT1A0", "YKINA0", 86, -6;
+	
+	DrawImage "AMSCA0", -86, -80;// ammo
+	DrawImage "AMSCA0", -80, -60;// ammo cap
+	DrawImage "AMBRA0", -57, -45; 
+	/*DrawSwitchableImage "StrangeShotgun", "TNT1A0", "RKINA0", -42, -6;
+	DrawSwitchableImage "StrangeSSG", "TNT1A0", "RKINA0", -42, -11;
+	DrawSwitchableImage "StrangeChaingun", "TNT1A0", "RKINA0", -42, -16;
+	DrawSwitchableImage "StrangeRocketLauncher", "TNT1A0", "RKINA0", -42, -21;
+	DrawSwitchableImage "StrangePlasmaRifle", "TNT1A0", "RKINA0", -42, -26;
+	DrawSwitchableImage "StrangeBFG", "TNT1A0", "RKINA0", -42, -31;*/
+	DrawNumber 4, SMALLFONT, BRICK, ammo1capacity, -24, -56;
+	DrawNumber 4, SMALLFONT, BRICK, ammo1, -30, -76;
+	//DrawNumber 2, SMALLFONT, BRICK, ammo2, -80, -76;
+	DrawNumber 4, SMALLFONT, BROWN, HammerSpaceCounter, -18, -34;
+	DrawImage "YKINA0", -31, -23; 
+	DrawImage "YKINA0", -23, -23; 
+	DrawNumber 4, SMALLFONT, BROWN, 10, -18, -14;
+	/*DrawNumber 3, INDEXFONT, DARKGREEN, ammo clip, -18, -10;
+	DrawNumber 3, INDEXFONT, RED, ammo shell, -18, -18;
+	DrawNumber 3, INDEXFONT, BROWN, ammo rocketammo, -18, -26;
+	DrawNumber 3, INDEXFONT, BLUE, ammo cell, -18, -34;*/
+	
+	DrawImage "FRAGTRL", 0,0, none, 250,67;
+	DrawString SMALLFONT, GOLD, weapontag, 5, 5, 0,alignment(left); // weapon's name
+	DrawString SMALLFONT, RED, "Mighty Foot", 5, 19, 0,alignment(left); // weapon's name
+	DrawString SMALLFONT, GREEN, "Money", 5, 27, 0,alignment(left); // weapon's name
+	IsSelected "DukeSaw1"
+	{
+		DrawString SMALLFONT, GOLD, "1     ", 246, 5, 0,alignment(right);
+	}
+	IsSelected "DukeSaw2"
+	{
+		DrawString SMALLFONT, GOLD, "2     ", 246, 5, 0,alignment(right);
+	}
+	IsSelected "DukeSaw3"
+	{
+		DrawString SMALLFONT, GOLD, "3     ", 246, 5, 0,alignment(right);
+	}
+	IsSelected "DukePistol1"
+	{
+		DrawString SMALLFONT, GOLD, "1     ", 246, 5, 0,alignment(right);
+	}
+	IsSelected "DukePistol2"
+	{
+		DrawString SMALLFONT, GOLD, "2     ", 246, 5, 0,alignment(right);
+	}
+	IsSelected "DukePistol3"
+	{
+		DrawString SMALLFONT, GOLD, "3     ", 246, 5, 0,alignment(right);
+	}
+	IsSelected "DukeMuricaRifle1"
+	{
+		DrawString SMALLFONT, GOLD, "1     ", 246, 5, 0,alignment(right);
+	}
+	IsSelected "DukeMuricaRifle2"
+	{
+		DrawString SMALLFONT, GOLD, "2     ", 246, 5, 0,alignment(right);
+	}
+	IsSelected "DukeMuricaRifle3"
+	{
+		DrawString SMALLFONT, GOLD, "3     ", 246, 5, 0,alignment(right);
+	}
+	IsSelected "DukeShotgun1"
+	{
+		DrawString SMALLFONT, GOLD, "1     ", 246, 5, 0,alignment(right);
+	}
+	IsSelected "DukeShotgun2"
+	{
+		DrawString SMALLFONT, GOLD, "2     ", 246, 5, 0,alignment(right);
+	}
+	IsSelected "DukeShotgun3"
+	{
+		DrawString SMALLFONT, GOLD, "3     ", 246, 5, 0,alignment(right);
+	}
+	IsSelected "DukeMinigun1"
+	{
+		DrawString SMALLFONT, GOLD, "1     ", 246, 5, 0,alignment(right);
+	}
+	IsSelected "DukeMinigun2"
+	{
+		DrawString SMALLFONT, GOLD, "2     ", 246, 5, 0,alignment(right);
+	}
+	IsSelected "DukeMinigun3"
+	{
+		DrawString SMALLFONT, GOLD, "3     ", 246, 5, 0,alignment(right);
+	}
+	IsSelected "DukeRL1"
+	{
+		DrawString SMALLFONT, GOLD, "1     ", 246, 5, 0,alignment(right);
+	}
+	IsSelected "DukeRL2"
+	{
+		DrawString SMALLFONT, GOLD, "2     ", 246, 5, 0,alignment(right);
+	}
+	IsSelected "DukeRL3"
+	{
+		DrawString SMALLFONT, GOLD, "3     ", 246, 5, 0,alignment(right);
+	}
+	IsSelected "DukePlasmaGun1"
+	{
+		DrawString SMALLFONT, GOLD, "1     ", 246, 5, 0,alignment(right);
+	}
+	IsSelected "DukePlasmaGun2"
+	{
+		DrawString SMALLFONT, GOLD, "2     ", 246, 5, 0,alignment(right);
+	}
+	IsSelected "DukePlasmaGun3"
+	{
+		DrawString SMALLFONT, GOLD, "3     ", 246, 5, 0,alignment(right);
+	}
+	InInventory "MightyFootLevelUp3"
+	{
+		DrawString SMALLFONT, RED, "3     ", 246, 19, 0,alignment(right);
+	}
+	InInventory "MightyFootLevelUp2"
+	{
+		DrawString SMALLFONT, RED, "2     ", 246, 19, 0,alignment(right);
+	}
+	InInventory "MightyFootLevelUp1" 
+	{
+		DrawString SMALLFONT, RED, "1     ", 246, 19, 0,alignment(right);
+	}
+	DrawString SMALLFONT, GOLD, "  / 3", 246, 5, 0,alignment(right);
+	DrawString SMALLFONT, RED, "  / 3", 246, 19, 0,alignment(right);
+	//DrawString SMALLFONT, GREEN, "  / 99999", 246, 26, 0,alignment(right);
+	DrawNumber 5, SMALLFONT, GREEN, CashMoney, alignment(right), 246, 27;
+	
+	DrawString SMALLFONT, GOLD, "ShadeOS 1.1-Rev: 3", 630, 5, 0,alignment(right);
+	DrawString SMALLFONT, GOLD, "User: Duke Nukem", 630, 15, 0,alignment(right);
+	
+	InInventory "JetBootsActive"
+	{
+		DrawString SMALLFONT, ORANGE, "Jet Boots Active", 630, 25, 0,alignment(right);
+	}
+	InInventory "AntiRadBootsActive" 
+	{
+		DrawString SMALLFONT, GREEN, "AntiRad(TM) Boots Active", 630, 35, 0,alignment(right);
+	}
+	InInventory "SpeedBootsActive" 
+	{
+		DrawString SMALLFONT, BLUE, "Speed Boots Active", 630, 45, 0,alignment(right);
+	}
+	InInventory "SuperBootsActive" 
+	{
+		DrawString SMALLFONT, WHITE, "Super Boots Active", 630, 55, 0,alignment(right);
+	}
+	
+	//XP Block
+	/* DrawNumber 5, INDEXFONT, GREEN, CashMoney, 330, -5;
+	 DrawNumber 5, INDEXFONT, GREEN, 99999, 365, -5;
+	 DrawString CONFONT, GREEN, "|", 337, -7;*/
+}

@@ -1,0 +1,67 @@
+namespace = "ZDoom";
+include = "DIALOG00";
+
+conversation
+{
+	actor = "Graves1";
+	page
+	{
+		name = "GENERAL GRAVES";
+		dialog = "DUKE WE HAVE AN URGENT SITUATION! MOST OF OUR TROOPS WERE EITHER CAPTURED OR KILLED BY DR. PROTON'S FORCES. WE ARE OUTNUMBERED. AND NEED TO RECAPTURE OUR OWN TROOPS. GET A KEY TO THE PRISON FROM THE MAYOR.";
+		choice
+		{
+			text = "NEXT PAGE.";
+			nomessage = "NO.  you don't have what i want for the  ALL RIGHT, I ACCEPT.!";
+			nextpage = 2;
+			closedialog = false;
+		}
+	}
+	page
+	{
+		name = "DUKE NUKEM";
+		dialog = "SOMEBODY'S GONNA PAY FOR MAKING ME FIND THESE FREAKING KEYCARDS.";
+		voice = "DKGRV01";
+		panel = "DUKEPOR";
+		choice
+		{
+			text = "NEXT PAGE";
+			nomessage = "NO.  you don't have what i want for the  WHERE DO I START?!";
+			giveitem = "GovsKey";
+			nextpage = 3;
+			closedialog = false;
+		}
+	}
+	page
+	{
+		name = "GENERAL GRAVES";
+		dialog = "SORRY ABOUT THAT DUKE. I'M GLAD TOO SEE YOU THOUGH. IF YOU WEREN'T HERE, THEN WE'D ALL BE DEAD SOON. WE HAVE AN ASSAULT RIFLE WAITING FOR YOU WITH THE EDF ARMS MASTER. HE IS IN THE BACK OF THE GUN SHOP, BEHIND THE UNMARKED DOOR. GET GOING, OR WE MAY STILL END UP DEAD ANYWAYS.";
+		choice
+		{
+			text = "NEXT.";
+			nomessage = "NO.  you don't have what i want for the  I THINK I CAN HANDLE IT.!";
+			giveitem = "QuestItem3";
+			nextpage = 4;
+			closedialog = false;
+		}
+	}
+	page
+	{
+		name = "DUKE NUKEM";
+		panel = "DUKEPOR";
+		voice = "DKGRV02";
+		dialog = "LET'S ROCK.";
+		choice
+		{
+			text = "END";
+			nomessage = "NO.  you don't have what i want for the  I'LL SEE TO IT.!";
+			giveitem = "ShotgunAvailable";
+			nextpage = 5;
+			closedialog = true;
+		}
+	}
+	page
+	{
+		name = "GENERAL GRAVES";
+		dialog = "GET GOING DUKE, WE DON'T HAVE ALL THE TIME IN THE WORLD.";
+	}
+}

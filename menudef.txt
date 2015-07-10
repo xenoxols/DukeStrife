@@ -1,0 +1,160 @@
+LISTMENU "MainMenu"
+{
+		Selector "M_GUM", -34, -4
+		StaticPatch 0, 0, "M_DUKE"
+		Position 110, 76
+		Font "SmallFont", "Blue"	
+		
+		TextItem "New Game",   "n",	"PlayerclassMenu"
+		TextItem "Options",	    "o",	"OptionsMenu"
+		TextItem "Load",        "l",	"LoadGameMenu"
+		TextItem "Save",        "s",	"SaveGameMenu"
+		TextItem "Quit",	"q",	"QuitMenu"
+}
+
+ListMenu "SkillMenu"
+{
+	
+	Selector "M_GUM", -34, -4
+	Font "SmallFont", "Blue"	
+	StaticText 74, 24, "Difficulty"
+	Position 160, 76
+	centermenu
+}
+
+ListMenu "EpisodeMenu"
+{
+	NetgameMessage "$NEWGAME"
+	Selector "M_GUM", -34, -4
+	IfGame(Doom, Chex)
+	{
+		Position 48, 63
+		StaticPatch 54, 38, "M_EPISOD"
+	}
+	IfGame(Heretic, Hexen)
+	{
+		Position 80, 50
+		Font "BigFont", "Red"
+	}
+}
+
+OptionMenu "OptionsMenu"
+{
+	Title "OPTIONS"
+	Submenu "Customize Controls",		"CustomizeControls"
+	Submenu "Mouse options",			"MouseOptions"
+	Submenu "Joystick options",			"JoystickOptions"
+	StaticText " "
+	Submenu "Player Setup",				"PlayerMenu"
+	Submenu "Gameplay Options",			"GameplayOptions"
+	Submenu "Compatibility Options",	"CompatibilityOptions"
+	Submenu "Automap Options",			"AutomapOptions"
+	Submenu "HUD Options",				"HUDOptions"
+	Submenu "Miscellaneous Options",	"MiscOptions"
+	Submenu "Network Options",			"NetworkOptions"
+	Submenu "Sound Options",			"SoundOptions"
+	Submenu "Display Options",			"VideoOptions"
+	Submenu "Set video mode",			"VideoModeMenu"
+	StaticText " "
+	SafeCommand "Reset to defaults",	"reset2defaults"
+	SafeCommand	"Reset to last saved",	"reset2saved"
+	Command "Go to console",			"menuconsole"
+	StaticText " "
+	Submenu "Duke Options",				"DukeOptions"
+}
+
+OptionMenu "DukeOptions"
+{
+	Title "Duke Options"
+	Option "Duke Talk","quotes","onOff"
+	Option "Classic Duke Talk","classiclines","onOff"
+	Slider "Duke Talk CoolDown (35 = 1 second)","linerbreak",35,700,35
+	StaticText "Enemy Selection"
+	Option "Doom Monsters (Change Level to take Affect)","monsterz","onOff"
+	Option "Nazis (Change Level to take Affect)","nazis","onOff"
+	Option "Duke3d Aliens (Change Level to take Affect)","alienz","onOff"
+}
+
+OptionMenu "CustomizeControls"
+{
+	Title "CUSTOMIZE CONTROLS"
+	ScrollTop 2
+	StaticTextSwitchable 	"ENTER to change, BACKSPACE to clear", "Press new key for control, ESC cancels.", "ControlMessage"
+	StaticText 	""
+	StaticText "Main Controls", 1
+	StaticText 	"If you want to be able to play the game, then bind these."
+	StaticText 	""
+	Control 	"Fire",				"+attack"
+	Control 	"AltFire",			"+altattack"
+	//Control 	"Reload",			"+reload"
+	Control 	"Zoom",			"+zoom"
+	Control 	"Kick",			"+do_kick"
+	//Control 	"Shop",			"dukeshop"
+	StaticText 	""
+	Control 	"Use / Open",			"+use"
+	Control 	"Jump",				"+jump"
+	Control 	"Crouch",			"+crouch"
+	Control 	"Toggle Crouch",		"crouch"
+	Control 	"Run",					"+speed"
+	StaticText 	""
+	Control 	"Move forward",			"+forward"
+	Control 	"Move backward",		"+back"
+	Control 	"Strafe left",			"+moveleft"
+	Control 	"Strafe right",			"+moveright"
+	StaticText 	""
+	StaticText 	"Weapons", 1
+	Control 	"Next weapon",			"weapnext"
+	Control 	"Previous weapon",		"weapprev"
+	StaticText 	""
+	Control		"Chainsaw",		"slot 1"
+	Control		"Pistol",		"slot 2"
+	Control		"Assault Rifle",		"slot 3"
+	Control		"Shotgun",		"slot 4"
+	Control		"RPG",		"slot 5"
+	//Control		"RPG",		"slot 6"
+	//Control		"Plasma Gun",		"slot 7"
+	//Control		"Weapon Slot 8",		"slot 8"
+	//Control		"Weapon Slot 9",		"slot 9"
+	//Control		"Weapon Slot 0",		"slot 0"
+	StaticText 	""
+	StaticText 	"Inventory", 1
+	StaticText 	"Inventory is useful in Heretic."
+	StaticText 	""
+	Control 	"Activate item",		"invuse"
+	//Control 	"Activate all items",	"invuseall"
+	Control 	"Next item",			"invnext"
+	Control 	"Previous item",		"invprev"
+	StaticText 	""
+	Control 	"Drop item",			"invdrop"
+	Control		"Query item",			"invquery"
+	Control 	"Drop weapon",			"weapdrop"
+	StaticText 	""
+	StaticText 	"Chat", 1
+	Control 	"Say",					"messagemode"
+	Control 	"Team say",				"messagemode2"
+	StaticText 	""
+	StaticText 	"Miscellaneous", 1
+	Control 	"Toggle automap",		"togglemap"
+	Control 	"Chasecam",				"chase"
+	Control 	"Coop spy",				"spynext"
+	Control 	"Screenshot",			"screenshot"
+	Control  	"Open console",			"toggleconsole"
+	StaticText 	""
+	StaticText 	"The Rest", 1
+	Control 	"Turn left",			"+left"
+	Control 	"Turn right",			"+right"
+	Control 	"Swim up",				"+moveup"
+	Control 	"Swim down",			"+movedown"
+	Control 	"Stop flying",			"land"
+	Control 	"Mouse look",			"+mlook"
+	Control 	"Keyboard look",		"+klook"
+	Control 	"Look up",				"+lookup"
+	Control 	"Look down",			"+lookdown"
+	Control 	"Center view",			"centerview"
+	Control 	"Strafe",				"+strafe"
+	Control 	"Show Scoreboard",		"+showscores"
+	/*StaticText 	""
+	StaticText 	"Strife Popup Screens", 1
+	Control 	"Mission objectives",	"showpop 1"
+	Control 	"Weapons/ammo/stats",	"showpop 3"*/
+}

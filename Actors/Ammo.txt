@@ -1,0 +1,153 @@
+ACTOR DukePistolClip : Ammo Replaces Clip
+{
+  
+  Inventory.PickupMessage "Got Pistol Ammo" // "Picked up a clip."
+  Inventory.Amount 6
+  Inventory.MaxAmount 120
+  Ammo.BackpackAmount 6
+  Ammo.BackpackMaxAmount 120
+  Inventory.Icon "CLIPC0"
+  Scale 0.25
+  States
+  {
+  Spawn:
+    CLIP A -1
+    Stop
+  }
+}
+
+ACTOR DukePistolClipMag : Ammo
+{
+  
+  Inventory.MaxAmount 6
+  Ammo.BackpackMaxAmount 6
+}
+
+ACTOR DukeMuricaClipMag : Ammo
+{
+  
+  Inventory.MaxAmount 35
+  Ammo.BackpackMaxAmount 35
+}
+
+ACTOR DukeShellMag : Ammo
+{
+  
+  Inventory.MaxAmount 8
+  Ammo.BackpackMaxAmount 8
+}
+
+ACTOR DukeMuricaClip : Ammo Replaces Shell
+{
+  
+  Inventory.PickupMessage "Got Rifle Ammo" // "Picked up a clip."
+  Inventory.Amount 14
+  Inventory.MaxAmount 350
+  Ammo.BackpackAmount 35
+  Ammo.BackpackMaxAmount 350
+  Inventory.Icon "MUAMA0"
+  States
+  {
+  Spawn:
+    MUAM A -1
+    Stop
+  }
+}
+
+ACTOR DukeMinigunClip : Ammo Replaces ShellBox
+{
+  
+  Inventory.PickupMessage "Got Minigun Cannon Ammo" // "Picked up a clip."
+  Inventory.Amount 60
+  Inventory.MaxAmount 600
+  Ammo.BackpackAmount 60
+  Ammo.BackpackMaxAmount 600
+  Inventory.Icon "AMMOZ0"
+  Scale 0.65
+  States
+  {
+  Spawn:
+    AMMO A -1
+    Stop
+  }
+}
+
+
+ACTOR DukeShell : Ammo
+{
+  
+  Inventory.PickupMessage "Got Shotgun Ammo" // "Picked up 4 shotgun shells."
+  Inventory.Amount 2
+  Inventory.MaxAmount 40
+  Ammo.BackpackAmount 4
+  Ammo.BackpackMaxAmount 40
+  Inventory.Icon "SHELA0"
+  States
+  {
+  Spawn:
+    SHEL A -1
+    Stop
+  }
+}
+
+ACTOR DukeShellBox : DukeShell Replaces ClipBox
+{
+  
+  Inventory.PickupMessage "Got Shotgun Ammo" // "Picked up a box of shotgun shells."
+  Inventory.Amount 8
+  Scale 0.7
+  States
+  {
+  Spawn:
+    SBOX A -1
+    Stop
+  }
+}
+
+ACTOR DukeRocketClip : Ammo Replaces RocketAmmo
+{
+  
+  Inventory.PickupMessage "Got a Rocket" // "Picked up a rocket."
+  Inventory.Amount 1
+  Inventory.MaxAmount 30
+  Ammo.BackpackAmount 1
+  Ammo.BackpackMaxAmount 30
+  Inventory.Icon "ROCKA0"
+  States
+  {
+  Spawn:
+    ROCK A -1
+    Stop
+  }
+}
+
+ACTOR DukePipeBox : DukeRocketClip Replaces RocketBox
+{
+  
+  Inventory.PickupMessage "Got Rockets" // "Picked up a box of shotgun shells."
+  Inventory.Amount 6
+  Scale 0.65
+  States
+  {
+  Spawn:
+    RBOX A -1
+    Stop
+  }
+}
+
+ACTOR DukePlasmaClip : Ammo Replaces Cell
+{
+  
+  Inventory.PickupMessage "Got a Plamsa Pak" // "Picked up a rocket."
+  Inventory.Amount 2
+  Inventory.MaxAmount 20
+  Ammo.BackpackAmount 2
+  Ammo.BackpackMaxAmount 20
+  Inventory.Icon "CELLA0"
+  States
+  {
+  Spawn:
+    CELL A -1
+    Stop
+  }
+}

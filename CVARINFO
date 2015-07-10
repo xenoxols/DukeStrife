@@ -1,0 +1,7 @@
+server bool quotes = true;
+server bool classiclines = false;
+server bool lazerz = true;
+server bool monsterz = true;
+server bool nazis = true;
+server bool alienz = true;
+server int linerbreak = 70;

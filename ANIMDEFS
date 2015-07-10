@@ -1,0 +1,26 @@
+texture MEDIA0
+    pic I_MDKT2 tics 2
+	pic I_MDKT3 tics 2
+	pic I_MDKT4 tics 2
+	pic I_MDKT5 tics 2
+	pic I_MDKT6 tics 2
+	pic I_MDKT7 tics 2
+	pic I_MDKT8 tics 2
+	pic I_MDKT9 tics 2
+	pic I_MDKT10 tics 2
+	pic I_MDKT11 tics 2
+	pic I_MDKT12 tics 2
+	pic I_MDKT13 tics 2
+	pic I_MDKT14 tics 2
+	pic I_MDKT15 tics 2
+	pic I_MDKT16 tics 2
+	pic MEDIA0 tics 2
+	
+switch strife GLASSD1 
+on sound world/glassbreak
+pic GLASSD2 tics 8
+pic GLASSD2 tics 8
+
+off sound world/glassbreak
+pic GLASSD3 tics 8
+pic GLASSD3 tics 8

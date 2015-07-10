@@ -1,0 +1,1276 @@
+#library "MOUSE"
+#include "zcommon.acs"
+
+//===========================================================================
+//
+// MOUSE INPUT
+//
+//===========================================================================
+
+// UI resolution
+#define UI_RES_WIDTH 1024
+#define UI_RES_HEIGHT 768
+
+// the smallest tic for a HUDMessage
+#define HUDMSG_TIC 1.0 / 35 + 1
+
+// mouse cursor HUDMessage ID
+#define HMID_MOUSECURSOR 1
+
+// backpack expansion
+
+script "Script_PlayerEnterMenu3" (void)
+{
+    If (CheckINventory("InShop") ==1)
+		ACS_NamedExecute("Script_PlayerEnterMenu2", 0);
+	Else	
+		ACS_NamedExecute("Script_PlayerEnterMenu", 0);
+}
+
+script "Script_PlayerEnterMenu" (void)
+{
+    // first, let's freeze the player
+    SetPlayerProperty(0, ON, PROP_TOTALLYFROZEN);
+    SetHUDSize(320, 200, 0);
+    SetFont("ST-BUYM1");
+	GiveInventory("InShop",1);
+	//PlaySound(0,"misc/nomoney",6,1.0,false,0);
+	SetCVar("Switch", off);
+	//SetWeapon("Blankwep");
+	HUDMessage(s: "A"; HUDMSG_PLAIN, 666, CR_UNTRANSLATED, 0.1, 0.1, 0);
+    // run the mouse loop script
+    ACS_NamedExecute("Script_MouseLoop", 0);
+}
+
+script "Script_PlayerEnterMenuWep" (void)
+{
+    SetHUDSize(320, 200, 0);
+    SetFont("ST-BUYM2");
+	HUDMessage(s: "A"; HUDMSG_PLAIN, 666, CR_UNTRANSLATED, 0.1, 0.1, 0);
+    // run the mouse loop script
+	ACS_NamedTerminate("Script_MouseLoop", 0);
+	Delay(6);
+    ACS_NamedExecute("Script_MouseLoopWep", 0);
+}
+
+script "Script_PlayerEnterMenuEquip" (void)
+{
+    SetHUDSize(320, 200, 0);
+    SetFont("ST-BUYM3");
+	HUDMessage(s: "A"; HUDMSG_PLAIN, 666, CR_UNTRANSLATED, 0.1, 0.1, 0);
+    // run the mouse loop script
+	ACS_NamedTerminate("Script_MouseLoop", 0);
+	Delay(6);
+    ACS_NamedExecute("Script_MouseLoopEquip", 0);
+}
+
+script "Script_PlayerEnterMenuPUp" (void)
+{
+    SetHUDSize(320, 200, 0);
+    SetFont("ST-BUYM4");
+	HUDMessage(s: "A"; HUDMSG_PLAIN, 666, CR_UNTRANSLATED, 0.1, 0.1, 0);
+    // run the mouse loop script
+	ACS_NamedTerminate("Script_MouseLoop", 0);
+	Delay(6);
+    ACS_NamedExecute("Script_MouseLoopPUp", 0);
+}
+
+script "Script_PlayerEnterMenu2" (void)
+{
+    // first, let's unfreeze the player
+	SetHUDSize(320, 200, 0);
+    SetFont("TNT1A0");
+	/*if (CheckInventory("Pistol1Out") == 1)
+	{
+		SetWeapon("DukePistol1");
+	}
+	else if (CheckInventory("Pistol2Out") == 1)
+	{
+		SetWeapon("DukePistol2");
+	}
+	else if (CheckInventory("Pistol3Out") == 1)
+	{
+		SetWeapon("DukePistol3");
+	}
+	else if (CheckInventory("Rifle1Out") == 1)
+	{
+		SetWeapon("DukeMuricaRifle1");
+	}
+	else if (CheckInventory("Rifle2Out") == 1)
+	{
+		SetWeapon("DukeMuricaRifle2");
+	}
+	else if (CheckInventory("Rifle3Out") == 1)
+	{
+		SetWeapon("DukeMuricaRifle3");
+	}
+	else if (CheckInventory("Shotgun1Out") == 1)
+	{
+		SetWeapon("DukeShotgun1");
+	}
+	else if (CheckInventory("Shotgun2Out") == 1)
+	{
+		SetWeapon("DukeShotgun2");
+	}
+	else if (CheckInventory("Shotgun3Out") == 1)
+	{
+		SetWeapon("DukeShotgun3");
+	}
+	else if (CheckInventory("Minigun1Out") == 1)
+	{
+		SetWeapon("DukeMinigun1");
+	}
+	else if (CheckInventory("Minigun2Out") == 1)
+	{
+		SetWeapon("DukeMinigun2");
+	}
+	else if (CheckInventory("Minigun3Out") == 1)
+	{
+		SetWeapon("DukeMinigun3");
+	}
+	else if (CheckInventory("Pipe1Out") == 1)
+	{
+		SetWeapon("DukeRL1");
+	}
+	else if (CheckInventory("Pipe2Out") == 1)
+	{
+		SetWeapon("DukeRL2");
+	}
+	else if (CheckInventory("Pipe3Out") == 1)
+	{
+		SetWeapon("DukeRL3");
+	}
+	else if (CheckInventory("Plasma1Out") == 1)
+	{
+		SetWeapon("DukePlasmaGun1");
+	}
+	else if (CheckInventory("Plasma2Out") == 1)
+	{
+		SetWeapon("DukePlasmaGun2");
+	}
+	else if (CheckInventory("Plasma3Out") == 1)
+	{
+		SetWeapon("DukePlasmaGun3");
+	}
+	else if (CheckInventory("Mighty1Out") == 1)
+	{
+		SetWeapon("MightyFoot1");
+	}
+	else if (CheckInventory("Mighty2Out") == 1)
+	{
+		SetWeapon("MightyFoot2");
+	}
+	else if (CheckInventory("Mighty3Out") == 1)
+	{
+		SetWeapon("MightyFoot3");
+	}*/
+	SetCVar("Switch", off);
+	//PlaySound(0,"misc/nomoney",7,1.0,false,0);
+	HUDMessage(s: "A"; HUDMSG_PLAIN, 666, CR_UNTRANSLATED, 0.0, 1.0, 0);
+	HUDMessage(s: "A"; HUDMSG_PLAIN, 777, CR_UNTRANSLATED, 0.0, 1.0, 0);
+	HUDMessage(s: "A"; HUDMSG_PLAIN, 1, CR_UNTRANSLATED, 0.0, 1.0, 0);
+	ACS_NamedTerminate("Script_MouseLoop", 0);
+	ACS_NamedTerminate("Script_MouseLoopWep", 0);
+	ACS_NamedTerminate("Script_MouseLoopEquip", 0);
+	ACS_NamedTerminate("Script_MouseLoopPUp", 0);
+	Delay(2);
+	TakeInventory("InShop",1);
+	SetPlayerProperty(0, OFF, PROP_TOTALLYFROZEN);
+}
+
+script "Script_MouseLoop" (void)
+{
+    // initialize cursor X and Y
+    int x = UI_RES_WIDTH / 2;
+    int y = UI_RES_HEIGHT / 2;
+    int dx;
+    int dy;
+
+    // mouse sensitivity multiplier
+    int xSensitivity = 0.7;
+    int ySensitivity = 0.7;
+	x = 160;
+	y = 100;
+    while (TRUE)
+    {
+        // poll player input
+        dx = FixedMul(xSensitivity, GetPlayerInput(-1, INPUT_YAW)) / 24;
+        x -= dx;
+        
+        dy = FixedMul(ySensitivity, GetPlayerInput(-1, INPUT_PITCH)) / 12;
+        if (!GetCVar("invertmouse"))
+            y -= dy;
+        else
+            y += dy;
+
+        // draw mouse cursor on screen
+        SetHUDSize(320, 200, 1);
+        SetFont("zcursor");
+        HUDMessage(s: "A"; HUDMSG_PLAIN, HMID_MOUSECURSOR, CR_UNTRANSLATED, (x << 16) + 0.1, (y << 16) + 0.1, HUDMSG_TIC);
+		{
+			int i, new_cap1;
+			int j, new_cap2;
+			int k, new_cap3;
+			int l, new_cap4;
+			int m, new_cap5;
+			int n, new_cap6;
+			str weapon = GetWeapon();
+			if (x > 320)
+			{
+				x = 320;
+				Delay(1);
+			}
+			if (x < 1)
+			{
+				x = 1;
+				Delay(1);
+			}
+			if (y > 200)
+			{
+				y = 200;
+				Delay(1);
+			}
+			if (y < 1)
+			{
+				y = 1;
+				Delay(1);
+			}
+			if (x > 23 && x < 89 && y < 156 && y > 90 && getplayerinput(-1, INPUT_BUTTONS) & BT_ATTACK)
+			{
+				ACS_NamedExecute("Script_PlayerEnterMenuwep", 0);
+			}
+			else if (x > 89 && x < 192 && y < 156 && y > 90 && getplayerinput(-1, INPUT_BUTTONS) & BT_ATTACK)
+			{
+				ACS_NamedExecute("Script_PlayerEnterMenuEquip", 0);
+			}
+			if (x > 194 && x < 285 && y < 156 && y > 90 && getplayerinput(-1, INPUT_BUTTONS) & BT_ATTACK)
+			{
+				ACS_NamedExecute("Script_PlayerEnterMenuPUp", 0);
+			}
+			/*else if (x > 252 && x < 285 && y < 31 && y > 17 && getplayerinput(-1, INPUT_BUTTONS) & BT_ATTACK)
+			{
+				ACS_NamedExecute("Script_PlayerEnterMenu2", 0);
+			}*/
+			else
+			{
+				SetFont("SMALLFONT");
+				HUDMessage(s: " "; HUDMSG_PLAIN, 777, CR_YELLOW, 0.3, 0.3, 15);
+			}
+		}
+        // debug: print mouse coords
+        /*int heh = 0;
+        if (heh)
+        {*/
+        //SetFont("SmallFont");
+        //Print(d: x, s: "/", d: y);
+        //}
+
+        Delay(1);
+    }
+}
+
+script "Script_MouseLoopWep" (void)
+{
+    // initialize cursor X and Y
+    int x = UI_RES_WIDTH / 2;
+    int y = UI_RES_HEIGHT / 2;
+    int dx;
+    int dy;
+
+    // mouse sensitivity multiplier
+    int xSensitivity = 0.7;
+    int ySensitivity = 0.7;
+	x = 160;
+	y = 100;
+    while (TRUE)
+    {
+        // poll player input
+        dx = FixedMul(xSensitivity, GetPlayerInput(-1, INPUT_YAW)) / 24;
+        x -= dx;
+        
+        dy = FixedMul(ySensitivity, GetPlayerInput(-1, INPUT_PITCH)) / 12;
+        if (!GetCVar("invertmouse"))
+            y -= dy;
+        else
+            y += dy;
+
+        // draw mouse cursor on screen
+        SetHUDSize(320, 200, 1);
+        SetFont("zcursor");
+        HUDMessage(s: "A"; HUDMSG_PLAIN, HMID_MOUSECURSOR, CR_UNTRANSLATED, (x << 16) + 0.1, (y << 16) + 0.1, HUDMSG_TIC);
+		{
+			int i, new_cap1;
+			int j, new_cap2;
+			int k, new_cap3;
+			int l, new_cap4;
+			int m, new_cap5;
+			int n, new_cap6;
+			str weapon = GetWeapon();
+			if (x > 320)
+			{
+				x = 320;
+				Delay(1);
+			}
+			if (x < 1)
+			{
+				x = 1;
+				Delay(1);
+			}
+			if (y > 200)
+			{
+				y = 200;
+				Delay(1);
+			}
+			if (y < 1)
+			{
+				y = 1;
+				Delay(1);
+			}
+			if (x > 79 && x < 109 && y < 69 && y > 27 && getplayerinput(-1, INPUT_BUTTONS) & BT_ATTACK && Checkinventory("Cashmoney") > 299 && CheckInventory("PistolLevelUp") < 1)
+			{
+				SetFont("SMALLFONT");
+				TakeInventory("CashMoney",300);
+				PlaySound(0,"misc/money",7,1.0,false,0);
+				HUDMessage(s: "Pistol Level Up!"; HUDMSG_PLAIN, 777, CR_RED, 0.3, 0.3, 15);
+				GiveInventory("PistolLevelup",1);
+				GiveInventory("DukePickupTaunt",1);
+				GiveInventory("DukePistol2",1);
+				if (StrIcmp(weapon, "DukePistol1") == 0)
+				{
+					SetWeapon("DukePistol2");
+				}
+				Delay(15);
+				TakeInventory("DukePistol1",1);
+			}
+			else if (x > 79 && x < 109 && y < 69 && y > 27 && getplayerinput(-1, INPUT_BUTTONS) & BT_ATTACK && Checkinventory("Cashmoney") > 499 && CheckInventory("PistolLevelUp") < 2)
+			{
+				SetFont("SMALLFONT");
+				TakeInventory("CashMoney",500);
+				PlaySound(0,"misc/money",7,1.0,false,0);
+				HUDMessage(s: "Pistol Level Up!"; HUDMSG_PLAIN, 777, CR_RED, 0.3, 0.3, 15);
+				GiveInventory("PistolLevelup",1);
+				GiveInventory("DukePickupTaunt",1);
+				GiveInventory("DukePistol3",1);
+				if (StrIcmp(weapon, "DukePistol2") == 0)
+				{
+					SetWeapon("DukePistol3");
+				}
+				Delay(15);
+				TakeInventory("DukePistol2",1);
+			}
+			else if (x > 79 && x < 109 && y < 69 && y > 27 && getplayerinput(-1, INPUT_BUTTONS) & BT_ATTACK && CheckInventory("PistolLevelUp") > 1)
+			{
+				SetFont("SMALLFONT");
+				PlaySound(0,"misc/nomoney",7,1.0,false,0);
+				HUDMessage(s: "Pistol Maxed Out"; HUDMSG_PLAIN, 777, CR_RED, 0.3, 0.3, 15);
+				Delay(15);
+			}
+			else if (x > 79 && x < 109 && y < 69 && y > 27 && getplayerinput(-1, INPUT_BUTTONS) & BT_ATTACK && Checkinventory("Cashmoney") < 300)
+			{
+				SetFont("SMALLFONT");
+				PlaySound(0,"misc/nomoney",7,1.0,false,0);
+				HUDMessage(s: "Not enough money"; HUDMSG_PLAIN, 777, CR_RED, 0.3, 0.3, 15);
+				Delay(15);
+			}
+			else if (x > 79 && x < 109 && y < 69 && y > 27 && getplayerinput(-1, INPUT_BUTTONS) & BT_ATTACK && Checkinventory("Cashmoney") < 500 && CheckInventory("PistolLevelUp") == 1)
+			{
+				SetFont("SMALLFONT");
+				PlaySound(0,"misc/nomoney",7,1.0,false,0);
+				HUDMessage(s: "Not enough money"; HUDMSG_PLAIN, 777, CR_RED, 0.3, 0.3, 15);
+				Delay(15);
+			}
+			else if (x > 79 && x < 109 && y < 69 && y > 27 && CheckInventory("PistolLevelUp") > 1)
+			{
+				SetFont("SMALLFONT");
+				HUDMessage(s: "Pistol Level 3/3"; HUDMSG_PLAIN, 777, CR_RED, 0.3, 0.3, 15);
+			}
+			else if (x > 79 && x < 109 && y < 69 && y > 27 && CheckInventory("PistolLevelUp") == 1)
+			{
+				SetFont("SMALLFONT");
+				HUDMessage(s: "Dual Wield Cost: 500: Level 2/3"; HUDMSG_PLAIN, 777, CR_RED, 0.3, 0.3, 15);
+			}
+			else if (x > 79 && x < 109 && y < 69 && y > 27)
+			{
+				SetFont("SMALLFONT");
+				HUDMessage(s: "Accuracy Upgrade Cost: 300: Level 1/3"; HUDMSG_PLAIN, 777, CR_RED, 0.3, 0.3, 15);
+			}
+			else if (x > 109 && x < 167 && y < 69 && y > 27 && getplayerinput(-1, INPUT_BUTTONS) & BT_ATTACK && Checkinventory("Cashmoney") > 399 && CheckInventory("RifleLevelUp") < 1 && CheckInventory("DukeMuricaRifle1") == 1)
+			{
+				SetFont("SMALLFONT");
+				TakeInventory("CashMoney",400);
+				PlaySound(0,"misc/money",7,1.0,false,0);
+				HUDMessage(s: "Assault Rifle Level Up!"; HUDMSG_PLAIN, 777, CR_RED, 0.3, 0.3, 15);
+				GiveInventory("RifleLevelup",1);
+				GiveInventory("DukePickupTaunt",1);
+				GiveInventory("DukeMuricaRifle2",1);
+				if (StrIcmp(weapon, "DukeMuricaRifle1") == 0)
+				{
+					SetWeapon("DukeMuricaRifle2");
+				}
+				Delay(15);
+				TakeInventory("DukeMuricaRifle1",1);
+			}
+			else if (x > 109 && x < 167 && y < 69 && y > 27 && getplayerinput(-1, INPUT_BUTTONS) & BT_ATTACK && Checkinventory("Cashmoney") > 699 && CheckInventory("RifleLevelUp") < 2 && CheckInventory("DukeMuricaRifle2") == 1)
+			{
+				SetFont("SMALLFONT");
+				TakeInventory("CashMoney",700);
+				PlaySound(0,"misc/money",7,1.0,false,0);
+				HUDMessage(s: "Assault Rifle Level Up!"; HUDMSG_PLAIN, 777, CR_RED, 0.3, 0.3, 15);
+				GiveInventory("RifleLevelup",1);
+				GiveInventory("DukePickupTaunt",1);
+				GiveInventory("DukeMuricaRifle3",1);
+				if (StrIcmp(weapon, "DukeMuricaRifle2") == 0)
+				{
+					SetWeapon("DukeMuricaRifle3");
+				}
+				Delay(15);
+				TakeInventory("DukeMuricaRifle2",1);
+			}
+			else if (x > 109 && x < 167 && y < 69 && y > 27 && getplayerinput(-1, INPUT_BUTTONS) & BT_ATTACK && CheckInventory("RifleLevelUp") > 1)
+			{
+				SetFont("SMALLFONT");
+				PlaySound(0,"misc/nomoney",7,1.0,false,0);
+				HUDMessage(s: "Assault Rifle Maxed Out"; HUDMSG_PLAIN, 777, CR_RED, 0.3, 0.3, 15);
+				Delay(15);
+			}
+			else if (x > 109 && x < 167 && y < 69 && y > 27 && getplayerinput(-1, INPUT_BUTTONS) & BT_ATTACK && Checkinventory("Cashmoney") < 700 && CheckInventory("DukeMuricaRifle2") == 1)
+			{
+				SetFont("SMALLFONT");
+				PlaySound(0,"misc/nomoney",7,1.0,false,0);
+				HUDMessage(s: "Not enough money"; HUDMSG_PLAIN, 777, CR_RED, 0.3, 0.3, 15);
+				Delay(15);
+			}
+			else if (x > 109 && x < 167 && y < 69 && y > 27 && getplayerinput(-1, INPUT_BUTTONS) & BT_ATTACK && Checkinventory("Cashmoney") < 400 && CheckInventory("DukeMuricaRifle1") == 1)
+			{
+				SetFont("SMALLFONT");
+				PlaySound(0,"misc/nomoney",7,1.0,false,0);
+				HUDMessage(s: "Not enough money"; HUDMSG_PLAIN, 777, CR_RED, 0.3, 0.3, 15);
+				Delay(15);
+			}
+			else if (x > 109 && x < 167 && y < 69 && y > 27 && CheckInventory("RifleLevelUp") > 1)
+			{
+				SetFont("SMALLFONT");
+				HUDMessage(s: "Rifle Level 3/3"; HUDMSG_PLAIN, 777, CR_RED, 0.3, 0.3, 15);
+			}
+			else if (x > 109 && x < 167 && y < 69 && y > 27 && CheckInventory("DukeMuricaRifle2") == 1)
+			{
+				SetFont("SMALLFONT");
+				HUDMessage(s: "Grenade launcher Cost: 700: Level 2/3"; HUDMSG_PLAIN, 777, CR_RED, 0.3, 0.3, 15);
+			}
+			else if (x > 109 && x < 167 && y < 69 && y > 27 && CheckInventory("DukeMuricaRifle1") == 1)
+			{
+				SetFont("SMALLFONT");
+				HUDMessage(s: "Scope Cost: 400: Level 1/3"; HUDMSG_PLAIN, 777, CR_RED, 0.3, 0.3, 15);
+			}
+			else if (x > 230 && x < 297 && y < 154 && y > 111 && getplayerinput(-1, INPUT_BUTTONS) & BT_ATTACK && Checkinventory("Cashmoney") > 299 && CheckInventory("ChainsawLevelUp") < 1 && CheckInventory("DukeSaw1") == 1)
+			{
+				SetFont("SMALLFONT");
+				TakeInventory("CashMoney",300);
+				PlaySound(0,"misc/money",7,1.0,false,0);
+				HUDMessage(s: "Chainsaw Level Up!"; HUDMSG_PLAIN, 777, CR_RED, 0.3, 0.3, 15);
+				GiveInventory("ChainsawLevelup",1);
+				GiveInventory("DukePickupTaunt",1);
+				GiveInventory("DukeSaw2",1);
+				if (StrIcmp(weapon, "DukeSaw1") == 0)
+				{
+					SetWeapon("DukeSaw2");
+				}
+				Delay(15);
+				TakeInventory("DukeSaw1",1);
+			}
+			else if (x > 230 && x < 297 && y < 154 && y > 111 && getplayerinput(-1, INPUT_BUTTONS) & BT_ATTACK && Checkinventory("Cashmoney") > 599 && CheckInventory("ChainsawLevelUp") < 2 && CheckInventory("DukeSaw2") == 1)
+			{
+				SetFont("SMALLFONT");
+				TakeInventory("CashMoney",600);
+				PlaySound(0,"misc/money",7,1.0,false,0);
+				HUDMessage(s: "Chainsaw Level Up!"; HUDMSG_PLAIN, 777, CR_RED, 0.3, 0.3, 15);
+				GiveInventory("ChainsawLevelup",1);
+				GiveInventory("DukePickupTaunt",1);
+				GiveInventory("DukeSaw3",1);
+				if (StrIcmp(weapon, "DukeSaw2") == 0)
+				{
+					SetWeapon("DukeSaw3");
+				}
+				Delay(15);
+				TakeInventory("DukeSaw2",1);
+			}
+			else if (x > 230 && x < 297 && y < 154 && y > 111 && getplayerinput(-1, INPUT_BUTTONS) & BT_ATTACK && CheckInventory("ChainsawLevelUp") > 1)
+			{
+				SetFont("SMALLFONT");
+				PlaySound(0,"misc/nomoney",7,1.0,false,0);
+				HUDMessage(s: "Chainsaw Maxed Out"; HUDMSG_PLAIN, 777, CR_RED, 0.3, 0.3, 15);
+				Delay(15);
+			}
+			else if (x > 230 && x < 297 && y < 154 && y > 111 && getplayerinput(-1, INPUT_BUTTONS) & BT_ATTACK && Checkinventory("Cashmoney") < 600 && CheckInventory("DukeSaw2") == 1)
+			{
+				SetFont("SMALLFONT");
+				PlaySound(0,"misc/nomoney",7,1.0,false,0);
+				HUDMessage(s: "Not enough money"; HUDMSG_PLAIN, 777, CR_RED, 0.3, 0.3, 15);
+				Delay(15);
+			}
+			else if (x > 230 && x < 297 && y < 154 && y > 111 && getplayerinput(-1, INPUT_BUTTONS) & BT_ATTACK && Checkinventory("Cashmoney") < 300 && CheckInventory("DukeSaw1") == 1)
+			{
+				SetFont("SMALLFONT");
+				PlaySound(0,"misc/nomoney",7,1.0,false,0);
+				HUDMessage(s: "Not enough money"; HUDMSG_PLAIN, 777, CR_RED, 0.3, 0.3, 15);
+				Delay(15);
+			}
+			else if (x > 230 && x < 297 && y < 154 && y > 111 && CheckInventory("ChainsawLevelUp") > 1)
+			{
+				SetFont("SMALLFONT");
+				HUDMessage(s: "Chainsaw Level 3/3"; HUDMSG_PLAIN, 777, CR_RED, 0.3, 0.3, 15);
+			}
+			else if (x > 230 && x < 297 && y < 154 && y > 111 && CheckInventory("DukeSaw2") == 1)
+			{
+				SetFont("SMALLFONT");
+				HUDMessage(s: "Power Upgrade Cost: 600: Level 2/3"; HUDMSG_PLAIN, 777, CR_RED, 0.3, 0.3, 15);
+			}
+			else if (x > 230 && x < 297 && y < 154 && y > 111 && CheckInventory("DukeSaw1") == 1)
+			{
+				SetFont("SMALLFONT");
+				HUDMessage(s: "Swing Ability Cost: 300: Level 1/3"; HUDMSG_PLAIN, 777, CR_RED, 0.3, 0.3, 15);
+			}
+			else if (x > 167 && x < 293 && y < 69 && y > 27 && getplayerinput(-1, INPUT_BUTTONS) & BT_ATTACK && Checkinventory("Cashmoney") > 399 && CheckInventory("ShotgunLevelUp") < 1 && CheckInventory("DukeShotgun1") == 1)
+			{
+				SetFont("SMALLFONT");
+				TakeInventory("CashMoney",400);
+				PlaySound(0,"misc/money",7,1.0,false,0);
+				HUDMessage(s: "Shotgun Level Up!"; HUDMSG_PLAIN, 777, CR_RED, 0.3, 0.3, 15);
+				GiveInventory("ShotgunLevelup",1);
+				GiveInventory("DukePickupTaunt",1);
+				GiveInventory("DukeShotgun2",1);
+				if (StrIcmp(weapon, "DukeShotgun1") == 0)
+				{
+					SetWeapon("DukeShotgun2");
+				}
+				Delay(15);
+				TakeInventory("DukeShotgun1",1);
+			}
+			else if (x > 167 && x < 293 && y < 69 && y > 27 && getplayerinput(-1, INPUT_BUTTONS) & BT_ATTACK && Checkinventory("Cashmoney") > 599 && CheckInventory("ShotgunLevelUp") < 2 && CheckInventory("DukeShotgun2") == 1)
+			{
+				SetFont("SMALLFONT");
+				TakeInventory("CashMoney",600);
+				PlaySound(0,"misc/money",7,1.0,false,0);
+				HUDMessage(s: "Shotgun Level Up!"; HUDMSG_PLAIN, 777, CR_RED, 0.3, 0.3, 15);
+				GiveInventory("ShotgunLevelup",1);
+				GiveInventory("DukePickupTaunt",1);
+				GiveInventory("DukeShotgun3",1);
+				if (StrIcmp(weapon, "DukeShotgun2") == 0)
+				{
+					SetWeapon("DukeShotgun3");
+				}
+				Delay(15);
+				TakeInventory("DukeShotgun2",1);
+			}
+			else if (x > 167 && x < 293 && y < 69 && y > 27 && getplayerinput(-1, INPUT_BUTTONS) & BT_ATTACK && CheckInventory("ShotgunLevelUp") > 1)
+			{
+				SetFont("SMALLFONT");
+				PlaySound(0,"misc/nomoney",7,1.0,false,0);
+				HUDMessage(s: "Shotgun Maxed Out"; HUDMSG_PLAIN, 777, CR_RED, 0.3, 0.3, 15);
+				Delay(15);
+			}
+			else if (x > 167 && x < 293 && y < 69 && y > 27 && CheckInventory("ShotgunLevelUp") > 1)
+			{
+				SetFont("SMALLFONT");
+				HUDMessage(s: "Shotgun Level 3/3"; HUDMSG_PLAIN, 777, CR_RED, 0.3, 0.3, 15);
+			}
+			else if (x > 167 && x < 293 && y < 69 && y > 27 && getplayerinput(-1, INPUT_BUTTONS) & BT_ATTACK && Checkinventory("Cashmoney") < 500 && CheckInventory("DukeShotgun1") == 1)
+			{
+				SetFont("SMALLFONT");
+				PlaySound(0,"misc/nomoney",7,1.0,false,0);
+				HUDMessage(s: "Not enough money"; HUDMSG_PLAIN, 777, CR_RED, 0.3, 0.3, 15);
+				Delay(15);
+			}
+			else if (x > 167 && x < 293 && y < 69 && y > 27 && getplayerinput(-1, INPUT_BUTTONS) & BT_ATTACK && Checkinventory("Cashmoney") < 600 && CheckInventory("DukeShotgun2") == 1)
+			{
+				SetFont("SMALLFONT");
+				PlaySound(0,"misc/nomoney",7,1.0,false,0);
+				HUDMessage(s: "Not enough money"; HUDMSG_PLAIN, 777, CR_RED, 0.3, 0.3, 15);
+				Delay(15);
+			}
+			else if (x > 167 && x < 293 && y < 69 && y > 27 && CheckInventory("DukeShotgun1") == 1)
+			{
+				SetFont("SMALLFONT");
+				HUDMessage(s: "Accuracy Upgrade Cost: 400: Level 1/3"; HUDMSG_PLAIN, 777, CR_RED, 0.3, 0.3, 15);
+			}
+			else if (x > 167 && x < 293 && y < 69 && y > 27 && CheckInventory("DukeShotgun2") == 1)
+			{
+				SetFont("SMALLFONT");
+				HUDMessage(s: "Fire Rate Upgrade Cost: 600: Level 2/3"; HUDMSG_PLAIN, 777, CR_RED, 0.3, 0.3, 15);
+			}
+			else if (x > 96 && x < 230 && y < 154 && y > 111 && getplayerinput(-1, INPUT_BUTTONS) & BT_ATTACK && Checkinventory("Cashmoney") > 499 && CheckInventory("MinigunLevelUp") < 1 && CheckInventory("DukeMinigun1") == 1)
+			{
+				SetFont("SMALLFONT");
+				TakeInventory("CashMoney",500);
+				PlaySound(0,"misc/money",7,1.0,false,0);
+				HUDMessage(s: "Minigun Level Up!"; HUDMSG_PLAIN, 777, CR_RED, 0.3, 0.3, 15);
+				GiveInventory("MinigunLevelup",1);
+				GiveInventory("DukePickupTaunt",1);
+				GiveInventory("DukeMinigun2",1);
+				if (StrIcmp(weapon, "DukeMinigun1") == 0)
+				{
+					SetWeapon("DukeMinigun2");
+				}
+				Delay(15);
+				TakeInventory("DukeMinigun1",1);
+			}
+			else if (x > 96 && x < 230 && y < 154 && y > 111 && getplayerinput(-1, INPUT_BUTTONS) & BT_ATTACK && Checkinventory("Cashmoney") > 799 && CheckInventory("MinigunLevelUp") < 2 && CheckInventory("DukeMinigun2") == 1)
+			{
+				SetFont("SMALLFONT");
+				TakeInventory("CashMoney",800);
+				PlaySound(0,"misc/money",7,1.0,false,0);
+				HUDMessage(s: "Minigun Cannon Level Up!"; HUDMSG_PLAIN, 777, CR_RED, 0.3, 0.3, 15);
+				GiveInventory("MinigunLevelup",1);
+				GiveInventory("DukePickupTaunt",1);
+				GiveInventory("DukeMinigun3",1);
+				if (StrIcmp(weapon, "DukeMinigun2") == 0)
+				{
+					SetWeapon("DukeMinigun3");
+				}
+				Delay(15);
+				TakeInventory("DukeMinigun2",1);
+			}
+			else if (x > 96 && x < 230 && y < 154 && y > 111 && getplayerinput(-1, INPUT_BUTTONS) & BT_ATTACK && CheckInventory("MinigunLevelUp") > 1)
+			{
+				SetFont("SMALLFONT");
+				PlaySound(0,"misc/nomoney",7,1.0,false,0);
+				HUDMessage(s: "Minigun Cannon Maxed Out"; HUDMSG_PLAIN, 777, CR_RED, 0.3, 0.3, 15);
+				Delay(15);
+			}
+			else if (x > 96 && x < 230 && y < 154 && y > 111 && getplayerinput(-1, INPUT_BUTTONS) & BT_ATTACK && Checkinventory("Cashmoney") < 800 && CheckInventory("DukeMinigun2") == 1)
+			{
+				SetFont("SMALLFONT");
+				PlaySound(0,"misc/nomoney",7,1.0,false,0);
+				HUDMessage(s: "Not enough money"; HUDMSG_PLAIN, 777, CR_RED, 0.3, 0.3, 15);
+				Delay(15);
+			}
+			else if (x > 96 && x < 230 && y < 154 && y > 111 && getplayerinput(-1, INPUT_BUTTONS) & BT_ATTACK && Checkinventory("Cashmoney") < 500 && CheckInventory("DukeMinigun1") == 1)
+			{
+				SetFont("SMALLFONT");
+				PlaySound(0,"misc/nomoney",7,1.0,false,0);
+				HUDMessage(s: "Not enough money"; HUDMSG_PLAIN, 777, CR_RED, 0.3, 0.3, 15);
+				Delay(15);
+			}
+			else if (x > 96 && x < 230 && y < 154 && y > 111 && CheckInventory("DukeMinigun3") == 1)
+			{
+				SetFont("SMALLFONT");
+				HUDMessage(s: "Minigun Cannon Level 3/3"; HUDMSG_PLAIN, 777, CR_RED, 0.3, 0.3, 15);
+			}
+			else if (x > 96 && x < 230 && y < 154 && y > 111 && CheckInventory("DukeMinigun2") == 1)
+			{
+				SetFont("SMALLFONT");
+				HUDMessage(s: "Power Upgrade Cost: 800: Level 2/3"; HUDMSG_PLAIN, 777, CR_RED, 0.3, 0.3, 15);
+			}
+			else if (x > 96 && x < 230 && y < 154 && y > 111 && CheckInventory("DukeMinigun1") == 1)
+			{
+				SetFont("SMALLFONT");
+				HUDMessage(s: "Speed Upgrade Cost: 500: Level 1/3"; HUDMSG_PLAIN, 777, CR_RED, 0.3, 0.3, 15);
+			}
+			else if (x > 31 && x < 89 && y < 114 && y > 69 && getplayerinput(-1, INPUT_BUTTONS) & BT_ATTACK && Checkinventory("Cashmoney") > 299 && CheckInventory("MightyFootLevelUp") < 1)
+			{
+				SetFont("SMALLFONT");
+				TakeInventory("CashMoney",300);
+				PlaySound(0,"misc/money",7,1.0,false,0);
+				HUDMessage(s: "Mighty Foot Level Up!"; HUDMSG_PLAIN, 777, CR_RED, 0.3, 0.3, 15);
+				GiveInventory("MightyFootLevelup2",1);
+				TakeInventory("MightyFootLevelup1",1);
+				GiveInventory("MightyFootLevelup",1);
+				GiveInventory("DukePickupTaunt",1);
+				SetAirControl(0.7);
+				Delay(15);
+				TakeInventory("MightyFoot1",1);
+			}
+			else if (x > 31 && x < 89 && y < 114 && y > 69 && getplayerinput(-1, INPUT_BUTTONS) & BT_ATTACK && Checkinventory("Cashmoney") > 499 && CheckInventory("MightyFootLevelUp") < 2)
+			{
+				SetFont("SMALLFONT");
+				TakeInventory("CashMoney",500);
+				PlaySound(0,"misc/money",7,1.0,false,0);
+				HUDMessage(s: "Mighty Foot Level Up!"; HUDMSG_PLAIN, 777, CR_RED, 0.3, 0.3, 15);
+				GiveInventory("MightyFootLevelup3",1);
+				TakeInventory("MightyFootLevelup2",1);
+				GiveInventory("MightyFootLevelup",1);
+				GiveInventory("DukePickupTaunt",1);
+				SetAirControl(1.0);
+				Delay(15);
+				TakeInventory("MightyFoot2",1);
+			}
+			else if (x > 31 && x < 89 && y < 114 && y > 69 && getplayerinput(-1, INPUT_BUTTONS) & BT_ATTACK && CheckInventory("MightyFootLevelUp") > 1)
+			{
+				SetFont("SMALLFONT");
+				PlaySound(0,"misc/nomoney",7,1.0,false,0);
+				HUDMessage(s: "Mighty Foot Maxed Out"; HUDMSG_PLAIN, 777, CR_RED, 0.3, 0.3, 15);
+				Delay(15);
+			}
+			else if (x > 31 && x < 89 && y < 114 && y > 69 && getplayerinput(-1, INPUT_BUTTONS) & BT_ATTACK && Checkinventory("Cashmoney") < 300)
+			{
+				SetFont("SMALLFONT");
+				PlaySound(0,"misc/nomoney",7,1.0,false,0);
+				HUDMessage(s: "Not enough money"; HUDMSG_PLAIN, 777, CR_RED, 0.3, 0.3, 15);
+				Delay(15);
+			}
+			else if (x > 31 && x < 89 && y < 114 && y > 69 && getplayerinput(-1, INPUT_BUTTONS) & BT_ATTACK && Checkinventory("Cashmoney") < 500 && CheckInventory("MightyFootLevelUp") == 1)
+			{
+				SetFont("SMALLFONT");
+				PlaySound(0,"misc/nomoney",7,1.0,false,0);
+				HUDMessage(s: "Not enough money"; HUDMSG_PLAIN, 777, CR_RED, 0.3, 0.3, 15);
+				Delay(15);
+			}
+			else if (x > 31 && x < 89 && y < 114 && y > 69 && CheckInventory("MightyFootLevelUp") == 2)
+			{
+				SetFont("SMALLFONT");
+				HUDMessage(s: "Mighty Foot Level 3/3"; HUDMSG_PLAIN, 777, CR_RED, 0.3, 0.3, 15);
+			}
+			else if (x > 31 && x < 89 && y < 114 && y > 69 && CheckInventory("MightyFootLevelUp") == 1)
+			{
+				SetFont("SMALLFONT");
+				HUDMessage(s: "Power/Jump Up Cost: 500: Level 2/3"; HUDMSG_PLAIN, 777, CR_RED, 0.3, 0.3, 15);
+			}
+			else if (x > 31 && x < 89 && y < 114 && y > 69)
+			{
+				SetFont("SMALLFONT");
+				HUDMessage(s: "Knockback/Jump Up Cost: 300: Level 1/3"; HUDMSG_PLAIN, 777, CR_RED, 0.3, 0.3, 15);
+			}
+			else if (x > 89 && x < 178 && y < 111 && y > 69 && getplayerinput(-1, INPUT_BUTTONS) & BT_ATTACK && Checkinventory("Cashmoney") > 599 && CheckInventory("DukeRL1") == 1 && CheckInventory("RPGLevelUp") < 1)
+			{
+				SetFont("SMALLFONT");
+				TakeInventory("CashMoney",600);
+				PlaySound(0,"misc/money",7,1.0,false,0);
+				HUDMessage(s: "RPG Level Up!"; HUDMSG_PLAIN, 777, CR_RED, 0.3, 0.3, 15);
+				GiveInventory("RPGLevelup",1);
+				GiveInventory("DukePickupTaunt",1);
+				GiveInventory("DukeRL2",1);
+				if (StrIcmp(weapon, "DukeRL1") == 0)
+				{
+					SetWeapon("DukeRL2");
+				}
+				Delay(15);
+				TakeInventory("DukeRL1",1);
+			}
+			else if (x > 89 && x < 178 && y < 111 && y > 69 && getplayerinput(-1, INPUT_BUTTONS) & BT_ATTACK && Checkinventory("Cashmoney") > 699 && CheckInventory("RPGLevelUp") < 2 && CheckInventory("DukeRL2") == 1)
+			{
+				SetFont("SMALLFONT");
+				TakeInventory("CashMoney",700);
+				PlaySound(0,"misc/money",7,1.0,false,0);
+				HUDMessage(s: "RPG Level Up!"; HUDMSG_PLAIN, 777, CR_RED, 0.3, 0.3, 15);
+				GiveInventory("RPGLevelup",1);
+				GiveInventory("DukePickupTaunt",1);
+				GiveInventory("DukeRL3",1);
+				if (StrIcmp(weapon, "DukeRL2") == 0)
+				{
+					SetWeapon("DukeRL3");
+				}
+				Delay(15);
+				TakeInventory("DukeRL2",1);
+			}
+			else if (x > 89 && x < 178 && y < 111 && y > 69 && getplayerinput(-1, INPUT_BUTTONS) & BT_ATTACK && CheckInventory("RPGLevelUp") > 1)
+			{
+				SetFont("SMALLFONT");
+				PlaySound(0,"misc/nomoney",7,1.0,false,0);
+				HUDMessage(s: "RPG Maxed Out"; HUDMSG_PLAIN, 777, CR_RED, 0.3, 0.3, 15);
+				Delay(15);
+			}
+			else if (x > 89 && x < 178 && y < 111 && y > 69 && getplayerinput(-1, INPUT_BUTTONS) & BT_ATTACK && Checkinventory("Cashmoney") < 700 && CheckInventory("DukeRL2") == 1)
+			{
+				SetFont("SMALLFONT");
+				PlaySound(0,"misc/nomoney",7,1.0,false,0);
+				HUDMessage(s: "Not enough money"; HUDMSG_PLAIN, 777, CR_RED, 0.3, 0.3, 15);
+				Delay(15);
+			}
+			else if (x > 89 && x < 178 && y < 111 && y > 69 && getplayerinput(-1, INPUT_BUTTONS) & BT_ATTACK && Checkinventory("Cashmoney") < 600 && CheckInventory("DukeRL1") == 1)
+			{
+				SetFont("SMALLFONT");
+				PlaySound(0,"misc/nomoney",7,1.0,false,0);
+				HUDMessage(s: "Not enough money"; HUDMSG_PLAIN, 777, CR_RED, 0.3, 0.3, 15);
+				Delay(15);
+			}
+			else if (x > 89 && x < 178 && y < 111 && y > 69 && CheckInventory("DukeRL3") == 1)
+			{
+				SetFont("SMALLFONT");
+				HUDMessage(s: "RPG Level 3/3"; HUDMSG_PLAIN, 777, CR_RED, 0.3, 0.3, 15);
+			}
+			else if (x > 89 && x < 178 && y < 111 && y > 69 && CheckInventory("DukeRL2") == 1)
+			{
+				SetFont("SMALLFONT");
+				HUDMessage(s: "Cluster Altfire Cost: 700: Level 2/3"; HUDMSG_PLAIN, 777, CR_RED, 0.3, 0.3, 15);
+			}
+			else if (x > 89 && x < 178 && y < 111 && y > 69 && CheckInventory("DukeRL1") == 1)
+			{
+				SetFont("SMALLFONT");
+				HUDMessage(s: "Rocket Speed Up Cost: 600: Level 1/3"; HUDMSG_PLAIN, 777, CR_RED, 0.3, 0.3, 15);
+			}
+			else if (x > 178 && x < 237 && y < 111 && y > 69 && getplayerinput(-1, INPUT_BUTTONS) & BT_ATTACK && Checkinventory("Cashmoney") > 699 && CheckInventory("DukePlasmaGun1") == 1 && CheckInventory("PlasmaLevelUp") < 1)
+			{
+				SetFont("SMALLFONT");
+				TakeInventory("CashMoney",900);
+				PlaySound(0,"misc/money",7,1.0,false,0);
+				HUDMessage(s: "Plasma Gun Level Up!"; HUDMSG_PLAIN, 777, CR_RED, 0.3, 0.3, 15);
+				GiveInventory("PlasmaLevelup",1);
+				GiveInventory("DukePickupTaunt",1);
+				GiveInventory("DukePlasmaGun2",1);
+				if (StrIcmp(weapon, "DukePlasmaGun1") == 0)
+				{
+					SetWeapon("DukePlasmaGun2");
+				}
+				Delay(15);
+				TakeInventory("DukePlasmaGun1",1);
+			}
+			else if (x > 178 && x < 237 && y < 111 && y > 69 && getplayerinput(-1, INPUT_BUTTONS) & BT_ATTACK && Checkinventory("Cashmoney") > 899 && CheckInventory("PlasmaLevelUp") < 2 && CheckInventory("DukePlasmaGun2") == 1)
+			{
+				SetFont("SMALLFONT");
+				TakeInventory("CashMoney",900);
+				PlaySound(0,"misc/money",7,1.0,false,0);
+				HUDMessage(s: "Plasma Gun Level Up!"; HUDMSG_PLAIN, 777, CR_RED, 0.3, 0.3, 15);
+				GiveInventory("PlasmaLevelup",1);
+				GiveInventory("DukePickupTaunt",1);
+				GiveInventory("DukePlasmaGun3",1);
+				if (StrIcmp(weapon, "DukePlasmaGun2") == 0)
+				{
+					SetWeapon("DukePlasmaGun3");
+				}
+				Delay(15);
+				TakeInventory("DukePlasmaGun2",1);
+			}
+			else if (x > 178 && x < 237 && y < 111 && y > 69 && getplayerinput(-1, INPUT_BUTTONS) & BT_ATTACK && CheckInventory("PlasmaLevelUp") > 1)
+			{
+				SetFont("SMALLFONT");
+				PlaySound(0,"misc/nomoney",7,1.0,false,0);
+				HUDMessage(s: "Plasma Gun Maxed Out"; HUDMSG_PLAIN, 777, CR_RED, 0.3, 0.3, 15);
+				Delay(15);
+			}
+			else if (x > 178 && x < 237 && y < 111 && y > 69 && getplayerinput(-1, INPUT_BUTTONS) & BT_ATTACK && Checkinventory("Cashmoney") < 900 && CheckInventory("DukePlasmaGun2") == 1)
+			{
+				SetFont("SMALLFONT");
+				PlaySound(0,"misc/nomoney",7,1.0,false,0);
+				HUDMessage(s: "Not enough money"; HUDMSG_PLAIN, 777, CR_RED, 0.3, 0.3, 15);
+				Delay(15);
+			}
+			else if (x > 178 && x < 237 && y < 111 && y > 69 && getplayerinput(-1, INPUT_BUTTONS) & BT_ATTACK && Checkinventory("Cashmoney") < 700 && CheckInventory("DukePlasmaGun1") == 1)
+			{
+				SetFont("SMALLFONT");
+				PlaySound(0,"misc/nomoney",7,1.0,false,0);
+				HUDMessage(s: "Not enough money"; HUDMSG_PLAIN, 777, CR_RED, 0.3, 0.3, 15);
+				Delay(15);
+			}
+			else if (x > 178 && x < 237 && y < 111 && y > 69 && CheckInventory("DukePlasmaGun3") == 1)
+			{
+				SetFont("SMALLFONT");
+				HUDMessage(s: "Plasma Gun Level 3/3"; HUDMSG_PLAIN, 777, CR_RED, 0.3, 0.3, 15);
+			}
+			else if (x > 178 && x < 237 && y < 111 && y > 69 && CheckInventory("DukePlasmaGun2") == 1)
+			{
+				SetFont("SMALLFONT");
+				HUDMessage(s: "No Self Damage Cost: 900 : Level 2/3"; HUDMSG_PLAIN, 777, CR_RED, 0.3, 0.3, 15);
+			}
+			else if (x > 178 && x < 237 && y < 111 && y > 69 && CheckInventory("DukePlasmaGun1") == 1)
+			{
+				SetFont("SMALLFONT");
+				HUDMessage(s: "Projectile Speed Upgrade Cost: 700 : Level 1/3"; HUDMSG_PLAIN, 777, CR_RED, 0.3, 0.3, 15);
+			}
+			else
+			{
+				SetFont("SMALLFONT");
+				HUDMessage(s: " "; HUDMSG_PLAIN, 777, CR_YELLOW, 0.3, 0.3, 15);
+			}
+		}
+        // debug: print mouse coords
+        /*int heh = 0;
+        if (heh)
+        {*/
+        //SetFont("SmallFont");
+        //Print(d: x, s: "/", d: y);
+        //}
+
+        Delay(1);
+    }
+}
+
+script "Script_MouseLoopEquip" (void)
+{
+    // initialize cursor X and Y
+    int x = UI_RES_WIDTH / 2;
+    int y = UI_RES_HEIGHT / 2;
+    int dx;
+    int dy;
+
+    // mouse sensitivity multiplier
+    int xSensitivity = 0.7;
+    int ySensitivity = 0.7;
+	x = 160;
+	y = 100;
+    while (TRUE)
+    {
+        // poll player input
+        dx = FixedMul(xSensitivity, GetPlayerInput(-1, INPUT_YAW)) / 24;
+        x -= dx;
+        
+        dy = FixedMul(ySensitivity, GetPlayerInput(-1, INPUT_PITCH)) / 12;
+        if (!GetCVar("invertmouse"))
+            y -= dy;
+        else
+            y += dy;
+
+        // draw mouse cursor on screen
+        SetHUDSize(320, 200, 1);
+        SetFont("zcursor");
+        HUDMessage(s: "A"; HUDMSG_PLAIN, HMID_MOUSECURSOR, CR_UNTRANSLATED, (x << 16) + 0.1, (y << 16) + 0.1, HUDMSG_TIC);
+		{
+			int i, new_cap1;
+			int j, new_cap2;
+			int k, new_cap3;
+			int l, new_cap4;
+			int m, new_cap5;
+			int n, new_cap6;
+			str weapon = GetWeapon();
+			if (x > 320)
+			{
+				x = 320;
+				Delay(1);
+			}
+			if (x < 1)
+			{
+				x = 1;
+				Delay(1);
+			}
+			if (y > 200)
+			{
+				y = 200;
+				Delay(1);
+			}
+			if (y < 1)
+			{
+				y = 1;
+				Delay(1);
+			}
+			if (x > 32 && x < 87 && y < 135 && y > 69 && getplayerinput(-1, INPUT_BUTTONS) & BT_ATTACK && Checkinventory("Cashmoney") > 199 && Checkinventory("HammerSpaceCounter") < 10)
+			{
+				SetFont("SMALLFONT");
+				TakeInventory("CashMoney",200);
+				PlaySound(0,"misc/money",7,1.0,false,0);
+				GiveInventory("HammerSpaceCounter", 1);
+				HUDMessage(s: "Ammo Capacity Up!"; HUDMSG_PLAIN, 777, CR_GREEN, 0.3, 0.3, 15);
+				new_cap1 = GetAmmoCapacity("DukePistolClip");
+				new_cap1 += (24);
+				SetAmmoCapacity("DukePistolClip", new_cap1);
+				new_cap2 = GetAmmoCapacity("DukeMuricaClip");
+				new_cap2 += (70);
+				SetAmmoCapacity("DukeMuricaClip", new_cap2);
+				new_cap3 = GetAmmoCapacity("DukeShell");
+				new_cap3 += (8);
+				SetAmmoCapacity("DukeShell", new_cap3);
+				new_cap4 = GetAmmoCapacity("DukeMinigunClip");
+				new_cap4 += (120);
+				SetAmmoCapacity("DukeMinigunClip", new_cap4);
+				new_cap5 = GetAmmoCapacity("DukeRocketClip");
+				new_cap5 += (6);
+				SetAmmoCapacity("DukeRocketClip", new_cap5);
+				new_cap5 = GetAmmoCapacity("DukePlasmaClip");
+				new_cap5 += (4);
+				SetAmmoCapacity("DukePlasmaClip", new_cap5);
+				Delay(15);
+			}
+			else if (x > 32 && x < 87 && y < 135 && y > 69 && getplayerinput(-1, INPUT_BUTTONS) & BT_ATTACK && Checkinventory("HammerSpaceCounter") == 10)
+			{
+				SetFont("SMALLFONT");
+				PlaySound(0,"misc/nomoney",7,1.0,false,0);
+				HUDMessage(s: "Ammo Cap Maxed Out"; HUDMSG_PLAIN, 777, CR_GREEN, 0.3, 0.3, 15);
+				Delay(15);
+			}
+			else if (x > 32 && x < 87 && y < 135 && y > 69 && getplayerinput(-1, INPUT_BUTTONS) & BT_ATTACK && Checkinventory("Cashmoney") < 200)
+			{
+				SetFont("SMALLFONT");
+				PlaySound(0,"misc/nomoney",7,1.0,false,0);
+				HUDMessage(s: "Not enough money"; HUDMSG_PLAIN, 777, CR_GREEN, 0.3, 0.3, 15);
+				Delay(15);
+			}
+			/*else if (x > 32 && x < 87 && y < 135 && y > 69 && Checkinventory("HammerSpaceCounter") == 10)
+			{
+				SetFont("SMALLFONT");
+				HUDMessage(s: "Ammo Cap Maxed Out"; HUDMSG_PLAIN, 777, CR_GREEN, 0.3, 0.3, 15);
+			}*/
+			else if (x > 32 && x < 87 && y < 135 && y > 69)
+			{
+				SetFont("SMALLFONT");
+				HUDMessage(s: "Ammo Upgrade (10%) Cost: 200: Level ",d:CheckInventory("HammerSpaceCounter"),s: "/10"; HUDMSG_PLAIN, 777, CR_GREEN, 0.3, 0.3, 15);
+			}
+			else if (x > 87 && x < 135 && y < 135 && y > 53 && getplayerinput(-1, INPUT_BUTTONS) & BT_ATTACK && Checkinventory("Cashmoney") > 299 && Checkinventory("ArmorCounter") < 5)
+			{
+				SetFont("SMALLFONT");
+				TakeInventory("CashMoney",300);
+				PlaySound(0,"misc/money",7,1.0,false,0);
+				GiveInventory("ArmorCounter", 1);
+				HUDMessage(s: "Armor Up!"; HUDMSG_PLAIN, 777, CR_GREEN, 0.3, 0.3, 15);
+				SetActorProperty(0,APROP_DAMAGEFACTOR,(GetActorProperty(0,APROP_DAMAGEFACTOR) - 0.1));
+				Delay(15);
+			}
+			else if (x > 87 && x < 135 && y < 135 && y > 53 && getplayerinput(-1, INPUT_BUTTONS) & BT_ATTACK && Checkinventory("ArmorCounter") == 5)
+			{
+				SetFont("SMALLFONT");
+				PlaySound(0,"misc/nomoney",7,1.0,false,0);
+				HUDMessage(s: "Armor Maxed Out"; HUDMSG_PLAIN, 777, CR_GREEN, 0.3, 0.3, 15);
+				Delay(15);
+			}
+			else if (x > 87 && x < 135 && y < 135 && y > 53 && getplayerinput(-1, INPUT_BUTTONS) & BT_ATTACK && Checkinventory("Cashmoney") < 600)
+			{
+				SetFont("SMALLFONT");
+				PlaySound(0,"misc/nomoney",7,1.0,false,0);
+				HUDMessage(s: "Not enough money"; HUDMSG_PLAIN, 777, CR_GREEN, 0.3, 0.3, 15);
+				Delay(15);
+			}
+			/*else if (x > 87 && x < 135 && y < 135 && y > 53 && Checkinventory("ArmorCounter") == 5)
+			{
+				SetFont("SMALLFONT");
+				HUDMessage(s: "Armor Maxed Out"; HUDMSG_PLAIN, 777, CR_GREEN, 0.3, 0.3, 15);
+			}*/
+			else if (x > 87 && x < 135 && y < 135 && y > 53)
+			{
+				SetFont("SMALLFONT");
+				HUDMessage(s: "Armor Upgrade (10%) Cost: 300: Level ",d:CheckInventory("ArmorCounter"),s: "/5"; HUDMSG_PLAIN, 777, CR_GREEN, 0.3, 0.3, 15);
+			}
+			else if (x > 145 && x < 206 && y < 135 && y > 53 && getplayerinput(-1, INPUT_BUTTONS) & BT_ATTACK && Checkinventory("Cashmoney") > 299 && Checkinventory("HupCounter") < 1)
+			{
+				SetFont("SMALLFONT");
+				TakeInventory("CashMoney",300);
+				PlaySound(0,"misc/money",7,1.0,false,0);
+				GiveInventory("HupCounter", 1);
+				HUDMessage(s: "Health Up!"; HUDMSG_PLAIN, 777, CR_GREEN, 0.3, 0.3, 15);
+				SetActorProperty(0,APROP_SPAWNHEALTH,GetActorProperty(0,APROP_SPAWNHEALTH) + 110);
+				Delay(15);
+			}
+			else if (x > 145 && x < 206 && y < 135 && y > 53 && getplayerinput(-1, INPUT_BUTTONS) & BT_ATTACK && Checkinventory("Cashmoney") > 299 && Checkinventory("HupCounter") < 10)
+			{
+				SetFont("SMALLFONT");
+				TakeInventory("CashMoney",300);
+				PlaySound(0,"misc/money",7,1.0,false,0);
+				GiveInventory("HupCounter", 1);
+				HUDMessage(s: "Health Up!"; HUDMSG_PLAIN, 777, CR_GREEN, 0.3, 0.3, 15);
+				SetActorProperty(0,APROP_SPAWNHEALTH,GetActorProperty(0,APROP_SPAWNHEALTH) + 10);
+				Delay(15);
+			}
+			else if (x > 145 && x < 206 && y < 135 && y > 53 && getplayerinput(-1, INPUT_BUTTONS) & BT_ATTACK && Checkinventory("HupCounter") == 10)
+			{
+				SetFont("SMALLFONT");
+				PlaySound(0,"misc/nomoney",7,1.0,false,0);
+				HUDMessage(s: "Health Maxed Out"; HUDMSG_PLAIN, 777, CR_GREEN, 0.3, 0.3, 15);
+				Delay(15);
+			}
+			else if (x > 145 && x < 206 && y < 135 && y > 53 && getplayerinput(-1, INPUT_BUTTONS) & BT_ATTACK && Checkinventory("Cashmoney") < 600)
+			{
+				SetFont("SMALLFONT");
+				PlaySound(0,"misc/nomoney",7,1.0,false,0);
+				HUDMessage(s: "Not enough money"; HUDMSG_PLAIN, 777, CR_GREEN, 0.3, 0.3, 15);
+				Delay(15);
+			}
+			/*else if (x > 145 && x < 206 && y < 135 && y > 53 && Checkinventory("HupCounter") == 10)
+			{
+				SetFont("SMALLFONT");
+				HUDMessage(s: "Health Maxed Out"; HUDMSG_PLAIN, 777, CR_GREEN, 0.3, 0.3, 15);
+			}*/
+			else if (x > 145 && x < 206 && y < 135 && y > 53)
+			{
+				SetFont("SMALLFONT");
+				HUDMessage(s: "Health Upgrade (10) Cost: 300: Level ",d:CheckInventory("HupCounter"),s: "/10"; HUDMSG_PLAIN, 777, CR_GREEN, 0.3, 0.3, 15);
+			}
+			else
+			{
+				SetFont("SMALLFONT");
+				HUDMessage(s: " "; HUDMSG_PLAIN, 777, CR_YELLOW, 0.3, 0.3, 15);
+			}
+		}
+        // debug: print mouse coords
+        /*int heh = 0;
+        if (heh)
+        {*/
+        //SetFont("SmallFont");
+        //Print(d: x, s: "/", d: y);
+        //}
+
+        Delay(1);
+    }
+}
+
+script "Script_MouseLoopPUp" (void)
+{
+    // initialize cursor X and Y
+    int x = UI_RES_WIDTH / 2;
+    int y = UI_RES_HEIGHT / 2;
+    int dx;
+    int dy;
+
+    // mouse sensitivity multiplier
+    int xSensitivity = 0.7;
+    int ySensitivity = 0.7;
+	x = 160;
+	y = 100;
+    while (TRUE)
+    {
+        // poll player input
+        dx = FixedMul(xSensitivity, GetPlayerInput(-1, INPUT_YAW)) / 24;
+        x -= dx;
+        
+        dy = FixedMul(ySensitivity, GetPlayerInput(-1, INPUT_PITCH)) / 12;
+        if (!GetCVar("invertmouse"))
+            y -= dy;
+        else
+            y += dy;
+
+        // draw mouse cursor on screen
+        SetHUDSize(320, 200, 1);
+        SetFont("zcursor");
+        HUDMessage(s: "A"; HUDMSG_PLAIN, HMID_MOUSECURSOR, CR_UNTRANSLATED, (x << 16) + 0.1, (y << 16) + 0.1, HUDMSG_TIC);
+		{
+			int i, new_cap1;
+			int j, new_cap2;
+			int k, new_cap3;
+			int l, new_cap4;
+			int m, new_cap5;
+			int n, new_cap6;
+			str weapon = GetWeapon();
+			if (x > 320)
+			{
+				x = 320;
+				Delay(1);
+			}
+			if (x < 1)
+			{
+				x = 1;
+				Delay(1);
+			}
+			if (y > 200)
+			{
+				y = 200;
+				Delay(1);
+			}
+			if (y < 1)
+			{
+				y = 1;
+				Delay(1);
+			}
+			if (x > 51 && x < 274 && y < 100 && y > 70 && getplayerinput(-1, INPUT_BUTTONS) & BT_ATTACK && Checkinventory("Cashmoney") > 699 && Checkinventory("JetBoots") < 1)
+			{
+				SetFont("SMALLFONT");
+				TakeInventory("CashMoney",700);
+				PlaySound(0,"misc/money",7,1.0,false,0);
+				GiveInventory("JetBoots", 1);
+				HUDMessage(s: "Rocket Boots"; HUDMSG_PLAIN, 777, CR_YELLOW, 0.3, 0.3, 15);
+				Delay(15);
+			}
+			else if (x > 51 && x < 274 && y < 100 && y > 70 && getplayerinput(-1, INPUT_BUTTONS) & BT_ATTACK && Checkinventory("JetBoots") == 1)
+			{
+				SetFont("SMALLFONT");
+				PlaySound(0,"misc/nomoney",7,1.0,false,0);
+				HUDMessage(s: "Jet Boots Full"; HUDMSG_PLAIN, 777, CR_YELLOW, 0.3, 0.3, 15);
+				Delay(15);
+			}
+			else if (x > 51 && x < 274 && y < 100 && y > 70 && getplayerinput(-1, INPUT_BUTTONS) & BT_ATTACK && Checkinventory("Cashmoney") < 700)
+			{
+				SetFont("SMALLFONT");
+				PlaySound(0,"misc/nomoney",7,1.0,false,0);
+				HUDMessage(s: "Not enough money"; HUDMSG_PLAIN, 777, CR_YELLOW, 0.3, 0.3, 15);
+				Delay(15);
+			}
+			else if (x > 51 && x < 274 && y < 100 && y > 70)
+			{
+				SetFont("SMALLFONT");
+				HUDMessage(s: "Cost: 1000"; HUDMSG_PLAIN, 777, CR_YELLOW, 0.3, 0.3, 15);
+			}
+			else if (x > 51 && x < 274 && y < 132 && y > 102 && getplayerinput(-1, INPUT_BUTTONS) & BT_ATTACK && Checkinventory("Cashmoney") > 99 && Checkinventory("AntiRadBoots") < 1)
+			{
+				SetFont("SMALLFONT");
+				TakeInventory("CashMoney",100);
+				PlaySound(0,"misc/money",7,1.0,false,0);
+				GiveInventory("AntiRadBoots", 1);
+				HUDMessage(s: "AntiRad Boots"; HUDMSG_PLAIN, 777, CR_YELLOW, 0.3, 0.3, 15);
+				Delay(15);
+			}
+			else if (x > 51 && x < 274 && y < 132 && y > 102 && getplayerinput(-1, INPUT_BUTTONS) & BT_ATTACK && Checkinventory("AntiRadBoots") == 1)
+			{
+				SetFont("SMALLFONT");
+				PlaySound(0,"misc/nomoney",7,1.0,false,0);
+				HUDMessage(s: "AntiRad Boots Full"; HUDMSG_PLAIN, 777, CR_YELLOW, 0.3, 0.3, 15);
+				Delay(15);
+			}
+			else if (x > 51 && x < 274 && y < 132 && y > 102 && getplayerinput(-1, INPUT_BUTTONS) & BT_ATTACK && Checkinventory("Cashmoney") < 100)
+			{
+				SetFont("SMALLFONT");
+				PlaySound(0,"misc/nomoney",7,1.0,false,0);
+				HUDMessage(s: "Not enough money"; HUDMSG_PLAIN, 777, CR_YELLOW, 0.3, 0.3, 15);
+				Delay(15);
+			}
+			else if (x > 51 && x < 274 && y < 132 && y > 102)
+			{
+				SetFont("SMALLFONT");
+				HUDMessage(s: "Cost: 100"; HUDMSG_PLAIN, 777, CR_YELLOW, 0.3, 0.3, 15);
+			}
+			else if (x > 51 && x < 274 && y < 164 && y > 134 && getplayerinput(-1, INPUT_BUTTONS) & BT_ATTACK && Checkinventory("Cashmoney") > 199 && Checkinventory("SpeedBoots") < 1)
+			{
+				SetFont("SMALLFONT");
+				TakeInventory("CashMoney",200);
+				PlaySound(0,"misc/money",7,1.0,false,0);
+				GiveInventory("SpeedBoots", 1);
+				HUDMessage(s: "Speed Boots"; HUDMSG_PLAIN, 777, CR_YELLOW, 0.3, 0.3, 15);
+				Delay(15);
+			}
+			else if (x > 51 && x < 274 && y < 164 && y > 134 && getplayerinput(-1, INPUT_BUTTONS) & BT_ATTACK && Checkinventory("SpeedBoots") == 1)
+			{
+				SetFont("SMALLFONT");
+				PlaySound(0,"misc/nomoney",7,1.0,false,0);
+				HUDMessage(s: "Speed Boots Full"; HUDMSG_PLAIN, 777, CR_YELLOW, 0.3, 0.3, 15);
+				Delay(15);
+			}
+			else if (x > 51 && x < 274 && y < 164 && y > 134 && getplayerinput(-1, INPUT_BUTTONS) & BT_ATTACK && Checkinventory("Cashmoney") < 300)
+			{
+				SetFont("SMALLFONT");
+				PlaySound(0,"misc/nomoney",7,1.0,false,0);
+				HUDMessage(s: "Not enough money"; HUDMSG_PLAIN, 777, CR_YELLOW, 0.3, 0.3, 15);
+				Delay(15);
+			}
+			else if (x > 51 && x < 274 && y < 164 && y > 134)
+			{
+				SetFont("SMALLFONT");
+				HUDMessage(s: "Cost: 200"; HUDMSG_PLAIN, 777, CR_YELLOW, 0.3, 0.3, 15);
+			}
+			else if (x > 51 && x < 274 && y < 197 && y > 166 && getplayerinput(-1, INPUT_BUTTONS) & BT_ATTACK && Checkinventory("Cashmoney") > 99 && Checkinventory("ArtiGum") < 25)
+			{
+				SetFont("SMALLFONT");
+				TakeInventory("CashMoney",100);
+				PlaySound(0,"misc/money",7,1.0,false,0);
+				GiveInventory("ArtiGum", 1);
+				HUDMessage(s: "Kick Ass Bubble Gum"; HUDMSG_PLAIN, 777, CR_YELLOW, 0.3, 0.3, 15);
+				Delay(15);
+			}
+			else if (x > 51 && x < 274 && y < 197 && y > 166 && getplayerinput(-1, INPUT_BUTTONS) & BT_ATTACK && Checkinventory("ArtiGum") == 25)
+			{
+				SetFont("SMALLFONT");
+				PlaySound(0,"misc/nomoney",7,1.0,false,0);
+				HUDMessage(s: "Bubble Gum Full"; HUDMSG_PLAIN, 777, CR_YELLOW, 0.3, 0.3, 15);
+				Delay(15);
+			}
+			else if (x > 51 && x < 274 && y < 197 && y > 166 && getplayerinput(-1, INPUT_BUTTONS) & BT_ATTACK && Checkinventory("Cashmoney") < 100)
+			{
+				SetFont("SMALLFONT");
+				PlaySound(0,"misc/nomoney",7,1.0,false,0);
+				HUDMessage(s: "Not enough money"; HUDMSG_PLAIN, 777, CR_YELLOW, 0.3, 0.3, 15);
+				Delay(15);
+			}
+			else if (x > 51 && x < 274 && y < 197 && y > 166)
+			{
+				SetFont("SMALLFONT");
+				HUDMessage(s: "Cost: 100 Have ",d:CheckInventory("ArtiGum"),s: "/25"; HUDMSG_PLAIN, 777, CR_YELLOW, 0.3, 0.3, 15);
+			}
+			else
+			{
+				SetFont("SMALLFONT");
+				HUDMessage(s: " "; HUDMSG_PLAIN, 777, CR_YELLOW, 0.3, 0.3, 15);
+			}
+		}
+        // debug: print mouse coords
+        /*int heh = 0;
+        if (heh)
+        {*/
+        //SetFont("SmallFont");
+        //Print(d: x, s: "/", d: y);
+        //}
+
+        Delay(1);
+    }
+}

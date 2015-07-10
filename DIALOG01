@@ -1,0 +1,79 @@
+namespace = "ZDoom";
+include = "DIALOG00";
+
+conversation
+{
+	actor = "ProtonHologram";
+	page
+	{
+		name = "???";
+		panel = "PROPOR";
+		dialog = "DUKE, YOU'RE STILL ALIVE. I SEE THAT EVEN MORHIX WAS UNABLE TO DEFEAT YOU. AND HE WAS MY GREATEST CREATION. OH WELL, NOT EVEN YOU CAN STOP MY ARMIES!";
+		choice
+		{
+			text = "NEXT PAGE";
+			nomessage = "NO.  you don't have what i want for the  SURE, WHY NOT.!";
+			nextpage = 2;
+			closedialog = false;
+		}
+	}
+	page
+	{
+		name = "DUKE NUKEM";
+		voice = "DKPRO1";
+		panel = "DUKEPOR";
+		dialog = "DR. PROTON? YOUR SUPPOSED TO BE DEAD!";
+		choice
+		{
+			text = "NEXT PAGE";
+			nomessage = "NO.  you don't have what i want for the  WILL IT BE WORTH THE EFFORT?!";
+			nextpage = 3;
+			closedialog = false;
+		}
+	}
+	page
+	{
+		name = "DR. PROTON";
+		panel = "PROPOR";
+		dialog = "YOU ONLY KILLED A DECOY. I'M REAL AND YOU AREN'T GOING TO STOP ME THIS TIME.";
+		choice
+		{
+			text = "NEXT PAGE";
+			nomessage = "NO.  you don't have what i want for the  THANKS, I'll Need it.!";
+			nextpage = 4;
+			closedialog = false;
+		}
+	}
+	page
+	{
+		name = "DUKE NUKEM";
+		voice = "DKPRO2";
+		panel = "DUKEPOR";
+		dialog = "NOW I'M REALLY PISSED OFF.";
+		choice
+		{
+			text = "NEXT PAGE";
+			nomessage = "NO.  you don't have what i want for the  I'LL GET HIM.!";
+			nextpage = 5;
+			closedialog = false;
+		}
+	}
+	page
+	{
+		name = "HOLOGRAM";
+		dialog = "COM UNIT SHUTTING DOWN.";
+		choice
+		{
+			text = "END";
+			nomessage = "NO.  you don't have what i want for the  I'LL GET HIM.!";
+			giveitem = "ProtonKnown";
+			nextpage = 6;
+			closedialog = true;
+		}
+	}
+	page
+	{
+		name = "HOLOGRAM";
+		dialog = "...";
+	}
+}

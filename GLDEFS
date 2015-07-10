@@ -1,0 +1,83 @@
+skybox SKYCITY
+{
+D2S2_N
+D2S2_E
+D2S2_S
+D2S2_W
+D2S2_T
+D2S2_B
+}
+
+pointlight Brighty1
+{
+    color 1.0 1.0 1.0
+    size 30
+    offset 0 0 0
+}
+
+pointlight Brighty2
+{
+    color 1.0 1.0 1.0
+    size 20
+    offset 0 0 0
+}
+
+pointlight Brighty3
+{
+    color 1.0 1.0 1.0
+    size 15
+    offset 0 0 0
+}
+
+pointlight Brighty4
+{
+    color 1.0 1.0 1.0
+    size 10
+    offset 0 0 0
+}
+
+pointlight Brighty5
+{
+    color 1.0 1.0 1.0
+    size 5
+    offset 0 0 0
+}
+
+object GLLight1
+{
+    frame TNT1 { light Brighty1 }
+}
+
+object GLLight2
+{
+    frame TNT1 { light Brighty2 }
+}
+
+object GLLight3
+{
+    frame TNT1 { light Brighty3 }
+}
+
+object GLLight4
+{
+    frame TNT1 { light Brighty4 }
+}
+
+object GLLight5
+{
+    frame TNT1 { light Brighty5 }
+}
+
+Glow
+{
+	Flats
+	{
+		Texture "F_PWATR3", "green", 6, fullbright
+		Texture "F_PWATR2", "green", 6, fullbright
+		Texture "F_PWATR1", "green", 6, fullbright
+		Texture "F_SKY001", "white", 7, fullbright
+		Texture "LIGHTDB1", "blue", 4, fullbright
+		Texture "LIGHTDR1", "red", 4, fullbright
+		Texture "LIGHTDG1", "green", 4, fullbright
+	}
+}

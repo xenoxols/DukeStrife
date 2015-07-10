@@ -1,0 +1,469 @@
+namespace = "ZDoom";
+include = "DIALOG00";
+
+conversation
+{
+	actor = "EDFSeargent";
+	page
+	{
+		name = "EDF AGENT";
+		dialog = "DUKE, YOU'RE ALIVE!";
+		choice
+		{
+			text = "NEXT PAGE";
+			nomessage = "NO.  you don't have what i want for the  SURE, WHY NOT.!";
+			nextpage = 2;
+			closedialog = false;
+		}
+	}
+	page
+	{
+		name = "EDF AGENT";
+		//voice = "UNCV01";
+		//panel = "DUKEPOR";
+		dialog = "THE SITUATION IS A MESS, AND GENERAL GRAVES IS MISSING.";
+		choice
+		{
+			text = "NEXT PAGE";
+			nomessage = "NO.  you don't have what i want for the  WILL IT BE WORTH THE EFFORT?!";
+			nextpage = 3;
+			closedialog = false;
+		}
+	}
+	page
+	{
+		name = "EDF AGENT";
+		dialog = "WE SUSPECT THAT THE THE ALIENS TOOK HIM TO THE ABANDONED WAREHOUSE BY THE RIVER.";
+		choice
+		{
+			text = "NEXT PAGE";
+			nomessage = "NO.  you don't have what i want for the  THANKS, I'll Need it.!";
+			nextpage = 4;
+			closedialog = false;
+		}
+	}
+	page
+	{
+		name = "EDF AGENT";
+		//voice = "UNCV02";
+		//panel = "DUKEPOR";
+		dialog = "DUKE, MOVE OUT!";
+		choice
+		{
+			text = "END.";
+			nomessage = "NO.  you don't have what i want for the  I'LL GET HIM.!";
+			nextpage = 5;
+			closedialog = true;
+		}
+	}
+	page
+	{
+		name = "EDF AGENT";
+		dialog = "SO, DID YOU FIND OUT WHAT'S GOING ON?";
+		link = 6;
+		ifitem
+		{
+			item = "ProtonKnown";
+		}
+		choice
+		{
+			text = "NEXT PAGE";
+			nomessage = "ARE YOU SURE YOUR REMEMBERING CORRETLY?";
+			nextpage = 5;
+			closedialog = true;
+		}
+	}
+	page
+	{
+		name = "DUKE NUKEM";
+		voice = "UNCV03";
+		panel = "DUKEPOR";
+		dialog = "IT WAS OUR OLD FRIEND DR. PROTON.";
+		choice
+		{
+			text = "NEXT PAGE";
+			nomessage = "NO.  you don't have what i want for the  TELL ME MORE.!";
+			giveitem = "BaseKey";
+			nextpage = 7;
+			closedialog = false;
+		}
+	}
+	page
+	{
+		name = "EDF AGENT";
+		dialog = "WHAT? THIS IS IMPORTANT! REPORT TO GENERAL GRAVES NOW! HE AND THE EDF HAVE A MAKESHIFT BASE IN THE SHOT UP TOWN HALL.";
+	}
+}
+
+conversation
+{
+	actor = "EDFARMSMASTER";
+	page
+	{
+		name = "EDF ARMS MASTER";
+		dialog = "I'M OUT OF GUM, BUT I DO HAVE WEAPONS.";
+		choice
+		{
+			text = "ASSAULT RIFLE";
+			cost
+			{
+				item = "ShotgunAvailable";
+				amount = 1;
+			}
+			displaycost = false;
+			yesmessage = "HERE YOU GO.";
+			nomessage = "DUKE, ONE IS ENOUGH TO KICK ASS WITH.";
+			giveitem = "RiflePickupStrife";
+			nextpage = 1;
+			closedialog = true;
+		}
+		choice
+		{
+			text = "SHELLS";
+			cost
+			{
+				item = "Coin";
+				amount = 30;
+			}
+			displaycost = true;
+			yesmessage = "THANKS.";
+			nomessage = "EVEN THE DUKE HAS TO PAY.";
+			giveitem = "DukeShell";
+			nextpage = 1;
+			closedialog = false;
+		}
+		choice
+		{
+			text = "PISTOL BULLETS";
+			cost
+			{
+				item = "Coin";
+				amount = 10;
+			}
+			displaycost = true;
+			yesmessage = "HERE'S YOUR AMMO.";
+			nomessage = "EVEN THE DUKE HAS TO PAY.";
+			giveitem = "DukePistolClip";
+			nextpage = 1;
+			closedialog = false;
+		}
+		choice
+		{
+			text = "RIFLE BULLETS";
+			cost
+			{
+				item = "Coin";
+				amount = 20;
+			}
+			displaycost = true;
+			yesmessage = "HERE'S YOUR AMMO.";
+			nomessage = "EVEN THE DUKE HAS TO PAY.";
+			giveitem = "DukeMuricaClip";
+			nextpage = 1;
+			closedialog = false;
+		}
+	}
+}
+
+conversation
+{
+	actor = "OutofStockGunVendor";
+	page
+	{
+		name = "GUN VENDOR";
+		dialog = "HEY DUKE. DURING TIMES OF CRISIS THE EDF CONTROLS THE FLOW OF ALL WEAPONS. BUT YOU SHOULDN'T HAVE ANY PROBLEM GETTING SOMETHING FROM THEM.";
+		}
+}
+
+conversation
+{
+	actor = "TownArmorer";
+	page
+	{
+		name = "ARMORER";
+		dialog = "EVEN DUKE NUKEM NEEDS PROTECTION.";
+		choice
+		{
+			text = "PROTECTIVE BOOTS";
+			cost
+			{
+				item = "Coin";
+				amount = 25;
+			}
+			displaycost = true;
+			yesmessage = "WELL, HERE YOU ARE.";
+			nomessage = "EVEN THE DUKE HAS TO PAY";
+			giveitem = "ProtectiveBoots";
+			nextpage = 1;
+			closedialog = false;
+		}
+		choice
+		{
+			text = "KEVLAR ARMOR";
+			cost
+			{
+				item = "Coin";
+				amount = 100;
+			}
+			displaycost = true;
+			yesmessage = "HERE YOU ARE.";
+			nomessage = "EVEN THE DUKE HAS TO PAY";
+			giveitem = "KevlarArmor";
+			nextpage = 1;
+			closedialog = false;
+		}
+		choice
+		{
+			text = "ATOMIC ARMOR";
+			cost
+			{
+				item = "Coin";
+				amount = 300;
+			}
+			displaycost = true;
+			yesmessage = "IS IT HEAVY?";
+			nomessage = "EVEN THE DUKE HAS TO PAY.";
+			giveitem = "AtomicArmor";
+			nextpage = 1;
+			closedialog = false;
+		}
+	}
+}
+
+conversation
+{
+	actor = "TownMedic";
+	page
+	{
+		name = "MEDIC";
+		dialog = "IS THE DUKE HURT? PROBABLY NOT.";
+		choice
+		{
+			text = "SODA";
+			cost
+			{
+				item = "Coin";
+				amount = 30;
+			}
+			displaycost = true;
+			yesmessage = "DRINK UP.";
+			nomessage = "EVEN THE DUKE HAS TO PAY.";
+			giveitem = "AtomicSoda";
+			nextpage = 1;
+			closedialog = false;
+		}
+		choice
+		{
+			text = "KICK ASS GUM";
+			cost
+			{
+				item = "Coin";
+				amount = 50;
+			}
+			displaycost = true;
+			yesmessage = "NOT OUT OF GUM ANYMORE.";
+			nomessage = "EVEN THE DUKE HAS TO PAY.";
+			giveitem = "KickAssGum";
+			nextpage = 1;
+			closedialog = false;
+		}
+		choice
+		{
+			text = "ATOMIC ENERGY";
+			cost
+			{
+				item = "Coin";
+				amount = 200;
+			}
+			displaycost = true;
+			yesmessage = "THERE YOU GO.  TAKE CARE NOW.";
+			nomessage = "EVEN THE DUKE HAS TO PAY.";
+			giveitem = "AtomicKit";
+			nextpage = 1;
+			closedialog = false;
+		}
+	}
+}
+
+conversation
+{
+	actor = "BarTender";
+	page
+	{
+		name = "BARTENDER";
+		dialog = "SORRY DUKE, BUT WE CAN'T SERVE YOU WHILE YOUR ON THE JOB.";
+	}
+}
+
+conversation
+{
+	actor = "IralesAssistant";
+	page
+	{
+		name = "EDF GUARD";
+		dialog = "HE HAS THE ASS-KICKING EQUIPMENT, NOT ME.";
+	}
+}
+
+conversation
+{
+	actor = "EDFBaseGuard";
+	page
+	{
+		name = "STRANGER";
+		dialog = "WHAT ARE YOU DOING HERE?";
+		link = 2;
+		ifitem
+		{
+			item = "BaseKey";
+		}
+	}
+	page
+	{
+		name = "EDF GUARD";
+		dialog = "WHO ARE YOU?";
+		link = 3;
+		ifitem
+		{
+			item = 314;
+		}
+		choice
+		{
+			text = "NEXT PAGE";
+			cost
+			{
+				item = "Coin";
+				amount = 0;
+			}
+			cost
+			{
+				item = "BaseKey";
+				amount = 1;
+			}
+			displaycost = false;
+			nomessage = "NO.  you don't have what i want for the  HEY, I NEED GOLD!!";
+			giveitem = "OpenDoor222";
+			nextpage = 3;
+			closedialog = false;
+		}
+	}
+	page
+	{
+		name = "DUKE NUKEM";
+		panel = "DUKEPOR";
+		voice = "ID01";
+		dialog = "I'M THE DUKE.";
+		choice
+		{
+			text = "END.";
+			nomessage = "NO.  you don't have what i want for the  THANKS.!";
+			nextpage = 4;
+			closedialog = false;
+		}
+	}
+	page
+	{
+		name = "EDF GUARD";
+		dialog = "SORRY I DIDN'T RECOGNIZE YOU RIGHT AWAY. I'M NEW HERE. ANYWAYS GO RIGHT IN.";
+	}
+}
+
+conversation
+{
+	actor = "LAMayorButler";
+	page
+	{
+		name = "MAYOR'S BUTLER";
+		dialog = "WHAT'S UP DUKE?";
+		choice
+		{
+			text = "NEXT PAGE";
+			nomessage = "NO.  you don't have what i want for the  OF COURSE!!";
+			nextpage = 2;
+			closedialog = false;
+		}
+	}
+	page
+	{
+		name = "DUKE NUKEM";
+		panel = "DUKEPOR";
+		voice = "BUT01";
+		dialog = "MY JOB IS TO KICK ASS, NOT MAKE SMALL TALK.";
+		choice
+		{
+			text = "END";
+			nomessage = "NO.  you don't have what i want for the  I KNEW YOU'D SAY THAT.!";
+			nextpage = 3;
+			closedialog = true;
+		}
+	}
+	page
+	{
+		name = "MAYOR'S BUTLER";
+		dialog = "SORRY DUKE.";
+	}
+}
+
+conversation
+{
+	actor = "MayorofLA";
+	page
+	{
+		name = "LA MAYOR";
+		dialog = "AH, DUKE. ARE YOU HERE ON BUSINESS?";
+		choice
+		{
+			text = "NEXT PAGE";
+			nomessage = "NO.  you don't have what i want for the  A PRISON PASS, LET'S DEAL.!";
+			nextpage = 2;
+			closedialog = false;
+		}
+	}
+	page
+	{
+		name = "DUKE NUKEM";
+		voice = "DKMR01";
+		panel = "DUKEPOR";
+		dialog = "I'M ALL BUSINESS BABE.";
+		choice
+		{
+			text = "NEXT PAGE";
+			nomessage = "NO.  you don't have what i want for the  CALL ME THE CLEANER!";
+			nextpage = 3;
+			closedialog = false;
+		}
+	}
+	page
+	{
+		name = "LA MAYOR";
+		dialog = "WELL, THEN HERE IS THE PASS. GET OUR BOYS OUT OF THERE.";
+		choice
+		{
+			text = "NEXT PAGE";
+			nomessage = "NO.  you don't have what i want for the  THANKS.!";
+			giveitem = "QuestItem10";
+			nextpage = 4;
+			closedialog = false;
+		}
+	}
+	page
+	{
+		name = "DUKE NUKEM";
+		voice = "DKMR02";
+		panel = "DUKEPOR";
+		dialog = "THANKS, I'LL TAKE THAT NOW.";
+		choice
+		{
+			text = "NEXT PAGE";
+			nomessage = "NO.  you don't have what i want for the  A PRISON PASS, LET'S DEAL.!";
+			giveitem = "PrisonPass";
+			nextpage = 5;
+			closedialog = false;
+		}
+	}
+	page
+	{
+		name = "LA MAYOR";
+		dialog = "GO ON, I HAVE STUFF TO DO.";
+	}
+}
