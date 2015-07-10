@@ -22,7 +22,7 @@ ACTOR DukeShotgun1 : weapon
 	Obituary "%o was shot down by %k's shotgun."
     Inventory.PickupSound "misc/w_pkup"
 	Inventory.Pickupmessage "Winchester Defender"
-	Tag "Winchester Defender"
+	Tag "Shotgun"
 	+WEAPON.MELEEWEAPON
 	Decal ShotChip
     +WEAPON.NOALERT

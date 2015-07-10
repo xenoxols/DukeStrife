@@ -10,17 +10,20 @@ ACTOR RifleLevelup : Inventory
 
 ACTOR DukeMuricaRifle1 : weapon
 {
-	Weapon.AmmoUse 1
-	Weapon.AmmoGive 35
+	Weapon.AmmoUse1 1
+	Weapon.AmmoUse2 0
+	Weapon.AmmoGive2 35
+	Weapon.AmmoGive1 0
 	Weapon.BobStyle inversesmooth
 	Weapon.BobSpeed 1.5
 	Weapon.BobRangeX .2
 	Weapon.BobRangeY .5
-	Weapon.AmmoType1 "DukeMuricaClip"
+	Weapon.AmmoType1 "DukeRifleIn"
+	Weapon.AmmoType2 "DukeMuricaClip"
 	Obituary "%o was shot down by %k's assault rifle."
     Inventory.PickupSound "misc/w_pkup"
 	Inventory.Pickupmessage "Colt M16"
-	Tag "America M16"
+	Tag "Assault Rifle"
     +WEAPON.NOALERT
 	+WEAPON.MELEEWEAPON
 	Decal ShotChip
@@ -30,7 +33,7 @@ ACTOR DukeMuricaRifle1 : weapon
 	{
 	Ready:
 		TNT1 A 0 A_JumpIfInventory("StillKicking",1,"Kick")
-		DARG A 1 A_WeaponReady
+		DARG A 1 A_WeaponReady(WRF_ALLOWRELOAD)
 		Goto Ready
 	Deselect:
 		TNT1 AA 0 A_Lower
@@ -41,7 +44,7 @@ ACTOR DukeMuricaRifle1 : weapon
 		DARG A 1 A_Raise
 		Loop
     Fire:
-        TNT1 A 0 A_JumpIfInventory("DukeMuricaClip",1,"RealFire")
+        TNT1 A 0 A_JumpIfInventory("DukeRifleIn",1,"RealFire")
         Goto Ready
 	RealFire:
 		TNT1 A 0 A_PlaySound("Rifle/Fire")
@@ -62,6 +65,32 @@ ACTOR DukeMuricaRifle1 : weapon
 		TNT1 A 0 A_ZoomFactor(1.00)
 		TNT1 A 0 A_SetPitch(Pitch+1)
 		DARG A 1 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
+		Goto Ready
+	Reload:
+		TNT1 A 0 A_JumpIfInventory("DukeRifleIn",35,"Ready")
+		TNT1 A 0 A_JumpIfInventory("DukeMuricaClip",1,1)
+		Goto Ready
+	ReloadMain:
+		DARR AXBYCDE 1 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
+		TNT1 A 0 A_PlaySound("Rifle/Out")
+		DARR FGHIIHGFE 1 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
+		TNT1 A 0 A_PlaySound("Rifle/In",6)
+	ReloadWorking:
+		TNT1 A 0 A_TakeInventory("DukeMuricaClip",1,TIF_NOTAKEINFINITE)
+		TNT1 A 0 A_GiveInventory("DukeRifleIn", 1)
+		TNT1 A 0 A_JumpIfInventory("DukeRifleIn",0,2)
+		TNT1 A 0 A_JumpIfInventory("DukeMuricaClip",1,2)
+		TNT1 A 0
+		Goto ReloadFinish
+		TNT1 A 0
+		Goto ReloadWorking
+	ReloadFinish:
+		DARR DCYBXA 1 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
+		DARG A 4 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
+		DAR2 ABC 1 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
+		TNT1 A 0 A_PlaySound("Pistol/Reload",7,0.8)
+		DAR2 DEFGHIJ 1 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
+		DARG A 2 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
 		Goto Ready
 	Kick:
 		DARG A 1 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
@@ -159,6 +188,13 @@ ACTOR DukeMuricaRifle1 : weapon
 		SHOT A -1
 		Stop
 	}
+}
+
+ACTOR DukeRifleIn : Ammo
+{
+   +IGNORESKILL 
+   Inventory.MaxAmount 35
+   Inventory.Icon TNT1A0
 }
 
 ACTOR DukeMuricaRifle2 : weapon

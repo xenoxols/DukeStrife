@@ -39,7 +39,7 @@ statusbar Fullscreen, fullscreenoffsets, forcescaled
 	DrawSwitchableImage "StrangeRocketLauncher", "TNT1A0", "RKINA0", -42, -21;
 	DrawSwitchableImage "StrangePlasmaRifle", "TNT1A0", "RKINA0", -42, -26;
 	DrawSwitchableImage "StrangeBFG", "TNT1A0", "RKINA0", -42, -31;*/
-	DrawNumber 4, SMALLFONT, BRICK, ammo1capacity, -24, -56;
+	DrawNumber 4, SMALLFONT, BRICK, ammo2, -24, -56;
 	DrawNumber 4, SMALLFONT, BRICK, ammo1, -30, -76;
 	//DrawNumber 2, SMALLFONT, BRICK, ammo2, -80, -76;
 	DrawNumber 4, SMALLFONT, BROWN, HammerSpaceCounter, -18, -34;

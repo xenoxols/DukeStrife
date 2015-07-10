@@ -24,7 +24,8 @@ Actor "Duke Nukem" : PlayerPawn
   //Player.StartItem "MightyFoot"
   //Player.StartItem "DukePistol"
   Player.StartItem "DukePistolClip", 60
-  Player.StartItem "DukePistolClipMag", 6
+  Player.StartItem "DukePistolIn", 6
+  Player.StartItem "DukeRifleIn", 35
   Player.WeaponSlot 1, "MightyFoot1", "MightyFoot2", "MightyFoot3", "DukeSaw1" , "DukeSaw2" , "DukeSaw3"
   Player.WeaponSlot 2, "DukePistol1", "DukePistol2", "DukePistol3"
   Player.WeaponSlot 3, "DukeMuricaRifle1", "DukeMuricaRifle2", "DukeMuricaRifle3" 
