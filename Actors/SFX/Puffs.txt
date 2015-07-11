@@ -1,0 +1,736 @@
+Actor DukePuff : BulletPuff
+{
+	DamageType DukeDamage
+	+NOEXTREMEDEATH
+	VSpeed 0
+	Renderstyle None
+	States
+	{
+	Spawn:
+				TNT1 AAA 0 A_SpawnItemEx("BuellerPuff_Main", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
+				TNT1 AA 0 A_SpawnItemEx("BuellerPuff_Flash", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
+				TNT1 A 0 A_SpawnItemEx("BuellerPuff_Spark1", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
+				TNT1 A 0 A_SpawnItemEx("BuellerPuff_Spark2", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
+				TNT1 A 1
+				TNT1 AAA 1 A_SpawnItemEx("BuellerPuff_Smoke", 0, 0, 0, frandom(0.15,0.25), 0, frandom(-0.1,0.45), 0, SXF_CLIENTSIDE, 0)
+				Stop
+	}
+}
+
+Actor DukeSawPuff : BulletPuff
+{
+	DamageType DukeDamage
+	+EXTREMEDEATH
+	States
+	{
+		Crash:
+			TNT1 A 0 A_PlaySound("Chainsaw/HitWall")
+			TNT1 AAAAAAA 1 BRIGHT
+			Stop
+		XDeath:
+		Death:
+		Melee:
+		Spawn:
+			TNT1 AAAAAAA 1 BRIGHT
+			Stop
+	}
+}
+
+Actor DukeSawPuff2 : BulletPuff
+{
+	DamageType DukeDamage
+	+NOEXTREMEDEATH
+	States
+	{
+		Crash:
+			TNT1 A 0 A_PlaySound("Chainsaw/HitWall")
+			TNT1 AAAAAAA 1 BRIGHT
+			Stop
+		XDeath:
+		Death:
+		Melee:
+		Spawn:
+			TNT1 AAAAAAA 1 BRIGHT
+			Stop
+	}
+}
+
+Actor DukeExtremePuff : DukePuff
+{
+	DamageType DukeDamage
+	+EXTREMEDEATH
+	States
+	{
+		Crash:
+		XDeath:
+		Death:
+		Melee:
+		Spawn:
+				TNT1 AAA 0 A_SpawnItemEx("BuellerPuff_Main", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
+				TNT1 AA 0 A_SpawnItemEx("BuellerPuff_Flash", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
+				TNT1 A 0 A_SpawnItemEx("BuellerPuff_Spark1", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
+				TNT1 A 0 A_SpawnItemEx("BuellerPuff_Spark2", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
+				TNT1 A 1
+				TNT1 AAA 1 A_SpawnItemEx("BuellerPuff_Smoke", 0, 0, 0, frandom(0.15,0.25), 0, frandom(-0.1,0.45), 0, SXF_CLIENTSIDE, 0)
+				Stop
+	}
+}
+
+Actor DukePistolPuff : DukePuff
+{
+	DamageType DukeDamage
+	+NOEXTREMEDEATH
+	States
+	{
+		Crash:
+		XDeath:
+		Death:
+		Melee:
+		Spawn:
+				TNT1 AAA 0 A_SpawnItemEx("BuellerPuff_Main", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
+				TNT1 AA 0 A_SpawnItemEx("BuellerPuff_Flash", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
+				TNT1 A 0 A_SpawnItemEx("BuellerPuff_Spark1", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
+				TNT1 A 0 A_SpawnItemEx("BuellerPuff_Spark2", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
+				TNT1 A 1
+				TNT1 AAA 1 A_SpawnItemEx("BuellerPuff_Smoke", 0, 0, 0, frandom(0.15,0.25), 0, frandom(-0.1,0.45), 0, SXF_CLIENTSIDE, 0)
+				Stop
+	}
+}
+
+Actor DukeShotgunPuff : BulletPuff
+{
+	DamageType DukeShotgunDamage
+	+NOEXTREMEDEATH
+	VSpeed 0
+	Renderstyle None
+	States
+	{
+	Spawn:
+				TNT1 AAA 0 A_SpawnItemEx("BuellerPuff_Main", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
+				TNT1 AA 0 A_SpawnItemEx("BuellerPuff_Flash", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
+				TNT1 A 0 A_SpawnItemEx("BuellerPuff_Spark1", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
+				TNT1 A 0 A_SpawnItemEx("BuellerPuff_Spark2", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
+				TNT1 A 1
+				TNT1 AAA 1 A_SpawnItemEx("BuellerPuff_Smoke", 0, 0, 0, frandom(0.15,0.25), 0, frandom(-0.1,0.45), 0, SXF_CLIENTSIDE, 0)
+				Stop
+	}
+}
+	
+
+Actor DukeMuricaPuff : DukePuff
+{
+	DamageType DukeDamage
+	+NOEXTREMEDEATH
+	States
+	{
+		Crash:
+		XDeath:
+		Death:
+		Melee:
+		Spawn:
+				TNT1 AAA 0 A_SpawnItemEx("BuellerPuff_Main", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
+				TNT1 AA 0 A_SpawnItemEx("BuellerPuff_Flash", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
+				TNT1 A 0 A_SpawnItemEx("BuellerPuff_Spark1", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
+				TNT1 A 0 A_SpawnItemEx("BuellerPuff_Spark2", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
+				TNT1 A 1
+				TNT1 AAA 1 A_SpawnItemEx("BuellerPuff_Smoke", 0, 0, 0, frandom(0.15,0.25), 0, frandom(-0.1,0.45), 0, SXF_CLIENTSIDE, 0)
+				Stop
+	}
+}
+
+Actor DukeFlamePuff : BulletPuff
+{
+	Damagetype DukeDamage
+	+ALWAYSPUFF
+	+PUFFONACTORS
+	AlPHA 0.5
+	Scale 0.3
+	States
+	{
+		Crash:
+		XDeath:
+		Death:
+		Melee:
+		Spawn:
+			FRFX ABCDEFGHIJKLMNOP 1 BRIGHT
+			Stop
+	}
+}
+
+Actor DukeExplodingPuff : BulletPuff
+{
+	Damagetype DukeDamage
+	+ALWAYSPUFF
+	+EXTREMEDEATH
+	+PUFFONACTORS
+	AlPHA 0.5
+	Scale 0.3
+	States
+	{
+		Crash:
+		XDeath:
+		Death:
+		Melee:
+		Spawn:
+			TNT1 A 0 A_Explode(20,70,0)
+			TNT1 A 0 A_Quake(1,10,0,700,"NULL")
+			EXPL ABCDEFGHIJKLMNOPQRSTU 1 BRIGHT
+			Stop
+	}
+}
+
+Actor BuellerPuff : BulletPuff replaces BulletPuff
+{
+    VSpeed 0
+	Renderstyle None
+	-RANDOMIZE
+	+NOEXTREMEDEATH
+	Decal "ShotChip"
+	States
+	{
+	Spawn:
+				TNT1 AAA 0 A_SpawnItemEx("BuellerPuff_Main", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
+				TNT1 AA 0 A_SpawnItemEx("BuellerPuff_Flash", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
+				TNT1 A 0 A_SpawnItemEx("BuellerPuff_Spark1", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
+				TNT1 A 0 A_SpawnItemEx("BuellerPuff_Spark2", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
+				TNT1 A 1
+				TNT1 AAA 1 A_SpawnItemEx("BuellerPuff_Smoke", 0, 0, 0, frandom(0.15,0.25), 0, frandom(-0.1,0.45), 0, SXF_CLIENTSIDE, 0)
+				Stop
+	}
+}
+
+Actor BuellerPuff_Flash
+{
+	+NoInteraction
+	+ForceXYBillboard
+	RenderStyle Normal
+	Alpha 0.3
+	States
+	{
+		Spawn:
+			TNT1 AA 0 A_SetScale(FRandom(0.075, 0.085))
+			TNT1 A 0 A_Jump(255,"SpriteA","SpriteB","SpriteC","SpriteD")
+			Goto Spawn
+		SpriteA:
+			2PUF A 0 A_Jump(255,"Idle")
+			Loop
+		SpriteB:
+			2PUF B 0 A_Jump(255,"Idle")
+			Loop
+		SpriteC:
+			2PUF C 0 A_Jump(255,"Idle")
+			Loop
+		SpriteD:
+			2PUF D 0 A_Jump(255,"Idle")
+			Loop
+		Idle:
+			"####" "#" 1 Bright
+			"####" "#" 0 A_FadeOut(0.125)
+			//"####" "#" 0 A_SetScale(ScaleX + FRandom(0.04, 0.065))
+			"####" "#" 0 A_JumpIf(ScaleX <= 0.0, "NULL")
+			Loop
+	}
+}
+
+Actor BuellerPuff_Main
+{
+	+NoInteraction
+	+ForceXYBillboard
+	RenderStyle Add
+	Alpha 0.99
+	States
+	{
+		Spawn:
+			TNT1 AA 0 A_Jump(255,"SpriteA","SpriteB","SpriteC","SpriteD")
+			Goto Spawn
+		SpriteA:
+			1PUF A 0 A_Jump(255,"FadeIn")
+			Loop
+		SpriteB:
+			1PUF B 0 A_Jump(255,"FadeIn")
+			Loop
+		SpriteC:
+			1PUF C 0 A_Jump(255,"FadeIn")
+			Loop
+		SpriteD:
+			1PUF D 0 A_Jump(255,"FadeIn")
+			Loop
+		FadeIn:
+			"####" "#" 0 Bright A_SetScale(FRandom(0.05, 0.035))
+			Goto Idle
+		Idle:
+			"####" "#" 1 Bright A_Jump(192,"FadeOut")
+			Loop
+		FadeOut:
+			"####" "#" 1 Bright A_FadeOut(0.2)
+			"####" "#" 0 A_SetScale(ScaleX + FRandom(0.01, 0.005))
+			Loop
+	}
+}
+
+Actor BuellerPuff_Spark1
+{
+	+NoInteraction
+	+ForceXYBillboard
+	RenderStyle Add
+	Alpha 0.99
+	States
+	{
+		Spawn:
+			TNT1 AA 0 A_Jump(255,"SpriteA","SpriteB","SpriteC","SpriteD")
+			Goto Spawn
+		SpriteA:
+			1SPK A 0 A_Jump(255,"FadeIn")
+			Loop
+		SpriteB:
+			1SPK B 0 A_Jump(255,"FadeIn")
+			Loop
+		SpriteC:
+			1SPK C 0 A_Jump(255,"FadeIn")
+			Loop
+		SpriteD:
+			1SPK D 0 A_Jump(255,"FadeIn")
+			Loop
+		SpriteE:
+			1SPK E 0 A_Jump(255,"FadeIn")
+			Loop
+		SpriteF:
+			1SPK F 0 A_Jump(255,"FadeIn")
+			Loop
+		SpriteG:
+			1SPK G 0 A_Jump(255,"FadeIn")
+			Loop
+		SpriteH:
+			1SPK H 0 A_Jump(255,"FadeIn")
+			Loop
+		FadeIn:
+			"####" "#" 0 Bright A_SetScale(FRandom(0.05, 0.045))
+			Goto Idle
+		Idle:
+			"####" "#" 1 Bright A_Jump(192,"FadeOut")
+			Loop
+		FadeOut:
+			"####" "#" 1 Bright A_FadeOut(0.2)
+			"####" "#" 0 A_SetScale(ScaleX + FRandom(0.0075, 0.005))
+			Loop
+	}
+}
+
+Actor BuellerPuff_Spark2
+{
+	+NoInteraction
+	+ForceXYBillboard
+	RenderStyle Add
+	Alpha 0.99
+	States
+	{
+		Spawn:
+			TNT1 AA 0 A_Jump(255,"SpriteA","SpriteB","SpriteC","SpriteD")
+			Goto Spawn
+		SpriteA:
+			2SPK A 0 A_Jump(255,"FadeIn")
+			Loop
+		SpriteB:
+			2SPK B 0 A_Jump(255,"FadeIn")
+			Loop
+		SpriteC:
+			2SPK C 0 A_Jump(255,"FadeIn")
+			Loop
+		SpriteD:
+			2SPK D 0 A_Jump(255,"FadeIn")
+			Loop
+		SpriteE:
+			2SPK E 0 A_Jump(255,"FadeIn")
+			Loop
+		SpriteF:
+			2SPK F 0 A_Jump(255,"FadeIn")
+			Loop
+		SpriteG:
+			2SPK G 0 A_Jump(255,"FadeIn")
+			Loop
+		SpriteH:
+			2SPK H 0 A_Jump(255,"FadeIn")
+			Loop
+		FadeIn:
+			"####" "#" 0 Bright A_SetScale(FRandom(0.05, 0.045))
+			Goto Idle
+		Idle:
+			"####" "#" 1 Bright A_Jump(192,"FadeOut")
+			Loop
+		FadeOut:
+			"####" "#" 1 Bright A_FadeOut(0.2)
+			"####" "#" 0 A_SetScale(ScaleX + FRandom(0.0075, 0.005))
+			Loop
+	}
+}
+
+Actor BuellerPuff_Smoke
+{
+	+NoInteraction
+	+ForceXYBillboard
+	Alpha 0.0
+	RenderStyle Translucent
+	States
+	{
+		Spawn:
+		    TNT1 A 3
+			TNT1 AA 0 A_Jump(255, "SpriteA", "SpriteB", "SpriteC", "SpriteD")
+		SpriteA:
+			DYMI A 0 A_Jump(255, "FadeIn")
+			Goto SpriteA
+		SpriteB:
+			DYMI B 0 A_Jump(255, "FadeIn")
+			Goto SpriteB
+		SpriteC:
+			DYMI C 0 A_Jump(255, "FadeIn")
+			Goto SpriteC
+		SpriteD:
+			DYMI D 0 A_Jump(255, "FadeIn")
+			Goto SpriteD
+		FadeIn:
+			"####" "#" 0 A_SetScale(FRandom(0.01, 0.015))
+			Goto RealFadeIn
+		RealFadeIn:
+			"####" "#" 1 A_FadeIn(FRandom(0.06, 0.08))
+			"####" "#" 0 A_JumpIf(Alpha >= 0.25, "Idle")
+			Loop
+		Idle:
+			"####" "#" 5 A_Jump(200, "FadeOut")
+			Loop
+		FadeOut:
+			"####" "#" 1 A_FadeOut(FRandom(0.01,0.02))
+			"####" "#" 0 A_SetScale(ScaleX + FRandom(0.015, 0.005))
+			Loop
+	}
+}
+
+//Spawners
+
+Actor GunsmokeSpawner_SmallC //Chanisaw
+{
+	+NOINTERACTION
+	+NOGRAVITY
+	Speed 0
+	States
+	{
+	Spawn:
+	TNT1 A 1
+	TNT1 A 0 A_SpawnItemEx("Gunsmoke_SmallC",0,0,0,0,0,4,random(-80,-100),0,SXF_CLIENTSIDE)
+	Stop
+	}
+}
+
+Actor GunsmokeSpawner_Small //Pistol
+{
+	+NOINTERACTION
+	+NOGRAVITY
+	Speed 30
+	States
+	{
+	Spawn:
+	TNT1 A 1
+	TNT1 AAA 0 A_SpawnItemEx("Gunsmoke_Small",random(1,-1),random(1,-1),random(1,-1),0,0,0,0,SXF_CLIENTSIDE)
+	Stop
+	}
+}
+
+Actor GunsmokeSpawner_Small_Dark
+{
+	+NOINTERACTION
+	+NOGRAVITY
+	Speed 30
+	States
+	{
+	Spawn:
+	TNT1 A 1
+	TNT1 AAAA 0 A_SpawnItemEx("Gunsmoke_Small_Dark",random(1,-1),random(1,-1),random(1,-1),0,0,0,0,SXF_CLIENTSIDE)
+	Stop
+	}
+}
+
+Actor GunsmokeSpawner_Small_MG
+{
+	+NOINTERACTION
+	+NOGRAVITY
+	Speed 30
+	States
+	{
+	Spawn:
+	TNT1 A 1
+	TNT1 AA 0 A_SpawnItemEx("Gunsmoke_Small",random(1,-1),random(1,-1),0,0,0,0,SXF_CLIENTSIDE)
+	Stop
+	}
+}
+
+Actor GunsmokeSpawner_Medium
+{
+	+NOINTERACTION
+	+NOGRAVITY
+	Speed 30
+	States
+	{
+	Spawn:
+	TNT1 A 1
+	TNT1 AAAAAA 0 A_SpawnItemEx("Gunsmoke_Medium",random(2,-2),random(2,-2),random(2,-2),0,0,0,0,SXF_CLIENTSIDE)
+	Stop
+	}
+}
+
+Actor GunsmokeSpawner_Medium2
+{
+	+NOINTERACTION
+	+NOGRAVITY
+	Speed 30
+	States
+	{
+	Spawn:
+	TNT1 A 1
+	TNT1 AAAAAAAA 0 A_SpawnItemEx("Gunsmoke_Medium",random(2,-2),random(2,-2),random(2,-2),0,0,0,0,SXF_CLIENTSIDE)
+	Stop
+	}
+}
+
+Actor GunsmokeSpawner_Medium_Dark
+{
+	+NOINTERACTION
+	+NOGRAVITY
+	Speed 30
+	States
+	{
+	Spawn:
+	TNT1 A 1
+	TNT1 AAAAAA 0 A_SpawnItemEx("Gunsmoke_Medium_Dark",random(2,-2),random(2,-2),random(2,-2),frandom(0.02,-0.02),0,0,0,0,SXF_CLIENTSIDE)
+	Stop
+	}
+}
+
+Actor GunsmokeSpawner_Large
+{
+	+NOINTERACTION
+	+NOGRAVITY
+	Speed 30
+	States
+	{
+	Spawn:
+	TNT1 A 1
+	TNT1 AA 0 A_SpawnItemEx("Gunsmoke_Large",random(2,-2),random(2,-2),random(2,-2),0,0,0,0,SXF_CLIENTSIDE)
+	Stop
+	}
+}
+
+Actor GunsmokeSpawner_Large_Dark
+{
+	+NOINTERACTION
+	+NOGRAVITY
+	Speed 30
+	States
+	{
+	Spawn:
+	TNT1 A 1
+	TNT1 AAAAAAAAAAAAAAAAAA 0 A_SpawnItemEx("Gunsmoke_Large_Dark",random(4,-4),random(4,-4),random(4,-4),0,0,0,0,SXF_CLIENTSIDE)
+	Stop
+	}
+}
+
+//Smokes
+
+Actor Gunsmoke_SmallC
+{
+	+NoInteraction
+	-ForceXYBillboard
+	+NOGRAVITY
+	Alpha 0.0
+	Speed 1
+	RenderStyle Translucent
+	States
+	{
+		Spawn:
+		    TNT1 A 0
+			TNT1 AA 0 A_Jump(255, "SpriteA", "SpriteB", "SpriteC", "SpriteD")
+		SpriteA:
+			DYMI E 0 A_Jump(255, "FadeIn")
+			Goto SpriteA
+		SpriteB:
+			DYMI F 0 A_Jump(255, "FadeIn")
+			Goto SpriteB
+		SpriteC:
+			DYMI G 0 A_Jump(255, "FadeIn")
+			Goto SpriteC
+		SpriteD:
+			DYMI H 0 A_Jump(255, "FadeIn")
+			Goto SpriteD
+		FadeIn:
+			"####" "#" 0 A_SetScale(FRandom(0.005, 0.01))
+			Goto RealFadeIn
+		RealFadeIn:
+			"####" "#" 1 A_FadeIn(FRandom(0.15, 0.08))
+			"####" "#" 0 A_JumpIf(Alpha >= 0.45, "FadeOut")
+			Loop
+		FadeOut:
+			"####" "#" 1 A_FadeOut(FRandom(0.015,0.02))
+			"####" "#" 0 A_SetScale(ScaleX + FRandom(0.0075, 0.005))
+			Loop
+	}
+}
+	
+Actor Gunsmoke_Small
+{
+	+NoInteraction
+	+ForceXYBillboard
+	Alpha 0.0
+	RenderStyle Translucent
+	States
+	{
+		Spawn:
+		    TNT1 A 0
+			TNT1 AA 0 A_Jump(255, "SpriteA", "SpriteB", "SpriteC", "SpriteD")
+		SpriteA:
+			DYMI E 0 A_Jump(255, "FadeIn")
+			Goto SpriteA
+		SpriteB:
+			DYMI F 0 A_Jump(255, "FadeIn")
+			Goto SpriteB
+		SpriteC:
+			DYMI G 0 A_Jump(255, "FadeIn")
+			Goto SpriteC
+		SpriteD:
+			DYMI H 0 A_Jump(255, "FadeIn")
+			Goto SpriteD
+		FadeIn:
+			"####" "#" 0 A_SetScale(FRandom(0.01, 0.015))
+			Goto RealFadeIn
+		RealFadeIn:
+			"####" "#" 1 A_FadeIn(FRandom(0.1, 0.06))
+			"####" "#" 0 A_JumpIf(Alpha >= 0.45, "FadeOut")
+			Loop
+		FadeOut:
+			"####" "#" 1 A_FadeOut(FRandom(0.015,0.02))
+			"####" "#" 0 A_SetScale(ScaleX + FRandom(0.0075, 0.005))
+			Loop
+	}
+}
+
+Actor Gunsmoke_Small_Dark : Gunsmoke_Small
+{
+	+NoInteraction
+	+ForceXYBillboard
+	Alpha 0.0
+	RenderStyle Translucent
+	States
+	{
+		Spawn:
+		    TNT1 A 0
+			TNT1 AA 0 A_Jump(255, "SpriteA", "SpriteB", "SpriteC", "SpriteD")
+		SpriteA:
+			DYMI A 0 A_Jump(255, "FadeIn")
+			Goto SpriteA
+		SpriteB:
+			DYMI B 0 A_Jump(255, "FadeIn")
+			Goto SpriteB
+		SpriteC:
+			DYMI C 0 A_Jump(255, "FadeIn")
+			Goto SpriteC
+		SpriteD:
+			DYMI D 0 A_Jump(255, "FadeIn")
+			Goto SpriteD
+	}
+}
+
+Actor Gunsmoke_Medium : Gunsmoke_Small
+{
+	States
+	{
+		FadeIn:
+			"####" "#" 0 A_SetScale(FRandom(0.02, 0.015))
+			Goto RealFadeIn
+		RealFadeIn:
+			"####" "#" 1 A_FadeIn(FRandom(0.1, 0.06))
+			"####" "#" 0 A_JumpIf(Alpha >= 0.45, "FadeOut")
+			Loop
+		FadeOut:
+			"####" "#" 1 A_FadeOut(FRandom(0.01,0.02))
+			"####" "#" 0 A_SetScale(ScaleX + FRandom(0.0075, 0.0085))
+			Loop
+	}
+}
+
+Actor Gunsmoke_Medium_Dark : Gunsmoke_Small
+{
+	States
+	{
+		Spawn:
+		    TNT1 A 0
+			TNT1 AA 0 A_Jump(255, "SpriteA", "SpriteB", "SpriteC", "SpriteD")
+		SpriteA:
+			DYMI A 0 A_Jump(255, "FadeIn")
+			Goto SpriteA
+		SpriteB:
+			DYMI B 0 A_Jump(255, "FadeIn")
+			Goto SpriteB
+		SpriteC:
+			DYMI C 0 A_Jump(255, "FadeIn")
+			Goto SpriteC
+		SpriteD:
+			DYMI D 0 A_Jump(255, "FadeIn")
+			Goto SpriteD
+		FadeIn:
+			"####" "#" 0 A_SetScale(FRandom(0.02, 0.015))
+			Goto RealFadeIn
+		RealFadeIn:
+			"####" "#" 1 A_FadeIn(FRandom(0.1, 0.06))
+			"####" "#" 0 A_JumpIf(Alpha >= 0.45, "FadeOut")
+			Loop
+		FadeOut:
+			"####" "#" 1 A_FadeOut(FRandom(0.01,0.02))
+			"####" "#" 0 A_SetScale(ScaleX + FRandom(0.0075, 0.0085))
+			Loop
+	}
+}
+
+Actor Gunsmoke_Large : Gunsmoke_Small
+{
+	States
+	{
+		FadeIn:
+			"####" "#" 0 A_SetScale(FRandom(0.05, 0.06))
+			Goto RealFadeIn
+		RealFadeIn:
+			"####" "#" 1 A_FadeIn(FRandom(0.1, 0.06))
+			"####" "#" 0 A_JumpIf(Alpha >= 0.3, "FadeOut")
+			Loop
+		FadeOut:
+			"####" "#" 1 A_FadeOut(FRandom(0.015,0.0225))
+			"####" "#" 0 A_SetScale(ScaleX + FRandom(0.01, 0.012))
+			Loop
+	}
+}
+
+Actor Gunsmoke_Large_Dark : Gunsmoke_Small
+{
+	States
+	{
+		SpriteA:
+			DYMI A 0 A_Jump(255, "FadeIn")
+			Goto SpriteA
+		SpriteB:
+			DYMI B 0 A_Jump(255, "FadeIn")
+			Goto SpriteB
+		SpriteC:
+			DYMI C 0 A_Jump(255, "FadeIn")
+			Goto SpriteC
+		SpriteD:
+			DYMI D 0 A_Jump(255, "FadeIn")
+			Goto SpriteD
+		FadeIn:
+			"####" "#" 0 A_SetScale(FRandom(0.07, 0.08))
+			Goto RealFadeIn
+		RealFadeIn:
+			"####" "#" 1 A_FadeIn(FRandom(0.1, 0.06))
+			"####" "#" 0 A_JumpIf(Alpha >= 0.6, "FadeOut")
+			Loop
+		FadeOut:
+			"####" "#" 1 A_FadeOut(FRandom(0.0175,0.02))
+			"####" "#" 0 A_SetScale(ScaleX + FRandom(0.015, 0.012))
+			Loop
+	}
+}

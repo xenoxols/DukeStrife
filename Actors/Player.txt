@@ -1,0 +1,67 @@
+Actor "Duke Nukem" : PlayerPawn
+{
+  Speed 0.7
+  Health 100
+  Radius 16
+  Height 56
+  Mass 100
+  PainChance 255
+  Player.DisplayName "Duke Nukem"
+  Player.CrouchSprite "PLYC"
+  player.viewheight	46
+  player.attackzoffset 17
+  MeleeRange 192
+  PainChance 255
+  Player.SoundClass "Duke"
+  DamageFactor 1.0
+  Scale 0.7
+  DamageFactor DukeDamage, 0.25
+  Player.StartItem "DukeKnuckles"
+  Player.StartItem "BlankWep"
+  Player.StartItem "MightyFootLevelUp1", 1
+  Player.StartItem "Action_Kick", 1
+  Player.StartItem "Action_KickCancel", 1
+  //Player.StartItem "MightyFoot"
+  //Player.StartItem "DukePistol"
+  Player.StartItem "DukePistolClip", 60
+  Player.StartItem "DukePistolIn", 6
+  Player.StartItem "DukeRifleIn", 35
+  Player.WeaponSlot 1, "MightyFoot1", "MightyFoot2", "MightyFoot3", "DukeSaw1" , "DukeSaw2" , "DukeSaw3"
+  Player.WeaponSlot 2, "DukePistol1", "DukePistol2", "DukePistol3"
+  Player.WeaponSlot 3, "DukeMuricaRifle1", "DukeMuricaRifle2", "DukeMuricaRifle3" 
+  Player.WeaponSlot 4, "DukeShotgun1", "DukeShotgun2", "DukeShotgun3"
+  //Player.WeaponSlot 5, "DukeMinigun1", "DukeMinigun2", "DukeMinigun3"
+  //Player.WeaponSlot 6, "DukeRL1", "DukeRL2", "DukeRL3"
+  //Player.WeaponSlot 7, "DukePlasmaGun1", "DukePlasmaGun2", "DukePlasmaGun3"
+  States
+  {
+  Spawn:
+    PLAY A -1
+    Loop
+  See:
+    PLAY BCDE 4 
+    Loop
+  Missile:
+    PLAY A 6 BRIGHT 
+    Goto Spawn
+  Melee:
+    PLAY KL 6
+    Goto Missile
+  Pain:
+    PLAY P 4 
+    PLAY P 4 A_Pain
+    Goto Spawn
+  Death:
+    PLAY Q 10
+    PLAY R 10 A_PlayerScream
+    PLAY S 10 A_NoBlocking
+    PLAY T 10
+    PLAY U -1
+    Stop
+  }
+}
+
+ACTOR LevelPoint : Inventory
+{
+	Inventory.MaxAmount 99
+}

@@ -1,0 +1,756 @@
+/*ACTOR DukeSaw1 : weapon
+{
+	Weapon.AmmoUse 0
+	Weapon.AmmoGive1 0
+	Weapon.BobStyle inversesmooth
+	Weapon.BobSpeed 1.5
+	Weapon.BobRangeX .2
+	Weapon.BobRangeY .5
+	Weapon.AmmoType1 "none"
+	Weapon.Ammouse1 0
+	Obituary "%o was chewed up by %k's groovy chainsaw."
+    Inventory.PickupSound "misc/w_pkup"
+	Inventory.Pickupmessage "Chainsaw"
+	Tag "Chainsaw"
+	Decal SawChip
+    +WEAPON.NOALERT
+	+WEAPON.MELEEWEAPON
+	+AMMO_OPTIONAL
+	States
+	{
+	Ready:
+		TNT1 A 0 A_PlaySound("Chainsaw/Idle",CHAN_WEAPON,1.0,true)
+	ReadyReal:
+		TNT1 A 0 A_JumpIfInventory("StillKicking",1,"Kick")
+		ESAW A 1 A_WeaponReady
+		TNT1 A 0 A_JumpIfInventory("StillKicking",1,"Kick")
+		ESAW A 1 A_WeaponReady
+		TNT1 A 0 A_JumpIfInventory("StillKicking",1,"Kick")
+		ESAW A 1 A_WeaponReady
+		TNT1 A 0 A_JumpIfInventory("StillKicking",1,"Kick")
+		ESAW B 1 A_WeaponReady
+		TNT1 A 0 A_JumpIfInventory("StillKicking",1,"Kick")
+		ESAW B 1 A_WeaponReady
+		TNT1 A 0 A_JumpIfInventory("StillKicking",1,"Kick")
+		ESAW B 1 A_WeaponReady
+		TNT1 A 0 A_JumpIfInventory("StillKicking",1,"Kick")
+		ESAW C 1 A_WeaponReady
+		TNT1 A 0 A_JumpIfInventory("StillKicking",1,"Kick")
+		ESAW C 1 A_WeaponReady
+		TNT1 A 0 A_JumpIfInventory("StillKicking",1,"Kick")
+		ESAW C 1 A_WeaponReady
+		TNT1 A 0 A_JumpIfInventory("StillKicking",1,"Kick")
+		ESAW D 1 A_WeaponReady
+		TNT1 A 0 A_JumpIfInventory("StillKicking",1,"Kick")
+		ESAW D 1 A_WeaponReady
+		TNT1 A 0 A_JumpIfInventory("StillKicking",1,"Kick")
+		ESAW D 1 A_WeaponReady
+		TNT1 A 0 A_JumpIfInventory("StillKicking",1,"Kick")
+		ESAW E 1 A_WeaponReady
+		TNT1 A 0 A_JumpIfInventory("StillKicking",1,"Kick")
+		ESAW E 1 A_WeaponReady
+		TNT1 A 0 A_JumpIfInventory("StillKicking",1,"Kick")
+		ESAW E 1 A_WeaponReady
+		Goto ReadyReal
+	Deselect:
+		TNT1 A 0 A_StopSound(CHAN_WEAPON)
+		TNT1 AA 0 A_Lower
+		ESAW A 1 A_Lower
+		Loop
+	Select:
+		TNT1 AA 0 A_Raise
+		ESAW A 1 A_Raise
+		Loop
+    Fire:
+		ESAF AB 1 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
+	Saw:
+		TNT1 A 0 A_AlertMonsters
+		TNT1 A 0 A_SetPitch(Pitch-Random(-1.0,1.0))
+		TNT1 A 0 A_SetAngle(Angle-Random(-1.0,1.0))
+		
+		TNT1 A 0 A_FireCustomMissile("GunSmoke_SmallC",random(-40,-20),false,0,4,0,Random(20,55))
+		TNT1 A 0 A_Saw("Chainsaw/Fire","Chainsaw/Hit",1,"DukeSawPuff2",SF_NOTURN,70)
+		ESAF C 1 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
+		TNT1 A 0 A_SetPitch(Pitch-Random(-1.0,1.0))
+		TNT1 A 0 A_SetAngle(Angle-Random(-1.0,1.0))
+		
+		TNT1 A 0 A_FireCustomMissile("GunSmoke_SmallC",random(-40,-20),false,0,4,0,Random(20,55))
+		TNT1 A 0 A_Saw("Chainsaw/Fire","Chainsaw/Hit",1,"DukeSawPuff",SF_NOTURN,70)
+		ESAF D 1 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
+		TNT1 A 0 A_SetPitch(Pitch-Random(-1.0,1.0))
+		TNT1 A 0 A_SetAngle(Angle-Random(-1.0,1.0))
+		
+		TNT1 A 0 A_FireCustomMissile("GunSmoke_SmallC",random(-40,-20),false,0,4,0,Random(20,55))
+		TNT1 A 0 A_Saw("Chainsaw/Fire","Chainsaw/Hit",1,"DukeSawPuff2",SF_NOTURN,70)
+		ESAF E 1 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
+		TNT1 A 0 A_SetPitch(Pitch-Random(-1.0,1.0))
+		TNT1 A 0 A_SetAngle(Angle-Random(-1.0,1.0))
+		
+		TNT1 A 0 A_FireCustomMissile("GunSmoke_SmallC",random(-40,-20),false,0,4,0,Random(20,55))
+		TNT1 A 0 A_Saw("Chainsaw/Fire","Chainsaw/Hit",1,"DukeSawPuff",SF_NOTURN,70)
+		ESAF F 1 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
+		TNT1 A 0 A_SetPitch(Pitch-Random(-1.0,1.0))
+		TNT1 A 0 A_SetAngle(Angle-Random(-1.0,1.0))
+		
+		TNT1 A 0 A_FireCustomMissile("GunSmoke_SmallC",random(-40,-20),false,0,4,0,Random(20,55))
+		TNT1 A 0 A_Saw("Chainsaw/Fire","Chainsaw/Hit",1,"DukeSawPuff2",SF_NOTURN,70)
+		ESAF G 1 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
+		TNT1 A 0 A_Refire("Saw")
+		TNT1 A 0 A_StopSound(CHAN_WEAPON)
+		ESAF BA 1 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
+		ESAW A 1 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
+		Goto Ready
+	Kick:
+		ESAW A 1 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
+		TNT1 A 0 A_SetSpeed(0.0)
+		ESAL ABC 1 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
+		TNT1 A 0 A_JumpIfInventory("MightyFootLevelUp",2,"KLev3")
+		TNT1 A 0 A_JumpIfInventory("MightyFootLevelUp",1,"KLev2")
+		TNT1 A 1 A_PlaySound("Kick",7)
+		TNT1 A 0 A_SetPitch(Pitch-1)
+		KICK A 1 A_ZoomFactor(0.99)
+		TNT1 A 0 A_SetPitch(Pitch-1)
+		KICK B 1 A_ZoomFactor(0.98)
+		TNT1 A 0 A_SetPitch(Pitch-1)
+		KICK C 1 A_ZoomFactor(0.97)
+		TNT1 A 0 A_SetPitch(Pitch-1)
+		KICK D 1 A_ZoomFactor(0.96)
+		TNT1 A 0 A_SetPitch(Pitch-1)
+		KICK E 1 A_ZoomFactor(0.95)
+		TNT1 A 0 a_FireCustomMissile("KickAttack",0,0)
+		KICK FGGF 2
+		TNT1 A 0 A_SetPitch(Pitch+1)
+		KICK E 1 A_ZoomFactor(0.96)
+		TNT1 A 0 A_SetPitch(Pitch+1)
+		KICK D 1 A_ZoomFactor(0.97)
+		TNT1 A 0 A_SetPitch(Pitch+1)
+		KICK C 1 A_ZoomFactor(0.98)
+		TNT1 A 0 A_SetPitch(Pitch+1)
+		KICK B 1 A_ZoomFactor(0.99)
+		TNT1 A 0 A_SetPitch(Pitch+1)
+		KICK A 1 A_ZoomFactor(1.00)
+		TNT1 A 3 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
+		ESAL CBA 1 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
+		TNT1 A 0 A_SetSpeed(1.0)
+		ESAW A 1 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
+		Goto Ready
+	KLev2:
+		TNT1 A 1 A_PlaySound("Kick",7)
+		TNT1 A 0 A_SetPitch(Pitch-1)
+		KICK A 1 A_ZoomFactor(0.99)
+		TNT1 A 0 A_SetPitch(Pitch-1)
+		KICK B 1 A_ZoomFactor(0.98)
+		TNT1 A 0 A_SetPitch(Pitch-1)
+		KICK C 1 A_ZoomFactor(0.97)
+		TNT1 A 0 A_SetPitch(Pitch-1)
+		KICK D 1 A_ZoomFactor(0.96)
+		TNT1 A 0 A_SetPitch(Pitch-1)
+		KICK E 1 A_ZoomFactor(0.95)
+		TNT1 A 0 a_FireCustomMissile("KickAttack2",0,0)
+		KICK FGGF 2
+		TNT1 A 0 A_SetPitch(Pitch+1)
+		KICK E 1 A_ZoomFactor(0.96)
+		TNT1 A 0 A_SetPitch(Pitch+1)
+		KICK D 1 A_ZoomFactor(0.97)
+		TNT1 A 0 A_SetPitch(Pitch+1)
+		KICK C 1 A_ZoomFactor(0.98)
+		TNT1 A 0 A_SetPitch(Pitch+1)
+		KICK B 1 A_ZoomFactor(0.99)
+		TNT1 A 0 A_SetPitch(Pitch+1)
+		KICK A 1 A_ZoomFactor(1.00)
+		TNT1 A 3 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
+		ESAL CBA 1 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
+		TNT1 A 0 A_SetSpeed(1.0)
+		ESAW A 1 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
+		Goto Ready
+	KLev3:
+		TNT1 A 1 A_PlaySound("Kick",7)
+		TNT1 A 0 A_SetPitch(Pitch-1)
+		SKIK A 1 A_ZoomFactor(0.99)
+		TNT1 A 0 A_SetPitch(Pitch-1)
+		SKIK B 1 A_ZoomFactor(0.98)
+		TNT1 A 0 A_SetPitch(Pitch-1)
+		SKIK C 1 A_ZoomFactor(0.97)
+		TNT1 A 0 A_SetPitch(Pitch-1)
+		SKIK D 1 A_ZoomFactor(0.96)
+		TNT1 A 0 A_SetPitch(Pitch-1)
+		SKIK E 1 A_ZoomFactor(0.95)
+		TNT1 A 0 a_FireCustomMissile("KickAttack3",0,0)
+		SKIK FGGF 2
+		TNT1 A 0 A_SetPitch(Pitch+1)
+		SKIK E 1 A_ZoomFactor(0.96)
+		TNT1 A 0 A_SetPitch(Pitch+1)
+		SKIK D 1 A_ZoomFactor(0.97)
+		TNT1 A 0 A_SetPitch(Pitch+1)
+		SKIK C 1 A_ZoomFactor(0.98)
+		TNT1 A 0 A_SetPitch(Pitch+1)
+		SKIK B 1 A_ZoomFactor(0.99)
+		TNT1 A 0 A_SetPitch(Pitch+1)
+		SKIK A 1 A_ZoomFactor(1.00)
+		TNT1 A 3 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
+		ESAL CBA 1 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
+		TNT1 A 0 A_SetSpeed(1.0)
+		ESAW A 1 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
+		Goto Ready
+ 	Spawn:
+		PIST A -1
+		Stop
+	}
+}*/
+
+ACTOR DukeSaw1 : weapon
+{
+	Weapon.AmmoUse 0
+	Weapon.AmmoGive1 0
+	Weapon.BobStyle inversesmooth
+	Weapon.BobSpeed 1.5
+	Weapon.BobRangeX .2
+	Weapon.BobRangeY .5
+	Weapon.AmmoType1 "none"
+	Weapon.Ammouse1 0
+	Obituary "%o was chewed up by %k's groovy chainsaw."
+    Inventory.PickupSound "misc/w_pkup"
+	Inventory.Pickupmessage "Chainsaw"
+	Tag "Chainsaw"
+	Decal SawChip
+    +WEAPON.NOALERT
+	+AMMO_OPTIONAL
+	+WEAPON.MELEEWEAPON
+	//+CHEATNOTWEAPON
+	States
+	{
+	Ready:
+		TNT1 A 0 A_PlaySound("Chainsaw/Idle",CHAN_WEAPON,1.0,true)
+	ReadyReal:
+		TNT1 A 0 A_JumpIfInventory("StillKicking",1,"Kick")
+		ESAW A 1 A_WeaponReady
+		TNT1 A 0 A_JumpIfInventory("StillKicking",1,"Kick")
+		ESAW A 1 A_WeaponReady
+		TNT1 A 0 A_JumpIfInventory("StillKicking",1,"Kick")
+		ESAW A 1 A_WeaponReady
+		TNT1 A 0 A_JumpIfInventory("StillKicking",1,"Kick")
+		ESAW B 1 A_WeaponReady
+		TNT1 A 0 A_JumpIfInventory("StillKicking",1,"Kick")
+		ESAW B 1 A_WeaponReady
+		TNT1 A 0 A_JumpIfInventory("StillKicking",1,"Kick")
+		ESAW B 1 A_WeaponReady
+		TNT1 A 0 A_JumpIfInventory("StillKicking",1,"Kick")
+		ESAW C 1 A_WeaponReady
+		TNT1 A 0 A_JumpIfInventory("StillKicking",1,"Kick")
+		ESAW C 1 A_WeaponReady
+		TNT1 A 0 A_JumpIfInventory("StillKicking",1,"Kick")
+		ESAW C 1 A_WeaponReady
+		TNT1 A 0 A_JumpIfInventory("StillKicking",1,"Kick")
+		ESAW D 1 A_WeaponReady
+		TNT1 A 0 A_JumpIfInventory("StillKicking",1,"Kick")
+		ESAW D 1 A_WeaponReady
+		TNT1 A 0 A_JumpIfInventory("StillKicking",1,"Kick")
+		ESAW D 1 A_WeaponReady
+		TNT1 A 0 A_JumpIfInventory("StillKicking",1,"Kick")
+		ESAW E 1 A_WeaponReady
+		TNT1 A 0 A_JumpIfInventory("StillKicking",1,"Kick")
+		ESAW E 1 A_WeaponReady
+		TNT1 A 0 A_JumpIfInventory("StillKicking",1,"Kick")
+		ESAW E 1 A_WeaponReady
+		Goto ReadyReal
+	Deselect:
+		TNT1 A 0 A_StopSound(CHAN_WEAPON)
+		TNT1 AA 0 A_Lower
+		ESAW A 1 A_Lower
+		Loop
+	Select:
+		TNT1 AA 0 A_Raise
+		ESAW A 1 A_Raise
+		Loop
+	AltFire:
+		ESAW A 1 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
+		ESAL ABC 1 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
+	AltSawing:
+		TNT1 A 3
+		TNT1 A 0 A_AlertMonsters
+		TNT1 A 1 A_PlaySound("Chainsaw/Swing",7)
+		TNT1 A 0 A_SetAngle(Angle+1.3)
+		TNT1 A 0 A_SetPitch(Pitch+0.4)
+		ESA2 A 1
+		TNT1 A 0 A_SetAngle(Angle+1.3)
+		TNT1 A 0 A_SetPitch(Pitch+0.4)
+		ESA2 B 1
+		TNT1 A 0 A_SetAngle(Angle+1.3)
+		TNT1 A 0 A_SetPitch(Pitch+0.4)
+		TNT1 A 0 A_FireCustomMissile("GunSmoke_SmallC",-30,false,2,5,0,35)
+		TNT1 A 0 A_FireCustomMissile("ChainAttack",-40,0,2,0)
+		ESA2 C 1
+		TNT1 A 0 A_SetAngle(Angle+1.3)
+		TNT1 A 0 A_SetPitch(Pitch+0.4)
+		TNT1 A 0 A_FireCustomMissile("GunSmoke_SmallC",-30,false,1,4,0,35)
+		TNT1 A 0 A_FireCustomMissile("ChainAttack",-20,0,1,0)
+		ESA2 D 1
+		TNT1 A 0 A_SetAngle(Angle+1.3)
+		TNT1 A 0 A_SetPitch(Pitch+0.4)
+		TNT1 A 0 A_FireCustomMissile("GunSmoke_SmallC",-30,false,0,3,0,35)
+		TNT1 A 0 A_FireCustomMissile("ChainAttack",0,0,0,0)
+		ESA2 E 1
+		TNT1 A 0 A_SetAngle(Angle+1.3)
+		TNT1 A 0 A_SetPitch(Pitch+0.4)
+		TNT1 A 0 A_FireCustomMissile("GunSmoke_SmallC",-30,false,-1,2,0,35)
+		TNT1 A 0 A_FireCustomMissile("ChainAttack",20,0,-1,0)
+		ESA2 F 1
+		TNT1 A 0 A_SetAngle(Angle+1.3)
+		TNT1 A 0 A_SetPitch(Pitch+0.4)
+		TNT1 A 0 A_FireCustomMissile("GunSmoke_SmallC",-30,false,-2,1,0,35)
+		TNT1 A 0 A_FireCustomMissile("ChainAttack",40,0,-2,0)
+		ESA2 G 1
+		TNT1 A 0 A_SetAngle(Angle+1.3)
+		TNT1 A 0 A_SetPitch(Pitch+0.4)
+		ESA2 H 1
+		TNT1 A 0 A_SetAngle(Angle+1.3)
+		TNT1 A 0 A_SetPitch(Pitch+0.4)
+		ESA2 I 1
+		TNT1 A 4 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
+		TNT1 A 0 A_Refire("AltSawing")
+		ESAL CCA 1 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
+		ESAW A 1 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
+		Goto Ready
+    Fire:
+		ESAF AB 1 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
+	Saw:
+		TNT1 A 0 A_AlertMonsters
+		TNT1 A 0 A_SetPitch(Pitch-Random(-1.0,1.0))
+		TNT1 A 0 A_SetAngle(Angle-Random(-1.0,1.0))
+		TNT1 A 0 A_FireCustomMissile("GunSmoke_SmallC",random(-40,-20),false,0,4,0,Random(20,55))
+		TNT1 A 0 A_Saw("Chainsaw/Fire","Chainsaw/Hit",1,"DukeSawPuff2",SF_NOTURN,70)
+		ESAF C 1 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
+		TNT1 A 0 A_SetPitch(Pitch-Random(-1.0,1.0))
+		TNT1 A 0 A_SetAngle(Angle-Random(-1.0,1.0))
+		TNT1 A 0 A_FireCustomMissile("GunSmoke_SmallC",random(-40,-20),false,0,4,0,Random(20,55))
+		TNT1 A 0 A_Saw("Chainsaw/Fire","Chainsaw/Hit",1,"DukeSawPuff",SF_NOTURN,70)
+		ESAF D 1 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
+		TNT1 A 0 A_SetPitch(Pitch-Random(-1.0,1.0))
+		TNT1 A 0 A_SetAngle(Angle-Random(-1.0,1.0))
+		TNT1 A 0 A_FireCustomMissile("GunSmoke_SmallC",random(-40,-20),false,0,4,0,Random(20,55))
+		TNT1 A 0 A_Saw("Chainsaw/Fire","Chainsaw/Hit",1,"DukeSawPuff2",SF_NOTURN,70)
+		ESAF E 1 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
+		TNT1 A 0 A_SetPitch(Pitch-Random(-1.0,1.0))
+		TNT1 A 0 A_SetAngle(Angle-Random(-1.0,1.0))
+		TNT1 A 0 A_FireCustomMissile("GunSmoke_SmallC",random(-40,-20),false,0,4,0,Random(20,55))
+		TNT1 A 0 A_Saw("Chainsaw/Fire","Chainsaw/Hit",1,"DukeSawPuff",SF_NOTURN,70)
+		ESAF F 1 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
+		TNT1 A 0 A_SetPitch(Pitch-Random(-1.0,1.0))
+		TNT1 A 0 A_SetAngle(Angle-Random(-1.0,1.0))
+		TNT1 A 0 A_FireCustomMissile("GunSmoke_SmallC",random(-40,-20),false,0,4,0,Random(20,55))
+		TNT1 A 0 A_Saw("Chainsaw/Fire","Chainsaw/Hit",1,"DukeSawPuff2",SF_NOTURN,70)
+		ESAF G 1 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
+		TNT1 A 0 A_Refire("Saw")
+		TNT1 A 0 A_StopSound(CHAN_WEAPON)
+		ESAF BA 1 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
+		ESAW A 1 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
+		Goto Ready
+	Kick:
+		ESAW A 1 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
+		TNT1 A 0 A_SetSpeed(0.0)
+		ESAL ABC 1 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
+		TNT1 A 0 A_JumpIfInventory("MightyFootLevelUp",2,"KLev3")
+		TNT1 A 0 A_JumpIfInventory("MightyFootLevelUp",1,"KLev2")
+		TNT1 A 1 A_PlaySound("Kick",7)
+		TNT1 A 0 A_SetPitch(Pitch-1)
+		KICK A 1 A_ZoomFactor(0.99)
+		TNT1 A 0 A_SetPitch(Pitch-1)
+		KICK B 1 A_ZoomFactor(0.98)
+		TNT1 A 0 A_SetPitch(Pitch-1)
+		KICK C 1 A_ZoomFactor(0.97)
+		TNT1 A 0 A_SetPitch(Pitch-1)
+		KICK D 1 A_ZoomFactor(0.96)
+		TNT1 A 0 A_SetPitch(Pitch-1)
+		KICK E 1 A_ZoomFactor(0.95)
+		TNT1 A 0 a_FireCustomMissile("KickAttack",0,0)
+		KICK FGGF 2
+		TNT1 A 0 A_SetPitch(Pitch+1)
+		KICK E 1 A_ZoomFactor(0.96)
+		TNT1 A 0 A_SetPitch(Pitch+1)
+		KICK D 1 A_ZoomFactor(0.97)
+		TNT1 A 0 A_SetPitch(Pitch+1)
+		KICK C 1 A_ZoomFactor(0.98)
+		TNT1 A 0 A_SetPitch(Pitch+1)
+		KICK B 1 A_ZoomFactor(0.99)
+		TNT1 A 0 A_SetPitch(Pitch+1)
+		KICK A 1 A_ZoomFactor(1.00)
+		TNT1 A 3 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
+		ESAL CBA 1 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
+		TNT1 A 0 A_SetSpeed(1.0)
+		ESAW A 1 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
+		Goto Ready
+	KLev2:
+		TNT1 A 1 A_PlaySound("Kick",7)
+		TNT1 A 0 A_SetPitch(Pitch-1)
+		KICK A 1 A_ZoomFactor(0.99)
+		TNT1 A 0 A_SetPitch(Pitch-1)
+		KICK B 1 A_ZoomFactor(0.98)
+		TNT1 A 0 A_SetPitch(Pitch-1)
+		KICK C 1 A_ZoomFactor(0.97)
+		TNT1 A 0 A_SetPitch(Pitch-1)
+		KICK D 1 A_ZoomFactor(0.96)
+		TNT1 A 0 A_SetPitch(Pitch-1)
+		KICK E 1 A_ZoomFactor(0.95)
+		TNT1 A 0 a_FireCustomMissile("KickAttack2",0,0)
+		KICK FGGF 2
+		TNT1 A 0 A_SetPitch(Pitch+1)
+		KICK E 1 A_ZoomFactor(0.96)
+		TNT1 A 0 A_SetPitch(Pitch+1)
+		KICK D 1 A_ZoomFactor(0.97)
+		TNT1 A 0 A_SetPitch(Pitch+1)
+		KICK C 1 A_ZoomFactor(0.98)
+		TNT1 A 0 A_SetPitch(Pitch+1)
+		KICK B 1 A_ZoomFactor(0.99)
+		TNT1 A 0 A_SetPitch(Pitch+1)
+		KICK A 1 A_ZoomFactor(1.00)
+		TNT1 A 3 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
+		ESAL CBA 1 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
+		TNT1 A 0 A_SetSpeed(1.0)
+		ESAW A 1 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
+		Goto Ready
+	KLev3:
+		TNT1 A 1 A_PlaySound("Kick",7)
+		TNT1 A 0 A_SetPitch(Pitch-1)
+		SKIK A 1 A_ZoomFactor(0.99)
+		TNT1 A 0 A_SetPitch(Pitch-1)
+		SKIK B 1 A_ZoomFactor(0.98)
+		TNT1 A 0 A_SetPitch(Pitch-1)
+		SKIK C 1 A_ZoomFactor(0.97)
+		TNT1 A 0 A_SetPitch(Pitch-1)
+		SKIK D 1 A_ZoomFactor(0.96)
+		TNT1 A 0 A_SetPitch(Pitch-1)
+		SKIK E 1 A_ZoomFactor(0.95)
+		TNT1 A 0 a_FireCustomMissile("KickAttack3",0,0)
+		SKIK FGGF 2
+		TNT1 A 0 A_SetPitch(Pitch+1)
+		SKIK E 1 A_ZoomFactor(0.96)
+		TNT1 A 0 A_SetPitch(Pitch+1)
+		SKIK D 1 A_ZoomFactor(0.97)
+		TNT1 A 0 A_SetPitch(Pitch+1)
+		SKIK C 1 A_ZoomFactor(0.98)
+		TNT1 A 0 A_SetPitch(Pitch+1)
+		SKIK B 1 A_ZoomFactor(0.99)
+		TNT1 A 0 A_SetPitch(Pitch+1)
+		SKIK A 1 A_ZoomFactor(1.00)
+		TNT1 A 3 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
+		ESAL CBA 1 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
+		TNT1 A 0 A_SetSpeed(1.0)
+		ESAW A 1 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
+		Goto Ready
+ 	Spawn:
+		PIST A -1
+		Stop
+	}
+}
+
+ACTOR DukeSaw3 : weapon
+{
+	Weapon.AmmoUse 0
+	Weapon.AmmoGive1 0
+	Weapon.BobStyle inversesmooth
+	Weapon.BobSpeed 1.5
+	Weapon.BobRangeX .2
+	Weapon.BobRangeY .5
+	Weapon.AmmoType1 "none"
+	Weapon.Ammouse1 0
+	Obituary "%o was chewed up by %k's groovy chainsaw."
+    Inventory.PickupSound "misc/w_pkup"
+	Inventory.Pickupmessage "Chainsaw"
+	Tag "Chainsaw"
+	Decal SawChip
+    +WEAPON.NOALERT
+	+WEAPON.MELEEWEAPON
+	+AMMO_OPTIONAL
+	+CHEATNOTWEAPON
+	States
+	{
+	Ready:
+		TNT1 A 0 A_PlaySound("Chainsaw/Idle",CHAN_WEAPON,1.0,true)
+	ReadyReal:
+		TNT1 A 0 A_JumpIfInventory("StillKicking",1,"Kick")
+		ESAW A 1 A_WeaponReady
+		TNT1 A 0 A_JumpIfInventory("StillKicking",1,"Kick")
+		ESAW A 1 A_WeaponReady
+		TNT1 A 0 A_JumpIfInventory("StillKicking",1,"Kick")
+		ESAW A 1 A_WeaponReady
+		TNT1 A 0 A_JumpIfInventory("StillKicking",1,"Kick")
+		ESAW B 1 A_WeaponReady
+		TNT1 A 0 A_JumpIfInventory("StillKicking",1,"Kick")
+		ESAW B 1 A_WeaponReady
+		TNT1 A 0 A_JumpIfInventory("StillKicking",1,"Kick")
+		ESAW B 1 A_WeaponReady
+		TNT1 A 0 A_JumpIfInventory("StillKicking",1,"Kick")
+		ESAW C 1 A_WeaponReady
+		TNT1 A 0 A_JumpIfInventory("StillKicking",1,"Kick")
+		ESAW C 1 A_WeaponReady
+		TNT1 A 0 A_JumpIfInventory("StillKicking",1,"Kick")
+		ESAW C 1 A_WeaponReady
+		TNT1 A 0 A_JumpIfInventory("StillKicking",1,"Kick")
+		ESAW D 1 A_WeaponReady
+		TNT1 A 0 A_JumpIfInventory("StillKicking",1,"Kick")
+		ESAW D 1 A_WeaponReady
+		TNT1 A 0 A_JumpIfInventory("StillKicking",1,"Kick")
+		ESAW D 1 A_WeaponReady
+		TNT1 A 0 A_JumpIfInventory("StillKicking",1,"Kick")
+		ESAW E 1 A_WeaponReady
+		TNT1 A 0 A_JumpIfInventory("StillKicking",1,"Kick")
+		ESAW E 1 A_WeaponReady
+		TNT1 A 0 A_JumpIfInventory("StillKicking",1,"Kick")
+		ESAW E 1 A_WeaponReady
+		Goto ReadyReal
+	Deselect:
+		TNT1 A 0 A_StopSound(CHAN_WEAPON)
+		TNT1 AA 0 A_Lower
+		ESAW A 1 A_Lower
+		Loop
+	Select:
+		TNT1 AA 0 A_Raise
+		ESAW A 1 A_Raise
+		Loop
+	AltFire:
+		ESAW A 1 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
+		ESAL ABC 1 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
+	AltSawing:
+		TNT1 A 3
+		TNT1 A 0 A_AlertMonsters
+		TNT1 A 1 A_PlaySound("Chainsaw/Swing",7)
+		TNT1 A 0 A_SetAngle(Angle+1.3)
+		TNT1 A 0 A_SetPitch(Pitch+0.4)
+		ESA2 A 1
+		TNT1 A 0 A_SetAngle(Angle+1.3)
+		TNT1 A 0 A_SetPitch(Pitch+0.4)
+		ESA2 B 1
+		TNT1 A 0 A_SetAngle(Angle+1.3)
+		TNT1 A 0 A_SetPitch(Pitch+0.4)
+		TNT1 A 0 A_FireCustomMissile("GunSmoke_SmallC",-30,false,2,5,0,35)
+		TNT1 A 0 A_FireCustomMissile("ChainAttack2",-40,0,2,0)
+		ESA2 C 1
+		TNT1 A 0 A_SetAngle(Angle+1.3)
+		TNT1 A 0 A_SetPitch(Pitch+0.4)
+		TNT1 A 0 A_FireCustomMissile("GunSmoke_SmallC",-30,false,1,4,0,35)
+		TNT1 A 0 A_FireCustomMissile("ChainAttack2",-20,0,1,0)
+		ESA2 D 1
+		TNT1 A 0 A_SetAngle(Angle+1.3)
+		TNT1 A 0 A_SetPitch(Pitch+0.4)
+		TNT1 A 0 A_FireCustomMissile("GunSmoke_SmallC",-30,false,0,3,0,35)
+		TNT1 A 0 A_FireCustomMissile("ChainAttack2",0,0,0,0)
+		ESA2 E 1
+		TNT1 A 0 A_SetAngle(Angle+1.3)
+		TNT1 A 0 A_SetPitch(Pitch+0.4)
+		TNT1 A 0 A_FireCustomMissile("GunSmoke_SmallC",-30,false,-1,2,0,35)
+		TNT1 A 0 A_FireCustomMissile("ChainAttack2",20,0,-1,0)
+		ESA2 F 1
+		TNT1 A 0 A_SetAngle(Angle+1.3)
+		TNT1 A 0 A_SetPitch(Pitch+0.4)
+		TNT1 A 0 A_FireCustomMissile("GunSmoke_SmallC",-30,false,-2,1,0,35)
+		TNT1 A 0 A_FireCustomMissile("ChainAttack2",40,0,-2,0)
+		ESA2 G 1
+		TNT1 A 0 A_SetAngle(Angle+1.3)
+		TNT1 A 0 A_SetPitch(Pitch+0.4)
+		ESA2 H 1
+		TNT1 A 0 A_SetAngle(Angle+1.3)
+		TNT1 A 0 A_SetPitch(Pitch+0.4)
+		ESA2 I 1
+		TNT1 A 4 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
+		TNT1 A 0 A_Refire("AltSawing")
+		ESAL CCA 1 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
+		ESAW A 1 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
+		Goto Ready
+    Fire:
+		ESAF AB 1 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
+	Saw:
+		TNT1 A 0 A_AlertMonsters
+		TNT1 A 0 A_SetPitch(Pitch-Random(-1.0,1.0))
+		TNT1 A 0 A_SetAngle(Angle-Random(-1.0,1.0))
+		TNT1 A 0 A_FireCustomMissile("GunSmoke_SmallC",random(-40,-20),false,0,4,0,Random(20,55))
+		TNT1 A 0 A_Saw("Chainsaw/Fire","Chainsaw/Hit",2,"DukeSawPuff2",SF_NOTURN,70)
+		ESAF C 1 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
+		TNT1 A 0 A_SetPitch(Pitch-Random(-1.0,1.0))
+		TNT1 A 0 A_SetAngle(Angle-Random(-1.0,1.0))
+		TNT1 A 0 A_FireCustomMissile("GunSmoke_SmallC",random(-40,-20),false,0,4,0,Random(20,55))
+		TNT1 A 0 A_Saw("Chainsaw/Fire","Chainsaw/Hit",2,"DukeSawPuff",SF_NOTURN,70)
+		ESAF D 1 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
+		TNT1 A 0 A_SetPitch(Pitch-Random(-1.0,1.0))
+		TNT1 A 0 A_SetAngle(Angle-Random(-1.0,1.0))
+		TNT1 A 0 A_FireCustomMissile("GunSmoke_SmallC",random(-40,-20),false,0,4,0,Random(20,55))
+		TNT1 A 0 A_Saw("Chainsaw/Fire","Chainsaw/Hit",2,"DukeSawPuff2",SF_NOTURN,70)
+		ESAF E 1 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
+		TNT1 A 0 A_SetPitch(Pitch-Random(-1.0,1.0))
+		TNT1 A 0 A_SetAngle(Angle-Random(-1.0,1.0))
+		TNT1 A 0 A_FireCustomMissile("GunSmoke_SmallC",random(-40,-20),false,0,4,0,Random(20,55))
+		TNT1 A 0 A_Saw("Chainsaw/Fire","Chainsaw/Hit",2,"DukeSawPuff",SF_NOTURN,70)
+		ESAF F 1 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
+		TNT1 A 0 A_SetPitch(Pitch-Random(-1.0,1.0))
+		TNT1 A 0 A_SetAngle(Angle-Random(-1.0,1.0))
+		TNT1 A 0 A_FireCustomMissile("GunSmoke_SmallC",random(-40,-20),false,0,4,0,Random(20,55))
+		TNT1 A 0 A_Saw("Chainsaw/Fire","Chainsaw/Hit",2,"DukeSawPuff2",SF_NOTURN,70)
+		ESAF G 1 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
+		TNT1 A 0 A_Refire("Saw")
+		TNT1 A 0 A_StopSound(CHAN_WEAPON)
+		ESAF BA 1 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
+		ESAW A 1 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
+		Goto Ready
+	Kick:
+		ESAW A 1 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
+		TNT1 A 0 A_SetSpeed(0.0)
+		ESAL ABC 1 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
+		TNT1 A 0 A_JumpIfInventory("MightyFootLevelUp",2,"KLev3")
+		TNT1 A 0 A_JumpIfInventory("MightyFootLevelUp",1,"KLev2")
+		TNT1 A 1 A_PlaySound("Kick",7)
+		TNT1 A 0 A_SetPitch(Pitch-1)
+		KICK A 1 A_ZoomFactor(0.99)
+		TNT1 A 0 A_SetPitch(Pitch-1)
+		KICK B 1 A_ZoomFactor(0.98)
+		TNT1 A 0 A_SetPitch(Pitch-1)
+		KICK C 1 A_ZoomFactor(0.97)
+		TNT1 A 0 A_SetPitch(Pitch-1)
+		KICK D 1 A_ZoomFactor(0.96)
+		TNT1 A 0 A_SetPitch(Pitch-1)
+		KICK E 1 A_ZoomFactor(0.95)
+		TNT1 A 0 a_FireCustomMissile("KickAttack",0,0)
+		KICK FGGF 2
+		TNT1 A 0 A_SetPitch(Pitch+1)
+		KICK E 1 A_ZoomFactor(0.96)
+		TNT1 A 0 A_SetPitch(Pitch+1)
+		KICK D 1 A_ZoomFactor(0.97)
+		TNT1 A 0 A_SetPitch(Pitch+1)
+		KICK C 1 A_ZoomFactor(0.98)
+		TNT1 A 0 A_SetPitch(Pitch+1)
+		KICK B 1 A_ZoomFactor(0.99)
+		TNT1 A 0 A_SetPitch(Pitch+1)
+		KICK A 1 A_ZoomFactor(1.00)
+		TNT1 A 3 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
+		ESAL CBA 1 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
+		TNT1 A 0 A_SetSpeed(1.0)
+		ESAW A 1 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
+		Goto Ready
+	KLev2:
+		TNT1 A 1 A_PlaySound("Kick",7)
+		TNT1 A 0 A_SetPitch(Pitch-1)
+		KICK A 1 A_ZoomFactor(0.99)
+		TNT1 A 0 A_SetPitch(Pitch-1)
+		KICK B 1 A_ZoomFactor(0.98)
+		TNT1 A 0 A_SetPitch(Pitch-1)
+		KICK C 1 A_ZoomFactor(0.97)
+		TNT1 A 0 A_SetPitch(Pitch-1)
+		KICK D 1 A_ZoomFactor(0.96)
+		TNT1 A 0 A_SetPitch(Pitch-1)
+		KICK E 1 A_ZoomFactor(0.95)
+		TNT1 A 0 a_FireCustomMissile("KickAttack2",0,0)
+		KICK FGGF 2
+		TNT1 A 0 A_SetPitch(Pitch+1)
+		KICK E 1 A_ZoomFactor(0.96)
+		TNT1 A 0 A_SetPitch(Pitch+1)
+		KICK D 1 A_ZoomFactor(0.97)
+		TNT1 A 0 A_SetPitch(Pitch+1)
+		KICK C 1 A_ZoomFactor(0.98)
+		TNT1 A 0 A_SetPitch(Pitch+1)
+		KICK B 1 A_ZoomFactor(0.99)
+		TNT1 A 0 A_SetPitch(Pitch+1)
+		KICK A 1 A_ZoomFactor(1.00)
+		TNT1 A 3 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
+		ESAL CBA 1 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
+		TNT1 A 0 A_SetSpeed(1.0)
+		ESAW A 1 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
+		Goto Ready
+	KLev3:
+		TNT1 A 1 A_PlaySound("Kick",7)
+		TNT1 A 0 A_SetPitch(Pitch-1)
+		SKIK A 1 A_ZoomFactor(0.99)
+		TNT1 A 0 A_SetPitch(Pitch-1)
+		SKIK B 1 A_ZoomFactor(0.98)
+		TNT1 A 0 A_SetPitch(Pitch-1)
+		SKIK C 1 A_ZoomFactor(0.97)
+		TNT1 A 0 A_SetPitch(Pitch-1)
+		SKIK D 1 A_ZoomFactor(0.96)
+		TNT1 A 0 A_SetPitch(Pitch-1)
+		SKIK E 1 A_ZoomFactor(0.95)
+		TNT1 A 0 a_FireCustomMissile("KickAttack3",0,0)
+		SKIK FGGF 2
+		TNT1 A 0 A_SetPitch(Pitch+1)
+		SKIK E 1 A_ZoomFactor(0.96)
+		TNT1 A 0 A_SetPitch(Pitch+1)
+		SKIK D 1 A_ZoomFactor(0.97)
+		TNT1 A 0 A_SetPitch(Pitch+1)
+		SKIK C 1 A_ZoomFactor(0.98)
+		TNT1 A 0 A_SetPitch(Pitch+1)
+		SKIK B 1 A_ZoomFactor(0.99)
+		TNT1 A 0 A_SetPitch(Pitch+1)
+		SKIK A 1 A_ZoomFactor(1.00)
+		TNT1 A 3 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
+		ESAL CBA 1 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
+		TNT1 A 0 A_SetSpeed(1.0)
+		ESAW A 1 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
+		Goto Ready
+ 	Spawn:
+		PIST A -1
+		Stop
+	}
+}
+
+
+ACTOR ChainAttack : FastProjectile
+{
+	Radius 6
+	Height 6
+	DamageType DukeDamage
+	Projectile 
+	+FORCEXYBILLBOARD
+	+FORCEPAIN
+	+EXTREMEDEATH
+	+BLOODSPLATTER
+	RenderStyle Add
+	Alpha 0.6
+    Damage 5
+    Speed 32
+	ProjectileKickback 0
+	SeeSound "none"
+	DeathSound "none"
+	Decal SawChip2
+	States
+	{
+	Spawn:
+		TNT1 A 1
+		TNT1 A 1 BRIGHT
+		Stop
+	Death:
+		TNT1 A 3 Bright A_PlaySound("ChainSaw/Hit2")
+		Stop
+	Crash:
+		TNT1 A 3 Bright A_PlaySound("ChainSaw/HitWall")
+		Stop
+	}
+}
+
+ACTOR ChainAttack2 : FastProjectile
+{
+	Radius 6
+	Height 6
+	DamageType DukeDamage
+	Projectile 
+	+FORCEXYBILLBOARD
+	+FORCEPAIN
+	+EXTREMEDEATH
+	+BLOODSPLATTER
+	RenderStyle Add
+	Alpha 0.6
+    Damage 7
+    Speed 35
+	ProjectileKickback 0
+	SeeSound "none"
+	DeathSound "none"
+	Decal SawChip2
+	States
+	{
+	Spawn:
+		TNT1 A 1
+		TNT1 A 1 BRIGHT
+		Stop
+	Death:
+		TNT1 A 3 Bright A_PlaySound("ChainSaw/Hit2")
+		Stop
+	Crash:
+		TNT1 A 3 Bright A_PlaySound("ChainSaw/HitWall")
+		Stop
+	}
+}

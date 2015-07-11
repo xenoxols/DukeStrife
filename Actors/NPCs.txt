@@ -1,0 +1,53 @@
+Actor Civilian1 : Peasant 256
+{
+-Shootable
++NODAMAGE
+}
+
+Actor Civilian2 : Peasant 257
+{
+-Shootable
++NODAMAGE
+}
+
+Actor Civilian3 : Peasant 258
+{
+-Shootable
++NODAMAGE
+}
+
+Actor Civilian4 : Peasant 259
+{
+-Shootable
++NODAMAGE
+}
+
+Actor Civilian5 : Peasant 260
+{
+-Shootable
++NODAMAGE
+}
+
+Actor Civilian6 : Peasant 261
+{
+-Shootable
++NODAMAGE
+}
+
+Actor Civilian7 : Peasant 262
+{
+-Shootable
++NODAMAGE
+}
+
+Actor Civilian8 : Peasant 263
+{
+-Shootable
++NODAMAGE
+}
+
+Actor EDFSeargent : Rebel 264
+{
+-Shootable
++NODAMAGE
+}

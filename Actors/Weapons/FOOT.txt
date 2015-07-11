@@ -1,0 +1,438 @@
+ACTOR MightyFootExp : Inventory
+{
+	Inventory.MaxAmount 2600
+}
+
+ACTOR MightyFootLevelup : Inventory
+{
+	Inventory.MaxAmount 3
+}
+
+ACTOR MightyFootLevelup1 : Inventory
+{
+	Inventory.MaxAmount 1
+}
+
+ACTOR MightyFootLevelup2 : Inventory
+{
+	Inventory.MaxAmount 1
+}
+
+ACTOR MightyFootLevelup3 : Inventory
+{
+	Inventory.MaxAmount 1
+}
+
+ACTOR Action_Kick : CustomInventory
+{
+   Inventory.Amount 1
+   Inventory.MaxAmount 1
+   -INVBAR
+
+   States
+   {
+       Use:
+       TNT1 A 0 A_GiveInventory("StillKicking",1)
+       Fail
+   }
+}
+
+ACTOR Action_KickCancel : CustomInventory
+{
+   Inventory.Amount 1
+   Inventory.MaxAmount 1
+   -INVBAR
+
+   States
+   {
+       Use:
+       TNT1 A 0 A_TakeInventory("StillKicking",1)
+       Fail
+   }
+}
+
+ACTOR StillKicking : Inventory
+{
+   Inventory.MaxAmount 1
+}
+
+ACTOR DukeKnuckles : weapon
+{
+	Weapon.AmmoUse 0
+	Weapon.AmmoGive 0
+	Weapon.BobStyle InverseAlpha
+	Weapon.BobSpeed 1.5
+	Weapon.BobRangeX .2
+	Weapon.BobRangeY .5
+	Weapon.AmmoType1 ""
+	Obituary ""
+	Tag " "
+    Inventory.PickupSound ""
+	Inventory.Pickupmessage ""
+    +WEAPON.NOALERT
+	+AMMO_OPTIONAL
+	+CHEATNOTWEAPON
+	States
+	{
+	Ready:
+		TNT1 A 0 A_GiveInventory("DukeintroTaunt",1)
+		TNT1 A 0 A_SetBlend("Black",1,270)
+		TNT1 A 0 A_SetSpeed(0.0)
+		TNT1 A 20
+		TNT1 A 0 A_PlaySound("Duke/Crack",7)
+		KNUX ABCD 5
+		TNT1 A 20
+		TNT1 A 0 A_SetSpeed(0.7)
+		//TNT1 A 0 A_GiveInventory("MightyFoot1")
+		TNT1 A 0 A_GiveInventory("DukePistol1")
+		TNT1 A 0 A_SelectWeapon("DukePistol1")
+		Goto Deselect
+	Deselect:
+		TNT1 AA 0 A_Lower
+		TNT1 A 1 A_Lower
+		Loop
+	Select:
+		TNT1 AAAAAAAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+		TNT1 A 0 A_Raise
+		Wait
+	Fire:
+		TNT1 A 0
+		Goto Ready
+ 	Spawn:
+		TNT1 A -1
+		Stop
+	}
+}
+
+ACTOR BlankWep : weapon
+{
+	Weapon.AmmoUse 0
+	Weapon.AmmoGive 0
+	Weapon.BobStyle InverseAlpha
+	Weapon.BobSpeed 1.5
+	Weapon.BobRangeX .2
+	Weapon.BobRangeY .5
+	Weapon.AmmoType1 ""
+	Obituary ""
+    Inventory.PickupSound ""
+	Inventory.Pickupmessage ""
+    +WEAPON.NOALERT
+	+AMMO_OPTIONAL
+	+WEAPON.MELEEWEAPON
+	+CHEATNOTWEAPON
+	States
+	{
+	Ready:
+		TNT1 A 1 A_WeaponReady(WRF_NOFIRE)
+		Loop
+	Deselect:
+		TNT1 AA 0 A_Lower
+		TNT1 A 1 A_Lower
+		Loop
+	Select:
+		TNT1 AA 0 A_Raise
+		TNT1 A 1 A_Raise
+		Loop
+	Fire:
+		TNT1 A 0
+		Goto Ready
+ 	Spawn:
+		TNT1 A -1
+		Stop
+	}
+}
+
+ACTOR MightyFoot : weapon
+{
+	Weapon.AmmoUse 0
+	Weapon.AmmoGive 0
+	Weapon.BobStyle InverseAlpha
+	Weapon.BobSpeed 1.5
+	Weapon.BobRangeX .2
+	Weapon.BobRangeY .5
+	Weapon.AmmoType1 ""
+	Obituary ""
+    Inventory.PickupSound ""
+	Inventory.Pickupmessage ""
+    +WEAPON.NOALERT
+	+AMMO_OPTIONAL
+	+CHEATNOTWEAPON
+	States
+	{
+	Ready:
+		TNT1 A 1
+		Loop
+	Deselect:
+		TNT1 AA 0 A_Lower
+		TNT1 A 1 A_Lower
+		Loop
+	Select:
+		TNT1 A 0 A_JumpIfInventory("MightyFoot3",1,"Lev3")
+		TNT1 A 0 A_JumpIfInventory("MightyFoot2",1,"Lev2")
+		TNT1 A 1 A_SelectWeapon("MightyFoot1")
+		Goto Deselect
+		TNT1 AAA 0 A_Raise
+		TNT1 A 1 A_Raise
+		Loop
+	Lev2:
+		TNT1 A 1 A_SelectWeapon("MightyFoot2")
+		Goto Deselect
+	Lev3:
+		TNT1 A 1 A_SelectWeapon("MightyFoot3")
+		Goto Deselect
+	Fire:
+		TNT1 A 0
+		Goto Ready
+ 	Spawn:
+		TNT1 A -1
+		Stop
+	}
+}
+
+ACTOR MightyFoot1 : weapon Replaces Fist
+{
+	Weapon.AmmoUse 0
+	Weapon.AmmoGive 0
+	Weapon.BobStyle InverseAlpha
+	Weapon.BobSpeed 1.5
+	Weapon.BobRangeX .2
+	Weapon.BobRangeY .5
+	Weapon.AmmoType1 ""
+	Obituary "%o didn't know of the Mighty Foot"
+    Inventory.PickupSound "misc/w_pkup"
+	Inventory.Pickupmessage "Picked up your disembered leg."
+	+CHEATNOTWEAPON
+    +WEAPON.NOALERT
+	+AMMO_OPTIONAL
+	States
+	{
+	Ready:
+		TNT1 A 1 A_WeaponReady
+		Goto Ready
+	Deselect:
+		TNT1 AA 0 A_Lower
+		TNT1 A 1 A_Lower
+		Loop
+	Select:
+		TNT1 AA 0 A_Raise
+		TNT1 A 1 A_Raise
+		Loop
+	Fire:
+		TNT1 A 1 A_PlaySound("Kick",7)
+		KICK A 1
+		//TNT1 A 0 A_ZoomFactor(0.99)
+		KICK B 1
+		//TNT1 A 0 A_ZoomFactor(0.98)
+		KICK C 1
+		//TNT1 A 0 A_ZoomFactor(0.97)
+		KICK D 1
+		TNT1 A 0 a_FireCustomMissile("KickAttack",0,0)
+		KICK FGGF 2
+		KICK F 1
+		//TNT1 A 0 A_ZoomFactor(0.98)
+		KICK E 1
+		//TNT1 A 0 A_ZoomFactor(0.99)
+		KICK B 1
+		//TNT1 A 0 A_ZoomFactor(1.00)
+		KICK A 1
+		//TNT1 A 1 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
+		Goto Ready
+ 	Spawn:
+		PIST A -1
+		Stop
+	}
+}
+
+ACTOR MightyFoot2 : weapon Replaces Fist
+{
+	Weapon.AmmoUse 0
+	Weapon.AmmoGive 0
+	Weapon.BobStyle InverseAlpha
+	Weapon.BobSpeed 1.5
+	Weapon.BobRangeX .2
+	Weapon.BobRangeY .5
+	Weapon.AmmoType1 ""
+	Obituary "%o didn't know of the Mighty Foot"
+    Inventory.PickupSound "misc/w_pkup"
+	Inventory.Pickupmessage "Picked up your disembered leg."
+	
+    +WEAPON.NOALERT
+	+AMMO_OPTIONAL
+	+CHEATNOTWEAPON
+	States
+	{
+	Ready:
+		TNT1 A 1 A_WeaponReady
+		Goto Ready
+	Deselect:
+		TNT1 AA 0 A_Lower
+		TNT1 A 1 A_Lower
+		Loop
+	Select:
+		TNT1 AA 0 A_Raise
+		TNT1 A 1 A_Raise
+		Loop
+	Fire:
+		TNT1 A 1 A_PlaySound("Kick",7)
+		KICK ABCE 1
+		TNT1 A 0 a_FireCustomMissile("KickAttack2",0,0)
+		KICK FGGF 2
+		KICK FEBA 1
+		TNT1 A 1 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
+		Goto Ready
+ 	Spawn:
+		PIST A -1
+		Stop
+	}
+}
+
+ACTOR MightyFoot3 : weapon Replaces Fist
+{
+	Weapon.AmmoUse 0
+	Weapon.AmmoGive 0
+	Weapon.BobStyle InverseAlpha
+	Weapon.BobSpeed 1.5
+	Weapon.BobRangeX .2
+	Weapon.BobRangeY .5
+	Weapon.AmmoType1 ""
+	Obituary "%o didn't know of the Mighty Foot"
+    Inventory.PickupSound "misc/w_pkup"
+	Inventory.Pickupmessage "Picked up your disembered leg."
+	
+    +WEAPON.NOALERT
+	+AMMO_OPTIONAL
+	+CHEATNOTWEAPON
+	States
+	{
+	Ready:
+		TNT1 A 1 A_WeaponReady
+		Goto Ready
+	Deselect:
+		TNT1 AA 0 A_Lower
+		TNT1 A 1 A_Lower
+		Loop
+	Select:
+		TNT1 AA 0 A_Raise
+		TNT1 A 1 A_Raise
+		Loop
+	Fire:
+		TNT1 A 1 A_PlaySound("Kick",7)
+		SKIK ABCE 1
+		TNT1 A 0 a_FireCustomMissile("KickAttack3",0,0)
+		SKIK FGGF 2
+		SKIK EBA 1
+		TNT1 A 1 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
+		Goto Ready
+ 	Spawn:
+		PIST A -1
+		Stop
+	}
+}
+
+ACTOR KickAttack : FastProjectile
+{
+	Radius 6
+	Height 6
+	DamageType DukeKickFinal
+	Projectile 
+	+FORCEXYBILLBOARD
+	+FORCEPAIN
+	+NOEXTREMEDEATH
+	RenderStyle Add
+	Alpha 0.6
+    Damage 15
+    Speed 32
+	ProjectileKickback 200
+	SeeSound "none"
+	DeathSound "none"
+	Decal "none"
+	States
+	{
+	Spawn:
+		TNT1 A 1
+		TNT1 A 1 BRIGHT
+		Stop
+	Death:
+		TNT1 A 0 A_QuakeEX(2,2,2,6,0,1400,"NULL",QF_RELATIVE|QF_SCALEDOWN|QF_MAX|QF_WAVE,1,1,1)
+		PUFF A 3 A_PlaySound("Kick/Hit")
+		PUFF BCD 3
+		Stop
+	Crash:
+		TNT1 A 0 A_QuakeEX(2,2,2,6,0,1400,"NULL",QF_RELATIVE|QF_SCALEDOWN|QF_MAX|QF_WAVE,1,1,1)
+		PUFF A 3 A_PlaySound("Kick/Hit")
+		PUFF BCD 3
+		Stop
+	}
+}
+
+ACTOR KickAttack2 : FastProjectile
+{
+	Radius 6
+	Height 6
+	DamageType DukeKickFinal
+	Projectile 
+	+FORCEXYBILLBOARD
+	+FORCEPAIN
+	+NOEXTREMEDEATH
+	RenderStyle Add
+	Alpha 0.6
+    Damage 15
+    Speed 32
+	ProjectileKickback 700
+	SeeSound "none"
+	DeathSound "none"
+	Decal "none"
+	States
+	{
+	Spawn:
+		TNT1 A 1
+		TNT1 A 1 BRIGHT
+		Stop
+	Death:
+		TNT1 A 0 A_QuakeEX(2,2,2,6,0,1400,"NULL",QF_RELATIVE|QF_SCALEDOWN|QF_MAX|QF_WAVE,1,1,1)
+		PUFF A 3 A_PlaySound("Kick/Hit")
+		PUFF BCD 3
+		Stop
+	Crash:
+		TNT1 A 0 A_QuakeEX(2,2,2,6,0,1400,"NULL",QF_RELATIVE|QF_SCALEDOWN|QF_MAX|QF_WAVE,1,1,1)
+		PUFF A 3 A_PlaySound("Kick/Hit")
+		PUFF BCD 3
+		Stop
+	}
+}
+
+ACTOR KickAttack3 : FastProjectile
+{
+	Radius 6
+	Height 6
+	DamageType DukeKickFinal
+	Projectile 
+	+FORCEXYBILLBOARD
+	+FORCEPAIN
+	+NOEXTREMEDEATH
+	RenderStyle Add
+	Alpha 0.6
+    Damage 25
+    Speed 32
+	ProjectileKickback 700
+	SeeSound "none"
+	DeathSound "none"
+	Decal "none"
+	States
+	{
+	Spawn:
+		TNT1 A 1
+		TNT1 A 1 BRIGHT
+		Stop
+	Death:
+		TNT1 A 0 A_QuakeEX(2,2,2,6,0,1400,"NULL",QF_RELATIVE|QF_SCALEDOWN|QF_MAX|QF_WAVE,1,1,1)
+		TNT1 A 0 A_PlaySound("Kick/Hit")
+		PUFF ABCD 3
+		Stop
+	Crash:
+		TNT1 A 0 A_QuakeEX(2,2,2,6,0,1400,"NULL",QF_RELATIVE|QF_SCALEDOWN|QF_MAX|QF_WAVE,1,1,1)
+		PUFF A 3 A_PlaySound("Kick/Hit")
+		PUFF BCD 3
+		Stop
+	}
+}
