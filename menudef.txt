@@ -59,8 +59,8 @@ OptionMenu "OptionsMenu"
 	SafeCommand "Reset to defaults",	"reset2defaults"
 	SafeCommand	"Reset to last saved",	"reset2saved"
 	Command "Go to console",			"menuconsole"
-	StaticText " "
-	Submenu "Duke Options",				"DukeOptions"
+	//StaticText " "
+	//Submenu "Duke Options",				"DukeOptions"
 }
 
 OptionMenu "DukeOptions"

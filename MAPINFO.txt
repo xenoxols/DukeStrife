@@ -1,0 +1,85 @@
+gameinfo
+{
+	titlepage = "TITLE"
+	creditpage = "TITLE"
+	infopage = "TITLE"
+	intermissionmusic = "INTERGB"
+	playerclasses = "Duke Nukem"
+	titlemusic = "grabbag"
+	DimAmount = 0.0
+}
+
+clearskills
+
+skill pieceofcake
+{
+   AmmoFactor = 1
+   DamageFactor = 0.5
+   EasyBossBrain
+   SpawnFilter = Baby
+   Name = "Piece of Cake"
+}
+
+skill LetsRock
+{
+   AmmoFactor = 1
+   DamageFactor = 0.7
+   EasyBossBrain
+   SpawnFilter = Easy
+   Name = "Let's Rock"
+}
+
+skill comegetsome
+{
+   AmmoFactor = 1
+   DamageFactor = 0.8
+   SpawnFilter = Normal
+   Name = "Come Get Some"
+}
+
+skill HailtothePig
+{
+   AmmoFactor = 1
+   DamageFactor = 1.0
+   SpawnFilter = Hard
+   Name = "Hail to the King Baby"
+}
+
+skill ItGoodDayDie
+{
+   AmmoFactor = 1
+   DamageFactor = 1.0
+   SpawnFilter = nightmare
+   Name = "It's a good day to die"
+}
+
+
+gamedefaults
+{
+	forcenoskystretch
+	monsterfallingdamage // new
+	fallingdamage // normally strifefallingdamage
+	nointermission
+	clipmidtextures
+	noinfighting
+}
+clearepisodes
+
+episode DMAP01
+{
+   picname = "TNT1A0"
+   //key = "k"
+}
+
+map titlemap "Title Screen"
+{
+	SlideShow = Duke_Title
+}
+
+map DMAP01 "Downtown LA"
+{
+	next = "MAP03"
+	sky1 = "SKYCITY"
+	music = "TOWN2"
+	cluster = 1
+}

@@ -53,6 +53,7 @@ duke/Murica MURICA
 duke/maptaunt2 Mapt2
 duke/maptaunt3 Mapt3
 
+duke/earth ERFB3
 Duke/Crack KNUX
 
 Duke/Intro INTRO
@@ -335,3 +336,26 @@ Chainsaw/Idle DSSAWIDL
 Chainsaw/Hit2 DSSAWHT2
 Chainsaw/Swing SAWING
 
+monster/hlnsit                  dshlnsit
+monster/hlnact                  dshlnact
+monster/hlnpai                  dshlnpai
+monster/hlndth                  dshlndth
+monster/hlnatk                  dshlnatk
+monster/hlnexp                  dshlnexp
+
+$Random Roach/Sight { ROACSIG1 ROACSIG2 ROACSIG3 }
+ROACSIG1	ROACSIG1
+ROACSIG2	ROACSIG2
+ROACSIG3	ROACSIG3
+$Random Roach/Active { ROACACT1 ROACACT2 }
+ROACACT1	ROACACT1
+ROACACT2	ROACACT2
+Roach/Fire	ROACFIRE
+Roach/Hit	ROACHIT
+$Random Roach/Pain { ROACPAI1 ROACPAI2 }
+ROACPAI1	ROACPAI1
+ROACPAI2	ROACPAI2
+Roach/Death	ROACDEAT
+
+$Limit Roach/Fire 0
+$Limit Roach/Hit 0
